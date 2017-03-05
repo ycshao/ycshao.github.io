@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="For new option traders, they normally think expiration date = last trading date(time). This is a very common mistake which may lead to huge losses.
+Expiration date means on which date options expire,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="After-Hours Risk, and Other Options Expiration Issues">
+<meta property="og:url" content="http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/index.html">
+<meta property="og:site_name" content="Sharp Ear">
+<meta property="og:description" content="For new option traders, they normally think expiration date = last trading date(time). This is a very common mistake which may lead to huge losses.
+Expiration date means on which date options expire,">
+<meta property="og:updated_time" content="2017-01-24T03:05:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="After-Hours Risk, and Other Options Expiration Issues">
+<meta name="twitter:description" content="For new option traders, they normally think expiration date = last trading date(time). This is a very common mistake which may lead to huge losses.
+Expiration date means on which date options expire,">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/fandroid-chrome-144x144.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>After-Hours Risk, and Other Options Expiration Issues</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+         
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2014/02/25/forward-pricing/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2013/09/03/differences-between-cfd-and-common-stock/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&text=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&title=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&is_video=false&description=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=After-Hours Risk, and Other Options Expiration Issues&body=Check out this article: http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&title=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&title=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&title=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&title=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&name=After-Hours Risk, and Other Options Expiration Issues&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        After-Hours Risk, and Other Options Expiration Issues
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sharp Ear</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2013-12-08T00:33:25.000Z" itemprop="datePublished">2013-12-07</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>For new option traders, they normally think expiration date = last trading date(time). This is a very common mistake which may lead to huge losses.</p>
+<p>Expiration date means on which date options expire, and last trading date(time) means before which date options are able to traded. For regular options, expiration date is the third Saturday of each month, and last trading time is <span style="color: #00ffff;">4:00pm ET</span> of the third Friday of each month. Even with weekly options that expire on Friday, they will expire after after-hour trading time.</p>
+<p>Keeping these concepts in mind, you will soon realize that there is a gap between expiration time and last trading time! And you don’t have to be super smart to figure out that you are exposed to risk you don’t have control.</p>
+<p>Let’s have an example. Say you sold 10 TSLA<span style="color: #00ffff;"> “13 Dec 13 (W) 136.00”</span> call for 4.8 per contract. The stock closed at <span style="color: #00ffff;">135.99</span> on 13 Dec. 4:00pm ET. You are so happy that you can keep all the premium in your pocket and plan to fly to Vegas on weekends to continue your luck. Then you suddenly get a margin call to ask you deposit <span style="color: #00ffff;">140,000</span> to your account on Monday. WTF?! What happened last Friday was during after-hour time, TSLA jump to <span style="color: #00ffff;">140.00</span> and the call option you sold become ITM and got assigned to you. This is not a big move considering how volatile TSLA is.</p>
+<p>Nobody want to be in such a poor position and any surprises like this. So my suggestion to retailer trader is <span style="color: #ff0000;">always close out your option position before last trade time even though  you will lose a penny or so exiting your positions if you don’t really want to exercise your option</span>.</p>
+<p>Here is a reference link to check out <a href="http://www.cboe.com/aboutcboe/xcal2013.pdf" target="_blank" rel="external">option expiration dates of 2013</a>.</p>
+<p>Good luck and have fun!</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+         
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&text=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&title=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&is_video=false&description=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=After-Hours Risk, and Other Options Expiration Issues&body=Check out this article: http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&title=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&title=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&title=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&title=After-Hours Risk, and Other Options Expiration Issues"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/&name=After-Hours Risk, and Other Options Expiration Issues&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-top">
+    Copyright &copy; 2017 Yuecheng Shao
+  </div>
+  <div class="footer-bottom">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

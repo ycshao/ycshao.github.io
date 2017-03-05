@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="The goal of this project is to convert board writing to electronic version in order to use on web as open course material . What I have done is a part of this project.
+The first task is to detect text">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Black board rectification and text reconstruction">
+<meta property="og:url" content="http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/index.html">
+<meta property="og:site_name" content="Sharp Ear">
+<meta property="og:description" content="The goal of this project is to convert board writing to electronic version in order to use on web as open course material . What I have done is a part of this project.
+The first task is to detect text">
+<meta property="og:image" content="http://blog.ycshao.com/./3.jpg">
+<meta property="og:image" content="http://blog.ycshao.com/./1.jpg">
+<meta property="og:image" content="http://blog.ycshao.com/./2.jpg">
+<meta property="og:updated_time" content="2017-03-04T20:28:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Black board rectification and text reconstruction">
+<meta name="twitter:description" content="The goal of this project is to convert board writing to electronic version in order to use on web as open course material . What I have done is a part of this project.
+The first task is to detect text">
+<meta name="twitter:image" content="http://blog.ycshao.com/./3.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/fandroid-chrome-144x144.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Black board rectification and text reconstruction</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+         
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2012/01/17/setup-ubuntu-11-10-environment/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2012/01/16/3d-reconstruction-using-opencv-and-matlab/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&text=Black board rectification and text reconstruction"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&title=Black board rectification and text reconstruction"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&is_video=false&description=Black board rectification and text reconstruction"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Black board rectification and text reconstruction&body=Check out this article: http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&title=Black board rectification and text reconstruction"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&title=Black board rectification and text reconstruction"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&title=Black board rectification and text reconstruction"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&title=Black board rectification and text reconstruction"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&name=Black board rectification and text reconstruction&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Black board rectification and text reconstruction
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sharp Ear</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2012-01-17T04:53:27.000Z" itemprop="datePublished">2012-01-16</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/black-board-rectification/">Black board rectification</a>, <a class="tag-link" href="/tags/susan/">SUSAN</a>, <a class="tag-link" href="/tags/deal/">deal</a>, <a class="tag-link" href="/tags/detection/">detection</a>, <a class="tag-link" href="/tags/text-reconstruction/">text reconstruction</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>The goal of this project is to convert board writing to electronic version in order to use on web as open course material . What I have done is a part of this project.</p>
+<div><br><br>The first task is to detect text on board. I use different ways to extract text, such as canny, SUSAN, simple gradient, and Laplacian edge detectors. Finally I choose to use Laplacian edge detector for that performance of other detectors depend on thresholds. After using Laplacian detector, I simply use zero as fixed threshold to decide it’s text or not. As you know, Laplacian detector is very noisy, on the contrary, a good thing is it preserves text the best compared with other detectors. I use morphological transform to deal with the noise. I tested with white boards and ‘green’ boards as you will see at school, and the results are satisfying.<br><br>Another task is to determine the four corners of a board. It is not an easy task as it sounds. I cannot use corner detector for that some corners of a board may be not sharp enough, and there are many corners in an image other than board corners. What I use here is first use canny to detect edges, and then take hough transform to find every possible line in an image. As we will expect, there will be lots of lines in an image. It is very difficult to reject those lines from edges of a door or a desk.<br>After tried many ways, I decided to assume a board is in the middle of an image, and I divided an image into four quadrant. I assume one corner of a board will be in one quadrant respectively. So the problem is to find a corner most  probably belongs to a board in each quadrant. First of all, I compute every intersection of two lines I found. Let’s take the top left  quadrant as an example. I have many intersections in this quadrant, and if a corner is belong to a board, the gradient along the edges of the board will be very large. So what I did is to sum up the gradient(or more generally, difference orthogonal to the direction of a line) along those two lines which intersect on this point to the right and bottom direction(for the top left quadrant), and find the point with maximum gradient sum as the board corner. And repeat this for other quadrants.<br>By doing so, I can find robust corners of a board and eliminate those corners not belong to board. As you will see in the result images, I can find the corner even though the board has round corners.<br><div class="separator" style="clear: both; text-align: center;"></div><br><table class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;" cellspacing="0" cellpadding="0" align="center"><br><tbody><br><tr><br><td style="text-align: center;"><a href="./3.jpg"><img src="./3.jpg" alt=""></a></td><br></tr><br><tr><br><td class="tr-caption" style="text-align: center;">Text detection</td><br></tr><br></tbody><br></table><br><table class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;" cellspacing="0" cellpadding="0" align="center"><br><tbody><br><tr><br><td style="text-align: center;"><a href="./1.jpg"><img src="./1.jpg" alt=""></a></td><br></tr><br><tr><br><td class="tr-caption" style="text-align: center;">Corner detection. Two lines in the<br>same color indicate along which<br>lines I got maximum gradient sum.<br>(The gray lines are discarded by my algorithm)</td><br></tr><br></tbody><br></table><br><table class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;" cellspacing="0" cellpadding="0" align="center"><br><tbody><br><tr><br><td style="text-align: center;"><a href="./2.jpg"><img src="./2.jpg" alt=""></a></td><br></tr><br><tr><br><td class="tr-caption" style="text-align: center;">I can find the right corner<br>even something blocked the boarder.</td><br></tr><br></tbody><br></table><br><span class="Apple-style-span" style="font-family: Arial; font-size: small;"><span class="Apple-style-span" style="font-size: 13px;"><br></span></span><br><br></div>
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+         
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&text=Black board rectification and text reconstruction"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&title=Black board rectification and text reconstruction"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&is_video=false&description=Black board rectification and text reconstruction"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Black board rectification and text reconstruction&body=Check out this article: http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&title=Black board rectification and text reconstruction"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&title=Black board rectification and text reconstruction"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&title=Black board rectification and text reconstruction"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&title=Black board rectification and text reconstruction"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/&name=Black board rectification and text reconstruction&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-top">
+    Copyright &copy; 2017 Yuecheng Shao
+  </div>
+  <div class="footer-bottom">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
