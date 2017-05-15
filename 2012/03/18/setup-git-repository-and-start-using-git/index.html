@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Last week I tried to use git and here are some tips to set up git environment and a beginner tutorial.
+
+Basics
+The key concept of Git is branches. A branch is a separate code line with its own history">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setup git repository and start using git.">
+<meta property="og:url" content="http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/index.html">
+<meta property="og:site_name" content="Sharp Ear">
+<meta property="og:description" content="Last week I tried to use git and here are some tips to set up git environment and a beginner tutorial.
+
+Basics
+The key concept of Git is branches. A branch is a separate code line with its own history">
+<meta property="og:updated_time" content="2017-02-24T04:17:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Setup git repository and start using git.">
+<meta name="twitter:description" content="Last week I tried to use git and here are some tips to set up git environment and a beginner tutorial.
+
+Basics
+The key concept of Git is branches. A branch is a separate code line with its own history">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/fandroid-chrome-144x144.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Setup git repository and start using git.</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2012/03/18/effective-c-item-6-explicitly-disallow-the-use-of-compiler-generated-functions-you-do-not-want/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2012/03/16/get-low-price-on-hotels-using-priceline-and-hotwire/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&text=Setup git repository and start using git."><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&title=Setup git repository and start using git."><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&is_video=false&description=Setup git repository and start using git."><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Setup git repository and start using git.&body=Check out this article: http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&title=Setup git repository and start using git."><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&title=Setup git repository and start using git."><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&title=Setup git repository and start using git."><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&title=Setup git repository and start using git."><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&name=Setup git repository and start using git.&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Packages"><span class="toc-number">1.</span> <span class="toc-text">Packages</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#it’s-better-to-unpack-these-files-and-commit-the-raw-source"><span class="toc-number">2.</span> <span class="toc-text">it’s better to unpack these files and commit the raw source</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-has-its-own-built-in-compression-methods"><span class="toc-number">3.</span> <span class="toc-text">git has its own built in compression methods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Logs-and-databases"><span class="toc-number">4.</span> <span class="toc-text">Logs and databases</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OS-generated-files"><span class="toc-number">5.</span> <span class="toc-text">OS generated files</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Add-all-files-and-directories-to-stage"><span class="toc-number">6.</span> <span class="toc-text">Add all (files and directories) to stage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Make-a-commit-of-your-file-to-the-local-repository"><span class="toc-number">7.</span> <span class="toc-text">Make a commit of your file to the local repository</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Show-the-log-file"><span class="toc-number">8.</span> <span class="toc-text">Show the log file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#add-deleted-files-to-the-stage"><span class="toc-number">9.</span> <span class="toc-text">add deleted files to the stage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#commit-changes"><span class="toc-number">10.</span> <span class="toc-text">commit changes</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Setup git repository and start using git.
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sharp Ear</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2012-03-18T03:52:38.000Z" itemprop="datePublished">2012-03-17</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/git/">Git</a>, <a class="tag-link" href="/tags/os/">OS</a>, <a class="tag-link" href="/tags/svn/">SVN</a>, <a class="tag-link" href="/tags/branch/">branch</a>, <a class="tag-link" href="/tags/repository/">repository</a>, <a class="tag-link" href="/tags/setup/">setup</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Last week I tried to use git and here are some tips to set up git environment and a beginner tutorial.</p>
+<ol>
+<li><strong>Basics
+</strong>The key concept of Git is branches. A branch is a separate code line with its own history. You can create a new branch from an existing one and change the code independently from other branches. One of the branches is the default (normally named master). The user selects a branch and works in this selected branch, which is called the “working copy”. Selecting a branch is called “checkout a branch”.</li>
+<li><p><strong>Installation
+</strong>&nbsp;</p>
+<pre class="lang:sh decode:true brush: bash; gutter: true">$ sudo apt-get install git-core</pre>
+</li>
+<li><p><strong>Setup
+</strong>To list your git configuration:&nbsp;<br><pre class="lang:sh decode:true brush: bash; gutter: true">$ git config –list</pre><br>To  configure your name and email:<br><pre class="lang:sh decode:true brush: actionscript3; gutter: true">$ git config –global user.name “Example Surname”<br>$ git config –global user.email “your.email@gmail.com”</pre><br>To enable highlighting:<br><pre class="lang:sh decode:true brush: bash; gutter: true">$ git config –global color.status auto<br>$ git config –global color.branch auto</pre><br>To set SVN-like alias:<br><pre class="lang:sh decode:true brush: actionscript3; gutter: true">$ git config –global alias.st status<br>$ git config –global alias.ci commit<br>$ git config –global alias.co checkout<br>$ git config –global alias.br branch</pre><br>To add ignore rules:<br>Firstly, create file ~/.gitignore and add these to the file:<br><pre class="lang:sh decode:true brush: text; gutter: true"># Compiled source #<br>###################<br><em>.com
+</em>.class<br><em>.dll
+</em>.exe<br><em>.o
+</em>.so</pre></p>
+</li>
+</ol>
+<h1 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h1><p>############</p>
+<h1 id="it’s-better-to-unpack-these-files-and-commit-the-raw-source"><a href="#it’s-better-to-unpack-these-files-and-commit-the-raw-source" class="headerlink" title="it’s better to unpack these files and commit the raw source"></a>it’s better to unpack these files and commit the raw source</h1><h1 id="git-has-its-own-built-in-compression-methods"><a href="#git-has-its-own-built-in-compression-methods" class="headerlink" title="git has its own built in compression methods"></a>git has its own built in compression methods</h1><p><em>.7z
+</em>.dmg<br><em>.gz
+</em>.iso<br><em>.jar
+</em>.rar<br><em>.tar
+</em>.zip</p>
+<h1 id="Logs-and-databases"><a href="#Logs-and-databases" class="headerlink" title="Logs and databases"></a>Logs and databases</h1><p>######################<br><em>.log
+</em>.sql<br>*.sqlite</p>
+<h1 id="OS-generated-files"><a href="#OS-generated-files" class="headerlink" title="OS generated files"></a>OS generated files</h1><p>######################<br>.DS_Store*<br>ehthumbs.db<br>Icon?<br>Thumbs.db<br>Then run</p>
+<pre class="lang:sh decode:true brush: bash; gutter: true">$ git config --global core.excludesfile ~/.gitignore</pre>
+
+<ol>
+<li><strong>Getting started with Git
+</strong>To create and add files to repository:<strong>
+</strong>&nbsp;<br><pre class="lang:sh decode:true brush: bash; gutter: true"># Initialize the local Git repository<br>$ git init<h1 id="Add-all-files-and-directories-to-stage"><a href="#Add-all-files-and-directories-to-stage" class="headerlink" title="Add all (files and directories) to stage"></a>Add all (files and directories) to stage</h1>$ git add .<h1 id="Make-a-commit-of-your-file-to-the-local-repository"><a href="#Make-a-commit-of-your-file-to-the-local-repository" class="headerlink" title="Make a commit of your file to the local repository"></a>Make a commit of your file to the local repository</h1>$ git commit -m “Initial commit”<h1 id="Show-the-log-file"><a href="#Show-the-log-file" class="headerlink" title="Show the log file"></a>Show the log file</h1>$ git log</pre><br>To create a new branch:<br><pre class="lang:sh decode:true brush: bash; gutter: true">$ git branch new_branch_name</pre><br>To switch to a branch:<br><pre class="lang:sh decode:true brush: bash; gutter: true">$ git checkout branch_name</pre><br>To delete a file from the existing branch:<br><pre class="lang:sh decode:true brush: bash; gutter: true">#delete a file from dir<br>$ rm one_file<h1 id="add-deleted-files-to-the-stage"><a href="#add-deleted-files-to-the-stage" class="headerlink" title="add deleted files to the stage"></a>add deleted files to the stage</h1>$ git add -A .<h1 id="commit-changes"><a href="#commit-changes" class="headerlink" title="commit changes"></a>commit changes</h1>$ git commit -m “deleted one file”</pre><br>To push changes to branches/master of remote repository<br><pre class="lang:sh decode:true brush: actionscript3; gutter: true">$ git push</pre><br>To pull changes from remote repository:<br><pre class="lang:sh decode:true brush: bash; gutter: true crayon-selected">$ git pull</pre><br><strong>
+</strong></li>
+</ol>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+         
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Packages"><span class="toc-number">1.</span> <span class="toc-text">Packages</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#it’s-better-to-unpack-these-files-and-commit-the-raw-source"><span class="toc-number">2.</span> <span class="toc-text">it’s better to unpack these files and commit the raw source</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-has-its-own-built-in-compression-methods"><span class="toc-number">3.</span> <span class="toc-text">git has its own built in compression methods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Logs-and-databases"><span class="toc-number">4.</span> <span class="toc-text">Logs and databases</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OS-generated-files"><span class="toc-number">5.</span> <span class="toc-text">OS generated files</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Add-all-files-and-directories-to-stage"><span class="toc-number">6.</span> <span class="toc-text">Add all (files and directories) to stage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Make-a-commit-of-your-file-to-the-local-repository"><span class="toc-number">7.</span> <span class="toc-text">Make a commit of your file to the local repository</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Show-the-log-file"><span class="toc-number">8.</span> <span class="toc-text">Show the log file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#add-deleted-files-to-the-stage"><span class="toc-number">9.</span> <span class="toc-text">add deleted files to the stage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#commit-changes"><span class="toc-number">10.</span> <span class="toc-text">commit changes</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&text=Setup git repository and start using git."><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&title=Setup git repository and start using git."><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&is_video=false&description=Setup git repository and start using git."><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Setup git repository and start using git.&body=Check out this article: http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&title=Setup git repository and start using git."><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&title=Setup git repository and start using git."><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&title=Setup git repository and start using git."><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&title=Setup git repository and start using git."><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2012/03/18/setup-git-repository-and-start-using-git/&name=Setup git repository and start using git.&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-top">
+    Copyright &copy; 2017 Yuecheng Shao
+  </div>
+  <div class="footer-bottom">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-97811930-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
