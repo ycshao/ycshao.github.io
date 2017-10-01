@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://blog.ycshao.com/2017/10/01/how-to-install-custom-gcc-version-on-centos-rhel/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="I just came back from cppcon 2017, and there were so much information about c++17 or c++2x. I just can’t wait to try out thoes features. I found lots of new versions of gcc/g++ are not ready in packag">
-<meta property="og:updated_time" content="2017-10-01T07:09:40.000Z">
+<meta property="og:updated_time" content="2017-10-01T19:43:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to install custom gcc version on CentOS/RHEL">
 <meta name="twitter:description" content="I just came back from cppcon 2017, and there were so much information about c++17 or c++2x. I just can’t wait to try out thoes features. I found lots of new versions of gcc/g++ are not ready in packag">
@@ -143,7 +143,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>I just came back from cppcon 2017, and there were so much information about c++17 or c++2x. I just can’t wait to try out thoes features. I found lots of new versions of gcc/g++ are not ready in package form on most of OS, including CentOS/RHEL. The latest packaged gcc I can find is the one comes with <code>Devtoolset-6</code>, which only supports up to c++14. Here are the steps to install any custom versions of gcc/g++ on CentOS/RHEL.</p>
+    <p>I just came back from <a href="https://www.facebook.com/ycshao0402/posts/10155851686057340?pnref=story" target="_blank" rel="external">cppcon 2017</a>, and there were so much information about c++17 or c++2x. I just can’t wait to try out thoes features. I found lots of new versions of gcc/g++ are not ready in package form on most of OS, including CentOS/RHEL. The latest packaged gcc I can find is the one comes with <code>Devtoolset-6</code>, which only supports up to c++14. Here are the steps to install any custom versions of gcc/g++ on CentOS/RHEL.</p>
 <ol>
 <li><p>Install dependencies in order to build gcc</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum -y install libmpc-devel mpfr-devel gmp-devel gcc-g++ zlib-devel</div></pre></td></tr></table></figure>
