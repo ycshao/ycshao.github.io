@@ -1,0 +1,1959 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sharp Ear</title>
+    <link>http://blog.ycshao.com/</link>
+    <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
+    <pubDate>Sun, 01 Oct 2017 19:43:45 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>How to install custom gcc version on CentOS/RHEL</title>
+      <link>http://blog.ycshao.com/2017/10/01/how-to-install-custom-gcc-version-on-centos-rhel/</link>
+      <guid>http://blog.ycshao.com/2017/10/01/how-to-install-custom-gcc-version-on-centos-rhel/</guid>
+      <pubDate>Sun, 01 Oct 2017 06:51:12 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I just came back from &lt;a href=&quot;https://www.facebook.com/ycshao0402/posts/10155851686057340?pnref=story&quot; target=&quot;_blank&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/10/01/how-to-install-custom-gcc-version-on-centos-rhel/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to Upload Vagrant Box to Vagrant Cloud</title>
+      <link>http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/</link>
+      <guid>http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/</guid>
+      <pubDate>Sat, 16 Sep 2017 22:05:50 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Assuming you have a box running and you want to package it as test.box, you can run following command&lt;/p&gt;
+&lt;figure
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Secrets to Perfect Sushi Rice</title>
+      <link>http://blog.ycshao.com/2017/03/12/secrets-to-perfect-sush-rrice/</link>
+      <guid>http://blog.ycshao.com/2017/03/12/secrets-to-perfect-sush-rrice/</guid>
+      <pubDate>Mon, 13 Mar 2017 03:04:23 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe width=&quot;640&quot; height=&quot;360&quot; align=&quot;center&quot; src=&quot;http://www.youtube.com/embed/26sELiYiK70&quot; frameborder=&quot;0&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/03/12/secrets-to-perfect-sush-rrice/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>HTML Cheat Sheet</title>
+      <link>http://blog.ycshao.com/2016/06/23/html-cheat-sheet/</link>
+      <guid>http://blog.ycshao.com/2016/06/23/html-cheat-sheet/</guid>
+      <pubDate>Fri, 24 Jun 2016 03:24:42 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;a href=&quot;./html-cheat-sheet.png&quot;&gt;&lt;img src=&quot;./html-cheat-sheet.png&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2016/06/23/html-cheat-sheet/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>The ultimate Cheat Sheet of LinkedIn</title>
+      <link>http://blog.ycshao.com/2016/02/02/the-ultimate-cheat-sheet-of-linkedin/</link>
+      <guid>http://blog.ycshao.com/2016/02/02/the-ultimate-cheat-sheet-of-linkedin/</guid>
+      <pubDate>Tue, 02 Feb 2016 05:36:38 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;a href=&quot;./linkedin-min.jpg&quot;&gt;&lt;img src=&quot;./linkedin-min.jpg&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2016/02/02/the-ultimate-cheat-sheet-of-linkedin/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Insight of Mobile App Development Process</title>
+      <link>http://blog.ycshao.com/2015/10/07/insight-of-mobile-app-development-process/</link>
+      <guid>http://blog.ycshao.com/2015/10/07/insight-of-mobile-app-development-process/</guid>
+      <pubDate>Thu, 08 Oct 2015 02:13:09 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;a href=&quot;./mobile-dev.png&quot;&gt;&lt;img src=&quot;./mobile-dev.png&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2015/10/07/insight-of-mobile-app-development-process/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Three layers dressing method to stay warm</title>
+      <link>http://blog.ycshao.com/2015/02/24/three-layers-dressing-method-to-stay-warm/</link>
+      <guid>http://blog.ycshao.com/2015/02/24/three-layers-dressing-method-to-stay-warm/</guid>
+      <pubDate>Tue, 24 Feb 2015 13:02:33 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Thanks so much for icebreaker making such great infographic, especially some regions are suffering from historical cold weather in
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2015/02/24/three-layers-dressing-method-to-stay-warm/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>The Worst Spots on an Airplane If You Want to Avoid Catching a Cold</title>
+      <link>http://blog.ycshao.com/2014/11/26/the-worst-spots-on-an-airplane-if-you-want-to-avoid-catching-a-cold/</link>
+      <guid>http://blog.ycshao.com/2014/11/26/the-worst-spots-on-an-airplane-if-you-want-to-avoid-catching-a-cold/</guid>
+      <pubDate>Wed, 26 Nov 2014 05:52:30 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;a href=&quot;./worst-spots-on-plane.jpg&quot;&gt;&lt;img src=&quot;./worst-spots-on-plane.jpg&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2014/11/26/the-worst-spots-on-an-airplane-if-you-want-to-avoid-catching-a-cold/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Ratio of Different Coffee Drinks</title>
+      <link>http://blog.ycshao.com/2014/09/03/ratio-of-different-coffee-drinks/</link>
+      <guid>http://blog.ycshao.com/2014/09/03/ratio-of-different-coffee-drinks/</guid>
+      <pubDate>Thu, 04 Sep 2014 02:38:12 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;a href=&quot;./ratio-of-coffee.jpg&quot;&gt;&lt;img src=&quot;./ratio-of-coffee.jpg&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2014/09/03/ratio-of-different-coffee-drinks/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to Get Better Sleep</title>
+      <link>http://blog.ycshao.com/2014/03/09/how-to-get-better-sleep/</link>
+      <guid>http://blog.ycshao.com/2014/03/09/how-to-get-better-sleep/</guid>
+      <pubDate>Mon, 10 Mar 2014 03:53:17 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Optimizing your sleep depends heavily on three things: preparation (building good sleep habits), environment (tweaking your surroundings
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2014/03/09/how-to-get-better-sleep/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to Disappear Online</title>
+      <link>http://blog.ycshao.com/2014/03/05/how-to-disappear-online/</link>
+      <guid>http://blog.ycshao.com/2014/03/05/how-to-disappear-online/</guid>
+      <pubDate>Thu, 06 Mar 2014 04:19:21 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Be prepared! Web is dangerous place and you should protect yourself. You will be shocked how much private info is exposed or trading via
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2014/03/05/how-to-disappear-online/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to Pick a Lock With Hairpins</title>
+      <link>http://blog.ycshao.com/2014/03/05/how-to-pick-a-lock-with-hairpins/</link>
+      <guid>http://blog.ycshao.com/2014/03/05/how-to-pick-a-lock-with-hairpins/</guid>
+      <pubDate>Thu, 06 Mar 2014 03:25:37 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe width=&quot;640&quot; height=&quot;360&quot; align=&quot;center&quot; src=&quot;//www.youtube.com/embed/cjuT_63Ioig&quot; frameborder=&quot;0&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2014/03/05/how-to-pick-a-lock-with-hairpins/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Trading ADR in US</title>
+      <link>http://blog.ycshao.com/2014/02/27/trading-adr-in-us/</link>
+      <guid>http://blog.ycshao.com/2014/02/27/trading-adr-in-us/</guid>
+      <pubDate>Fri, 28 Feb 2014 04:54:28 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;What’s the ways to have exposure to foreign securities such as Tencent(trading in Hong Kong Stock Exchange)? Of course, one way is to
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2014/02/27/trading-adr-in-us/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Forward Pricing</title>
+      <link>http://blog.ycshao.com/2014/02/25/forward-pricing/</link>
+      <guid>http://blog.ycshao.com/2014/02/25/forward-pricing/</guid>
+      <pubDate>Wed, 26 Feb 2014 04:39:32 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;We tend to use continuous rate to calculate forward price because it’s hard to compare forward price if market convention is different.
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2014/02/25/forward-pricing/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>After-Hours Risk, and Other Options Expiration Issues</title>
+      <link>http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/</link>
+      <guid>http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/</guid>
+      <pubDate>Sun, 08 Dec 2013 00:33:25 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;For new option traders, they normally think expiration date = last trading date(time). This is a very common mistake which may lead to
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/12/07/after-hours-risk-and-other-options-expiration-issues/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Differences between CFD and common stock.</title>
+      <link>http://blog.ycshao.com/2013/09/03/differences-between-cfd-and-common-stock/</link>
+      <guid>http://blog.ycshao.com/2013/09/03/differences-between-cfd-and-common-stock/</guid>
+      <pubDate>Wed, 04 Sep 2013 01:21:11 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;CFDs(Contracts for Difference) have been used for many years. While until recently only large institutions used CFDs, now private
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/09/03/differences-between-cfd-and-common-stock/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>色眼识人 - 乐嘉</title>
+      <link>http://blog.ycshao.com/2013/06/17/%E8%89%B2%E7%9C%BC%E8%AF%86%E4%BA%BA/</link>
+      <guid>http://blog.ycshao.com/2013/06/17/%E8%89%B2%E7%9C%BC%E8%AF%86%E4%BA%BA/</guid>
+      <pubDate>Mon, 17 Jun 2013 04:11:56 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1&gt;&lt;span style=&quot;color: Red;&quot;&gt;红色&lt;/span&gt;&lt;/h1&gt;
+
+&lt;h2&gt;&lt;span style=&quot;color: Red;&quot;&gt;优势&lt;/span&gt;&lt;/h2&gt;
+
+&lt;h3&gt;&lt;span style=&quot;color:
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/06/17/%E8%89%B2%E7%9C%BC%E8%AF%86%E4%BA%BA/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Set up psql database in django.</title>
+      <link>http://blog.ycshao.com/2013/05/25/set-up-psql-database-in-django/</link>
+      <guid>http://blog.ycshao.com/2013/05/25/set-up-psql-database-in-django/</guid>
+      <pubDate>Sat, 25 May 2013 21:53:24 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I use sqlite as my django database, but there are some limitations in sqlite. So I want to switch to mysql or psql(PostgreSQL). Both of
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/05/25/set-up-psql-database-in-django/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Editing Python code in Vim.</title>
+      <link>http://blog.ycshao.com/2013/05/19/editing-python-code-in-vim/</link>
+      <guid>http://blog.ycshao.com/2013/05/19/editing-python-code-in-vim/</guid>
+      <pubDate>Mon, 20 May 2013 01:10:48 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Python is relied on indentation, and if you edit python code in Vim, you may found it will mess up your indentation. Here is a simple
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/05/19/editing-python-code-in-vim/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Serve django static files for production service and solve missing admin page css problem.</title>
+      <link>http://blog.ycshao.com/2013/05/11/serve-django-static-files-for-production-service-and-solve-missing-admin-page-css-problem/</link>
+      <guid>http://blog.ycshao.com/2013/05/11/serve-django-static-files-for-production-service-and-solve-missing-admin-page-css-problem/</guid>
+      <pubDate>Sun, 12 May 2013 03:40:44 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;It works perfectly on dev version of my django site. But when I deploy it to production (served by apache), I realized that css is
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/05/11/serve-django-static-files-for-production-service-and-solve-missing-admin-page-css-problem/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>A checklist to pick winning stocks.</title>
+      <link>http://blog.ycshao.com/2013/04/23/a-checklist-to-pick-winning-stocks/</link>
+      <guid>http://blog.ycshao.com/2013/04/23/a-checklist-to-pick-winning-stocks/</guid>
+      <pubDate>Wed, 24 Apr 2013 03:49:59 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ol&gt;
+&lt;li&gt;Use stock screening tools to find stocks that may have market beating potential.&lt;/li&gt;
+&lt;li&gt;Calculate Key Performance Indicators for
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/04/23/a-checklist-to-pick-winning-stocks/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to setup wsgi and Django on Ubuntu server.</title>
+      <link>http://blog.ycshao.com/2013/04/20/how-to-setup-wsgi-and-django-on-ubuntu-server/</link>
+      <guid>http://blog.ycshao.com/2013/04/20/how-to-setup-wsgi-and-django-on-ubuntu-server/</guid>
+      <pubDate>Sun, 21 Apr 2013 03:23:14 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;It actually very easy to setup wsgi and Django.&lt;/p&gt;
+&lt;p&gt;&lt;pre class=&quot;lang:sh mark:13 decode:true&quot;&gt;# Install Django first if not
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/04/20/how-to-setup-wsgi-and-django-on-ubuntu-server/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to setup name-based virtual host on Ubuntu server.</title>
+      <link>http://blog.ycshao.com/2013/04/20/how-to-setup-name-based-virtual-host-on-ubuntu/</link>
+      <guid>http://blog.ycshao.com/2013/04/20/how-to-setup-name-based-virtual-host-on-ubuntu/</guid>
+      <pubDate>Sat, 20 Apr 2013 23:12:28 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I’m moving my site from &lt;a href=&quot;http://www.fatcow.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;fatcow.com&lt;/a&gt; to &lt;a href=&quot;http://www.linode.com&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/04/20/how-to-setup-name-based-virtual-host-on-ubuntu/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to make phpMyAdmin work in Ubuntu server.</title>
+      <link>http://blog.ycshao.com/2013/04/20/how-to-make-phpmyadmin-work-in-ubuntu-server/</link>
+      <guid>http://blog.ycshao.com/2013/04/20/how-to-make-phpmyadmin-work-in-ubuntu-server/</guid>
+      <pubDate>Sat, 20 Apr 2013 16:02:40 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install phpMyAdmin:&lt;/p&gt;
+&lt;pre class=&quot;lang:sh decode:true&quot;&gt;$ sudo apt-get install phpmyadmin&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add phpMyAdmin
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/04/20/how-to-make-phpmyadmin-work-in-ubuntu-server/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>The Best Way to Cut Up a Whole Chicken.</title>
+      <link>http://blog.ycshao.com/2013/04/16/the-best-way-to-cut-up-a-whole-chicken/</link>
+      <guid>http://blog.ycshao.com/2013/04/16/the-best-way-to-cut-up-a-whole-chicken/</guid>
+      <pubDate>Wed, 17 Apr 2013 01:27:35 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;http://www.youtube.com/embed/GSvzRyu2h5g?feature=player_embedded&quot; frameborder=&quot;0&quot; allowfullscreen
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/04/16/the-best-way-to-cut-up-a-whole-chicken/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>SOLID principles of Object Oriented Design.</title>
+      <link>http://blog.ycshao.com/2013/01/10/solid-principles-of-object-oriented-design/</link>
+      <guid>http://blog.ycshao.com/2013/01/10/solid-principles-of-object-oriented-design/</guid>
+      <pubDate>Thu, 10 Jan 2013 05:45:30 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span style=&quot;color: #00ccff;&quot;&gt;Single Responsibility Principle.&lt;/span&gt;
+&lt;/strong&gt;Because each responsibility of a class is
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/01/10/solid-principles-of-object-oriented-design/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>The best time to buy anything in 2013.</title>
+      <link>http://blog.ycshao.com/2013/01/08/the-best-time-to-buy-anything-in-2013/</link>
+      <guid>http://blog.ycshao.com/2013/01/08/the-best-time-to-buy-anything-in-2013/</guid>
+      <pubDate>Wed, 09 Jan 2013 04:54:24 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Let me keep this and I’m sure I need this through the year.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;./buy-anything.jpg&quot;&gt;&lt;img src=&quot;./buy-anything.jpg&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/01/08/the-best-time-to-buy-anything-in-2013/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>6 Common Tech Myths That Cost You Money</title>
+      <link>http://blog.ycshao.com/2013/01/06/6-common-tech-myths-that-cost-you-money/</link>
+      <guid>http://blog.ycshao.com/2013/01/06/6-common-tech-myths-that-cost-you-money/</guid>
+      <pubDate>Sun, 06 Jan 2013 05:08:48 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ol&gt;
+&lt;li&gt;&lt;span style=&quot;color: DeepSkyBlue;&quot;&gt;Refurbished Products Aren’t As Good As New Ones.&lt;/span&gt;&lt;br&gt;Refurbished products tend to get a
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2013/01/06/6-common-tech-myths-that-cost-you-money/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to compile opencv 2.4.3 x86 and x64 using Visual Studio 2012.</title>
+      <link>http://blog.ycshao.com/2012/12/25/how-to-compile-opencv-2-4-3-x86-and-x64-using-visual-studio-2012/</link>
+      <guid>http://blog.ycshao.com/2012/12/25/how-to-compile-opencv-2-4-3-x86-and-x64-using-visual-studio-2012/</guid>
+      <pubDate>Tue, 25 Dec 2012 22:48:35 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ol&gt;
+&lt;li&gt;Download and extract &lt;a href=&quot;http://opencv.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;opencv 2.4.3&lt;/a&gt; for windows. (I extracted it to
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/12/25/how-to-compile-opencv-2-4-3-x86-and-x64-using-visual-studio-2012/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Most popular bond types.</title>
+      <link>http://blog.ycshao.com/2012/12/12/most-popular-bond-types/</link>
+      <guid>http://blog.ycshao.com/2012/12/12/most-popular-bond-types/</guid>
+      <pubDate>Wed, 12 Dec 2012 05:17:03 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;span style=&quot;color: #00ccff;&quot;&gt;Callable bonds&lt;br&gt;&lt;/span&gt;A callable (or redeemable) bond gives the issuer the right to buy back
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/12/12/most-popular-bond-types/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Four main categories of bond issuers.</title>
+      <link>http://blog.ycshao.com/2012/12/10/four-main-categories-of-bond-issuers/</link>
+      <guid>http://blog.ycshao.com/2012/12/10/four-main-categories-of-bond-issuers/</guid>
+      <pubDate>Tue, 11 Dec 2012 04:27:28 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;span style=&quot;color: #00ccff;&quot;&gt;Sovereign governments&lt;/span&gt;&lt;br&gt;They issue bonds principally to cover a shortfall between taxation
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/12/10/four-main-categories-of-bond-issuers/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Terminology of bond market.</title>
+      <link>http://blog.ycshao.com/2012/12/06/terminology-of-bond-market/</link>
+      <guid>http://blog.ycshao.com/2012/12/06/terminology-of-bond-market/</guid>
+      <pubDate>Thu, 06 Dec 2012 05:47:39 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;span style=&quot;line-height: 15px;&quot;&gt;&lt;span style=&quot;line-height: 15px;&quot;&gt;&lt;span style=&quot;color: #00ccff;&quot;&gt;Principal&lt;/span&gt;&lt;br&gt;The principal
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/12/06/terminology-of-bond-market/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 22: Declare data members private.</title>
+      <link>http://blog.ycshao.com/2012/12/01/effective-c-item-22-declare-data-members-private/</link>
+      <guid>http://blog.ycshao.com/2012/12/01/effective-c-item-22-declare-data-members-private/</guid>
+      <pubDate>Sun, 02 Dec 2012 01:28:03 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;It seems obvious you should always declare data members private. But sometimes you may violate this rule without realizing it. Defining
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/12/01/effective-c-item-22-declare-data-members-private/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 21: Don&#39;t try to return a reference when you must return an object.</title>
+      <link>http://blog.ycshao.com/2012/12/01/effective-c-item-21-dont-try-to-return-a-reference-when-you-must-return-an-object/</link>
+      <guid>http://blog.ycshao.com/2012/12/01/effective-c-item-21-dont-try-to-return-a-reference-when-you-must-return-an-object/</guid>
+      <pubDate>Sun, 02 Dec 2012 01:14:44 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Once programmers grasp the efficiency implications of pass-by-value for objects (see &lt;a
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/12/01/effective-c-item-21-dont-try-to-return-a-reference-when-you-must-return-an-object/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 20: Prefer pass-by-reference-to-const to pass-by-value.</title>
+      <link>http://blog.ycshao.com/2012/12/01/effective-c-item-20-prefer-pass-by-reference-to-const-to-pass-by-value/</link>
+      <guid>http://blog.ycshao.com/2012/12/01/effective-c-item-20-prefer-pass-by-reference-to-const-to-pass-by-value/</guid>
+      <pubDate>Sat, 01 Dec 2012 23:49:20 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;By default, C++ passes objects to and from functions by value. Unless you specify otherwise, function parameters are initialized with
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/12/01/effective-c-item-20-prefer-pass-by-reference-to-const-to-pass-by-value/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Classification of key financial markets.</title>
+      <link>http://blog.ycshao.com/2012/11/29/classification-of-key-financial-markets/</link>
+      <guid>http://blog.ycshao.com/2012/11/29/classification-of-key-financial-markets/</guid>
+      <pubDate>Fri, 30 Nov 2012 04:26:22 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;span style=&quot;color: #00ccff;&quot;&gt;Equities&lt;/span&gt;&lt;br&gt;A distinction should be made between public and private equity. Shares in a
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/29/classification-of-key-financial-markets/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Classification of financial market participants.</title>
+      <link>http://blog.ycshao.com/2012/11/29/classification-of-financial-market-participants/</link>
+      <guid>http://blog.ycshao.com/2012/11/29/classification-of-financial-market-participants/</guid>
+      <pubDate>Fri, 30 Nov 2012 03:13:09 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;span style=&quot;color: #00ccff;&quot;&gt;Raising Money&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;span style=&quot;color: #ffff00;&quot;&gt;Private sector
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/29/classification-of-financial-market-participants/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Different types of order.</title>
+      <link>http://blog.ycshao.com/2012/11/29/different-types-of-order/</link>
+      <guid>http://blog.ycshao.com/2012/11/29/different-types-of-order/</guid>
+      <pubDate>Thu, 29 Nov 2012 05:37:04 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;span style=&quot;line-height: 15px;&quot;&gt;&lt;span style=&quot;color: #00ccff;&quot;&gt;Market orders&lt;/span&gt;&lt;br&gt;Buy or sell a stock immediately at the best
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/29/different-types-of-order/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Differences between primary market and secondary market.</title>
+      <link>http://blog.ycshao.com/2012/11/28/differences-between-primary-market-and-secondary-market/</link>
+      <guid>http://blog.ycshao.com/2012/11/28/differences-between-primary-market-and-secondary-market/</guid>
+      <pubDate>Thu, 29 Nov 2012 04:21:37 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;span style=&quot;color: #00ccff;&quot;&gt;Primary market&lt;/span&gt;&lt;br&gt;The issuer sells shares in the company to the public. The primary market is
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/28/differences-between-primary-market-and-secondary-market/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Classification of stocks according to investment objective/performance.</title>
+      <link>http://blog.ycshao.com/2012/11/28/classification-of-stocks-according-to-investment-objectiveperformance/</link>
+      <guid>http://blog.ycshao.com/2012/11/28/classification-of-stocks-according-to-investment-objectiveperformance/</guid>
+      <pubDate>Wed, 28 Nov 2012 05:46:43 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;span style=&quot;line-height: 15px;&quot;&gt;&lt;span style=&quot;color: #33cccc;&quot;&gt;Growth stocks&lt;/span&gt;&lt;br&gt;Growth stocks are those whose earnings are
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/28/classification-of-stocks-according-to-investment-objectiveperformance/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Differences between common stock and preferred stock.</title>
+      <link>http://blog.ycshao.com/2012/11/27/differences-between-common-stock-and-preferred-stock/</link>
+      <guid>http://blog.ycshao.com/2012/11/27/differences-between-common-stock-and-preferred-stock/</guid>
+      <pubDate>Wed, 28 Nov 2012 04:34:41 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;table width=&quot;”390″&quot; border=&quot;”1″&quot; cellspacing=&quot;”0″&quot; cellpadding=&quot;”0″&quot;&gt;&lt;br&gt;&lt;tbody&gt;&lt;br&gt;&lt;tr align=&quot;center&quot;&gt;&lt;br&gt;&lt;td&gt;&lt;/td&gt;&lt;br&gt;&lt;td
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/27/differences-between-common-stock-and-preferred-stock/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Different kinds of preferred stock.</title>
+      <link>http://blog.ycshao.com/2012/11/27/different-kinds-of-preferred-stock/</link>
+      <guid>http://blog.ycshao.com/2012/11/27/different-kinds-of-preferred-stock/</guid>
+      <pubDate>Tue, 27 Nov 2012 05:12:42 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;span style=&quot;line-height: 15px;&quot;&gt;&lt;span style=&quot;color: #33cccc;&quot;&gt;Cumulative&lt;/span&gt;&lt;br&gt;Dividends accrue even though they are not
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/27/different-kinds-of-preferred-stock/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Key dates of dividend.</title>
+      <link>http://blog.ycshao.com/2012/11/26/key-dates-of-dividend/</link>
+      <guid>http://blog.ycshao.com/2012/11/26/key-dates-of-dividend/</guid>
+      <pubDate>Tue, 27 Nov 2012 04:53:10 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;em&gt;“On &lt;span style=&quot;color: #ffff00;&quot;&gt;March 10, 2012&lt;/span&gt;, ABC company declares that dividends is payable on &lt;span style=&quot;color:
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/26/key-dates-of-dividend/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Different kinds of dividends of common stock.</title>
+      <link>http://blog.ycshao.com/2012/11/26/different-kinds-of-dividends/</link>
+      <guid>http://blog.ycshao.com/2012/11/26/different-kinds-of-dividends/</guid>
+      <pubDate>Tue, 27 Nov 2012 04:41:06 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;span style=&quot;line-height: 15px;&quot;&gt;&lt;span style=&quot;color: #33cccc;&quot;&gt;&lt;strong&gt;Cash dividends&lt;/strong&gt;&lt;/span&gt;&lt;br&gt;Normally expressed as a
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/26/different-kinds-of-dividends/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 19: Treat class design as type design.</title>
+      <link>http://blog.ycshao.com/2012/11/23/effective-c-item-19-treat-class-design-as-type-design/</link>
+      <guid>http://blog.ycshao.com/2012/11/23/effective-c-item-19-treat-class-design-as-type-design/</guid>
+      <pubDate>Sat, 24 Nov 2012 04:23:40 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;In C++, as in other object-oriented programming languages, defining a new class defines a new type. Much of your time as a C++ developer
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/23/effective-c-item-19-treat-class-design-as-type-design/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 18: Make interfaces easy to use correctly and hard to use incorrectly.</title>
+      <link>http://blog.ycshao.com/2012/11/23/effective-c-item-18-make-interfaces-easy-to-use-correctly-and-hard-to-use-incorrectly/</link>
+      <guid>http://blog.ycshao.com/2012/11/23/effective-c-item-18-make-interfaces-easy-to-use-correctly-and-hard-to-use-incorrectly/</guid>
+      <pubDate>Sat, 24 Nov 2012 04:09:12 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;A good API will not only provide easy to use interfaces, but also provide hard to mis-used interfaces. Usually, the later point is the
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/23/effective-c-item-18-make-interfaces-easy-to-use-correctly-and-hard-to-use-incorrectly/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to restore windows boot after installing Ubuntu 12.10.</title>
+      <link>http://blog.ycshao.com/2012/11/17/how-to-restore-windows-boot-after-installing-ubuntu-12-10/</link>
+      <guid>http://blog.ycshao.com/2012/11/17/how-to-restore-windows-boot-after-installing-ubuntu-12-10/</guid>
+      <pubDate>Sun, 18 Nov 2012 04:01:13 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;After re-installed Ubuntu 12.10, I found my windows cannot boot from &lt;a href=&quot;http://en.wikipedia.org/wiki/GNU_GRUB&quot; target=&quot;_blank&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/11/17/how-to-restore-windows-boot-after-installing-ubuntu-12-10/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 17: Store newed objects in smart pointers in standalone statements.</title>
+      <link>http://blog.ycshao.com/2012/07/29/effective-c-item-17-store-newed-objects-in-smart-pointers-in-standalone-statements/</link>
+      <guid>http://blog.ycshao.com/2012/07/29/effective-c-item-17-store-newed-objects-in-smart-pointers-in-standalone-statements/</guid>
+      <pubDate>Mon, 30 Jul 2012 01:31:14 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Sometimes if you try to do multiple things in one statement, you should think carefully about abnormal behavior especially exceptions.
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/07/29/effective-c-item-17-store-newed-objects-in-smart-pointers-in-standalone-statements/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 16: Use the same form in corresponding uses of new and delete.</title>
+      <link>http://blog.ycshao.com/2012/07/29/effective-c-item-16-use-the-same-form-in-corresponding-uses-of-new-and-delete/</link>
+      <guid>http://blog.ycshao.com/2012/07/29/effective-c-item-16-use-the-same-form-in-corresponding-uses-of-new-and-delete/</guid>
+      <pubDate>Mon, 30 Jul 2012 00:33:56 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Of cause I know delete corresponding to new and delete [] corresponding to new []. But sometimes things are not that simple. Imaging you
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/07/29/effective-c-item-16-use-the-same-form-in-corresponding-uses-of-new-and-delete/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 15: Provide access to raw resources in resource-managing classes.</title>
+      <link>http://blog.ycshao.com/2012/07/29/effective-c-item-15-provide-access-to-raw-resources-in-resource-managing-classes/</link>
+      <guid>http://blog.ycshao.com/2012/07/29/effective-c-item-15-provide-access-to-raw-resources-in-resource-managing-classes/</guid>
+      <pubDate>Sun, 29 Jul 2012 20:27:59 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;In last two items I talked about managing resources using RAII objects. Now here comes the practical part. Often we will encounter a
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/07/29/effective-c-item-15-provide-access-to-raw-resources-in-resource-managing-classes/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 14: Think carefully about copying behavior in resource-managing classes.</title>
+      <link>http://blog.ycshao.com/2012/07/28/effective-c-item-14-think-carefully-about-copying-behavior-in-resource-managing-classes/</link>
+      <guid>http://blog.ycshao.com/2012/07/28/effective-c-item-14-think-carefully-about-copying-behavior-in-resource-managing-classes/</guid>
+      <pubDate>Sun, 29 Jul 2012 00:48:37 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;In C++, the only code that can be guaranteed to be executed after an exception is thrown are the destructors of objects residing on the
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/07/28/effective-c-item-14-think-carefully-about-copying-behavior-in-resource-managing-classes/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to open .ica file and setup Citrix client on Ubuntu.</title>
+      <link>http://blog.ycshao.com/2012/07/01/how-to-open-ica-file-and-setup-citrix-client-on-ubuntu/</link>
+      <guid>http://blog.ycshao.com/2012/07/01/how-to-open-ica-file-and-setup-citrix-client-on-ubuntu/</guid>
+      <pubDate>Mon, 02 Jul 2012 02:23:18 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/07/01/how-to-open-ica-file-and-setup-citrix-client-on-ubuntu/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to use doxygen to generate caller and inheritance diagram.</title>
+      <link>http://blog.ycshao.com/2012/04/15/how-to-use-doxygen-to-generate-caller-and-inheritance-diagram/</link>
+      <guid>http://blog.ycshao.com/2012/04/15/how-to-use-doxygen-to-generate-caller-and-inheritance-diagram/</guid>
+      <pubDate>Mon, 16 Apr 2012 01:57:05 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Since I’m a newbie programmer and code in our team is really complicated, I always found myself lost somewhere in the code sea. Luckily
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/04/15/how-to-use-doxygen-to-generate-caller-and-inheritance-diagram/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 13: Use objects to manage resources.</title>
+      <link>http://blog.ycshao.com/2012/04/09/effective-c-item-13-use-objects-to-manage-resources/</link>
+      <guid>http://blog.ycshao.com/2012/04/09/effective-c-item-13-use-objects-to-manage-resources/</guid>
+      <pubDate>Tue, 10 Apr 2012 03:32:14 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Always use object to manage resources! If you delete a pointer or release a handler manually by yourself, there is a great chance you
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/04/09/effective-c-item-13-use-objects-to-manage-resources/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 12: Copy all parts of an object.</title>
+      <link>http://blog.ycshao.com/2012/04/09/effective-c-item-12-copy-all-parts-of-an-object/</link>
+      <guid>http://blog.ycshao.com/2012/04/09/effective-c-item-12-copy-all-parts-of-an-object/</guid>
+      <pubDate>Tue, 10 Apr 2012 02:34:16 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;This one is simple. Don’t forget to copy all parts of an object in copy constructor or assignment operator!&lt;/p&gt;
+&lt;p&gt;There are two cases
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/04/09/effective-c-item-12-copy-all-parts-of-an-object/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 11: Handle assignment to self in operator=.</title>
+      <link>http://blog.ycshao.com/2012/04/08/effective-c-item-11-handle-assignment-to-self-in-operator/</link>
+      <guid>http://blog.ycshao.com/2012/04/08/effective-c-item-11-handle-assignment-to-self-in-operator/</guid>
+      <pubDate>Mon, 09 Apr 2012 03:39:10 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;You can easily assign an object to itself without knowing it.&lt;/p&gt;
+&lt;p&gt;&lt;pre class=&quot;lang:c++ decode:true brush: cpp; gutter: true&quot;&gt;//
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/04/08/effective-c-item-11-handle-assignment-to-self-in-operator/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 10: Have assignment operators return a reference to *this.</title>
+      <link>http://blog.ycshao.com/2012/04/07/effective-c-item-10-have-assignment-operators-return-a-reference-to-this/</link>
+      <guid>http://blog.ycshao.com/2012/04/07/effective-c-item-10-have-assignment-operators-return-a-reference-to-this/</guid>
+      <pubDate>Sun, 08 Apr 2012 03:49:41 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;If you want to concatenate assignments like:&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/04/07/effective-c-item-10-have-assignment-operators-return-a-reference-to-this/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 9: Never call virtual functions during construction or destruction.</title>
+      <link>http://blog.ycshao.com/2012/04/03/effective-c-item-9-never-call-virtual-functions-during-construction-or-destruction/</link>
+      <guid>http://blog.ycshao.com/2012/04/03/effective-c-item-9-never-call-virtual-functions-during-construction-or-destruction/</guid>
+      <pubDate>Wed, 04 Apr 2012 03:52:37 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Don’t call virtual functions during construction or destruction, because such calls will never go to a more derived class than that of
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/04/03/effective-c-item-9-never-call-virtual-functions-during-construction-or-destruction/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Ten principles of economics.</title>
+      <link>http://blog.ycshao.com/2012/03/25/ten-principles-of-economics/</link>
+      <guid>http://blog.ycshao.com/2012/03/25/ten-principles-of-economics/</guid>
+      <pubDate>Mon, 26 Mar 2012 02:43:33 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ol&gt;
+&lt;li&gt;&lt;span style=&quot;color: #00ccff;&quot;&gt;&lt;strong&gt;People face tradeoffs.&lt;/strong&gt;&lt;/span&gt;&lt;br&gt;There is no such thing as a free lunch. To get one
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/03/25/ten-principles-of-economics/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 8: Prevent exceptions from leaving destructors.</title>
+      <link>http://blog.ycshao.com/2012/03/22/effective-c-item-8-prevent-exceptions-from-leaving-destructors/</link>
+      <guid>http://blog.ycshao.com/2012/03/22/effective-c-item-8-prevent-exceptions-from-leaving-destructors/</guid>
+      <pubDate>Fri, 23 Mar 2012 03:52:05 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Throw an exception in destructor is dangerous and you should never let the exception leave destructors. If there are two exceptions
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/03/22/effective-c-item-8-prevent-exceptions-from-leaving-destructors/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 7: Declare destructors virtual in polymorphic base classes.</title>
+      <link>http://blog.ycshao.com/2012/03/18/effective-c-item-7-declare-destructors-virtual-in-polymorphic-base-classes/</link>
+      <guid>http://blog.ycshao.com/2012/03/18/effective-c-item-7-declare-destructors-virtual-in-polymorphic-base-classes/</guid>
+      <pubDate>Mon, 19 Mar 2012 03:12:44 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ol&gt;
+&lt;li&gt;Polymorphic base classes should declare virtual destructors. If a class has any virtual functions, it should have a virtual
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/03/18/effective-c-item-7-declare-destructors-virtual-in-polymorphic-base-classes/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 6: Explicitly disallow the use of compiler-generated functions you do not want.</title>
+      <link>http://blog.ycshao.com/2012/03/18/effective-c-item-6-explicitly-disallow-the-use-of-compiler-generated-functions-you-do-not-want/</link>
+      <guid>http://blog.ycshao.com/2012/03/18/effective-c-item-6-explicitly-disallow-the-use-of-compiler-generated-functions-you-do-not-want/</guid>
+      <pubDate>Sun, 18 Mar 2012 04:58:27 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;We all know from previous posts that compiler will generate constructors, destructors  and assignment operator for you. What if you
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/03/18/effective-c-item-6-explicitly-disallow-the-use-of-compiler-generated-functions-you-do-not-want/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Setup git repository and start using git.</title>
+      <link>http://blog.ycshao.com/2012/03/17/setup-git-repository-and-start-using-git/</link>
+      <guid>http://blog.ycshao.com/2012/03/17/setup-git-repository-and-start-using-git/</guid>
+      <pubDate>Sun, 18 Mar 2012 03:52:38 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Last week I tried to use git and here are some tips to set up git environment and a beginner
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/03/17/setup-git-repository-and-start-using-git/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Get low price on hotels using priceline and hotwire.</title>
+      <link>http://blog.ycshao.com/2012/03/15/get-low-price-on-hotels-using-priceline-and-hotwire/</link>
+      <guid>http://blog.ycshao.com/2012/03/15/get-low-price-on-hotels-using-priceline-and-hotwire/</guid>
+      <pubDate>Fri, 16 Mar 2012 01:25:11 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;div&gt;Probably you already know there is a service on priceline called “Name Your Price Negotiator”, which let you enter a price for a deal
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/03/15/get-low-price-on-hotels-using-priceline-and-hotwire/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 5: Know what functions C++ silently writes and calls.</title>
+      <link>http://blog.ycshao.com/2012/02/21/effective-c-item-5-know-what-functions-c-silently-writes-and-calls/</link>
+      <guid>http://blog.ycshao.com/2012/02/21/effective-c-item-5-know-what-functions-c-silently-writes-and-calls/</guid>
+      <pubDate>Tue, 21 Feb 2012 06:03:57 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;If you have an empty class, compilers will declare a default constructor, a copy constructor, a copy assignment operator and a
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/02/21/effective-c-item-5-know-what-functions-c-silently-writes-and-calls/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Keep your pans from falling off the hanger.</title>
+      <link>http://blog.ycshao.com/2012/02/20/keep-your-pans-from-falling-off-the-hanger/</link>
+      <guid>http://blog.ycshao.com/2012/02/20/keep-your-pans-from-falling-off-the-hanger/</guid>
+      <pubDate>Mon, 20 Feb 2012 19:56:03 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./pans.jpg&quot; alt=&quot;&quot;&gt;Need to stop your suit trousers from falling off their hangers? Try the Savile Row fold,
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/02/20/keep-your-pans-from-falling-off-the-hanger/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Mount missing partitions in Ubuntu 11.10</title>
+      <link>http://blog.ycshao.com/2012/02/19/mount-missing-partitions-in-ubuntu-11-10/</link>
+      <guid>http://blog.ycshao.com/2012/02/19/mount-missing-partitions-in-ubuntu-11-10/</guid>
+      <pubDate>Sun, 19 Feb 2012 19:50:44 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:&lt;/p&gt;
+&lt;pre class=&quot;lang:sh
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/02/19/mount-missing-partitions-in-ubuntu-11-10/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Install opencv on linux</title>
+      <link>http://blog.ycshao.com/2012/02/18/install-opencv-on-ubuntu-11-10/</link>
+      <guid>http://blog.ycshao.com/2012/02/18/install-opencv-on-ubuntu-11-10/</guid>
+      <pubDate>Sun, 19 Feb 2012 03:33:26 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;If you don’t care about getting the cutting-edge version of opencv, you can do following:&lt;/p&gt;
+&lt;pre class=&quot;lang:sh decode:true
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/02/18/install-opencv-on-ubuntu-11-10/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Use a Comb to Keep a Nail Steady for Hammering</title>
+      <link>http://blog.ycshao.com/2012/02/16/use-a-comb-to-keep-a-nail-steady-for-hammering/</link>
+      <guid>http://blog.ycshao.com/2012/02/16/use-a-comb-to-keep-a-nail-steady-for-hammering/</guid>
+      <pubDate>Thu, 16 Feb 2012 05:54:11 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./hammer-tips.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;The next time you need to hammer a nail, protect your fingers with a cheap plastic
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/02/16/use-a-comb-to-keep-a-nail-steady-for-hammering/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Visitor pattern and double dispatch in C++.</title>
+      <link>http://blog.ycshao.com/2012/01/31/visitor-pattern-and-double-dispatch-in-c/</link>
+      <guid>http://blog.ycshao.com/2012/01/31/visitor-pattern-and-double-dispatch-in-c/</guid>
+      <pubDate>Wed, 01 Feb 2012 04:27:47 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/31/visitor-pattern-and-double-dispatch-in-c/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Option types</title>
+      <link>http://blog.ycshao.com/2012/01/24/finance/</link>
+      <guid>http://blog.ycshao.com/2012/01/24/finance/</guid>
+      <pubDate>Tue, 24 Jan 2012 05:53:42 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Naming conventions are used to help identify properties common to many different types of options. These include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/24/finance/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 4: Make sure that objects are initialized before they&#39;re used.</title>
+      <link>http://blog.ycshao.com/2012/01/22/effective-c-item-4-make-sure-that-objects-are-initialized-before-theyre-used/</link>
+      <guid>http://blog.ycshao.com/2012/01/22/effective-c-item-4-make-sure-that-objects-are-initialized-before-theyre-used/</guid>
+      <pubDate>Sun, 22 Jan 2012 05:54:38 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ol&gt;
+&lt;li&gt;For most types, a single call to a copy constructor is more efficient - sometimes much more efficient - than a call to the default
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/22/effective-c-item-4-make-sure-that-objects-are-initialized-before-theyre-used/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 3: Use const whenever possible</title>
+      <link>http://blog.ycshao.com/2012/01/20/effective-c-item-3-use-const-whenever-possible-2/</link>
+      <guid>http://blog.ycshao.com/2012/01/20/effective-c-item-3-use-const-whenever-possible-2/</guid>
+      <pubDate>Sat, 21 Jan 2012 04:41:19 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;pre class=&quot;lang:c++ decode:true&quot;&gt;class Rational
+{
+public:
+    ....
+
+    const Rational operator*(const Rational&amp; lhs, const Rational&amp;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/20/effective-c-item-3-use-const-whenever-possible-2/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 2: Prefer consts, enums, and inlines to #defines.</title>
+      <link>http://blog.ycshao.com/2012/01/17/effective-c-item-2-prefer-consts-enums-and-inlines-to-defines/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/effective-c-item-2-prefer-consts-enums-and-inlines-to-defines/</guid>
+      <pubDate>Tue, 17 Jan 2012 08:13:31 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Here is an example for enum hack:&lt;/p&gt;
+&lt;pre class=&quot;lang:c++ decode:true&quot;&gt;class Foo
+{
+private:
+    enum{BAR = 100};
+    ....
+};&lt;/pre&gt;
+To
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/effective-c-item-2-prefer-consts-enums-and-inlines-to-defines/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Effective C++ item 1: View C++ as a federation of languages.</title>
+      <link>http://blog.ycshao.com/2012/01/17/effective-c-item-1-view-c-as-a-federation-of-languages/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/effective-c-item-1-view-c-as-a-federation-of-languages/</guid>
+      <pubDate>Tue, 17 Jan 2012 08:13:11 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Meyers suggests us to view c++ as a federation of languages since a rule may apply to one sub-language but not others. It is easier and
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/effective-c-item-1-view-c-as-a-federation-of-languages/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>How to clone/copy SVN repository to another computer</title>
+      <link>http://blog.ycshao.com/2012/01/17/how-to-clonecopy-svn-repository-to-another-computer/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/how-to-clonecopy-svn-repository-to-another-computer/</guid>
+      <pubDate>Tue, 17 Jan 2012 08:12:50 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Since I’m not running SVN on server, instead, I created SVN repository on local machines, So I have to find way to access my repository
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/how-to-clonecopy-svn-repository-to-another-computer/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>SVN: local delete/edit, incoming delete upon update</title>
+      <link>http://blog.ycshao.com/2012/01/17/svn-local-deleteedit-incoming-delete-upon-update/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/svn-local-deleteedit-incoming-delete-upon-update/</guid>
+      <pubDate>Tue, 17 Jan 2012 08:12:26 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:&lt;/p&gt;
+&lt;pre
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/svn-local-deleteedit-incoming-delete-upon-update/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Use vim/gvim as a file manager</title>
+      <link>http://blog.ycshao.com/2012/01/17/use-vimgvim-as-a-file-manager/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/use-vimgvim-as-a-file-manager/</guid>
+      <pubDate>Tue, 17 Jan 2012 08:12:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Maybe it is the case that your screen is small or you don’t have enough screens, you cannot open many terminals and editors. In this
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/use-vimgvim-as-a-file-manager/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Pure virtual function called in abstract classes (c++ polymorphism)</title>
+      <link>http://blog.ycshao.com/2012/01/17/pure-virtual-function-called-in-abstract-classes-c-polymorphism/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/pure-virtual-function-called-in-abstract-classes-c-polymorphism/</guid>
+      <pubDate>Tue, 17 Jan 2012 08:11:38 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I learned that pure virtual function can be called in abstract classes.&lt;br&gt;Let’s look at an example:&lt;/p&gt;
+&lt;p&gt;&lt;pre class=&quot;lang:c++
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/pure-virtual-function-called-in-abstract-classes-c-polymorphism/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Setup gvim/vim color scheme</title>
+      <link>http://blog.ycshao.com/2012/01/17/setup-gvimvim-color-scheme/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/setup-gvimvim-color-scheme/</guid>
+      <pubDate>Tue, 17 Jan 2012 08:11:14 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;It is very easy to set up gvim/vim color scheme:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to&amp;nbsp;&lt;a href=&quot;http://code.google.com/p/vimcolorschemetest/&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/setup-gvimvim-color-scheme/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Fix gvim slowness bug in Ubuntu 11.10</title>
+      <link>http://blog.ycshao.com/2012/01/17/fix-gvim-slowness-bug-in-ubuntu-11-10/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/fix-gvim-slowness-bug-in-ubuntu-11-10/</guid>
+      <pubDate>Tue, 17 Jan 2012 08:10:53 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;After I upgrade to Ubuntu 11.10, I found that gvim acted very slow. To fix this, simply use&lt;/p&gt;
+&lt;pre class=&quot;lang:sh decode:true&quot;&gt;$ gvim
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/fix-gvim-slowness-bug-in-ubuntu-11-10/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>C++ implementation of merge sort</title>
+      <link>http://blog.ycshao.com/2012/01/17/c-implementation-of-merge-sort/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/c-implementation-of-merge-sort/</guid>
+      <pubDate>Tue, 17 Jan 2012 08:10:30 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/c-implementation-of-merge-sort/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Why the best place to define templates is in header file? (c++)</title>
+      <link>http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/</guid>
+      <pubDate>Tue, 17 Jan 2012 07:56:34 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;a
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Setup svn in eclipse</title>
+      <link>http://blog.ycshao.com/2012/01/17/setup-svn-in-eclipse/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/setup-svn-in-eclipse/</guid>
+      <pubDate>Tue, 17 Jan 2012 07:56:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;In order to access SVN in Eclipse, I installed subclipse plug-in in eclipse.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Check your SVN version.&lt;/li&gt;
+&lt;li&gt;Open Eclipse
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/setup-svn-in-eclipse/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Setup code block and syntax highlight</title>
+      <link>http://blog.ycshao.com/2012/01/17/setup-code-block-and-syntax-highlight/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/setup-code-block-and-syntax-highlight/</guid>
+      <pubDate>Tue, 17 Jan 2012 07:55:35 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;To add code block and syntax highlighting, we need to use &lt;a href=&quot;http://alexgorbatchev.com/SyntaxHighlighter/&quot; target=&quot;_blank&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/setup-code-block-and-syntax-highlight/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Setup SVN on local machine environment</title>
+      <link>http://blog.ycshao.com/2012/01/17/setup-svn-on-local-machine-environment/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/setup-svn-on-local-machine-environment/</guid>
+      <pubDate>Tue, 17 Jan 2012 07:54:05 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;To install SVN: $sudo apt-get install subversion&lt;br&gt;To setup SVN repository:&lt;/p&gt;
+&lt;pre class=&quot;lang:sh decode:true&quot;&gt;$svnadmin create
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/setup-svn-on-local-machine-environment/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Setup ubuntu 11.10 environment</title>
+      <link>http://blog.ycshao.com/2012/01/17/setup-ubuntu-11-10-environment/</link>
+      <guid>http://blog.ycshao.com/2012/01/17/setup-ubuntu-11-10-environment/</guid>
+      <pubDate>Tue, 17 Jan 2012 07:53:28 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I installed ubuntu 11.10 32bit version, but found there were few things that did not as good as previous version, something like
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/17/setup-ubuntu-11-10-environment/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Black board rectification and text reconstruction</title>
+      <link>http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/</link>
+      <guid>http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/</guid>
+      <pubDate>Tue, 17 Jan 2012 04:53:27 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;The goal of this project is to convert board writing to electronic version in order to use on web as open course material . What I have
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/16/black-board-rectification-and-text-reconstruction/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>3D reconstruction using opencv and matlab</title>
+      <link>http://blog.ycshao.com/2012/01/16/3d-reconstruction-using-opencv-and-matlab/</link>
+      <guid>http://blog.ycshao.com/2012/01/16/3d-reconstruction-using-opencv-and-matlab/</guid>
+      <pubDate>Tue, 17 Jan 2012 04:50:04 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I’v worked on 3D face reconstruction project last semester, it gave me some taste about camera calibration and 3D geometry. Hare some
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/16/3d-reconstruction-using-opencv-and-matlab/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Copy detection</title>
+      <link>http://blog.ycshao.com/2012/01/16/copy-detection/</link>
+      <guid>http://blog.ycshao.com/2012/01/16/copy-detection/</guid>
+      <pubDate>Tue, 17 Jan 2012 04:48:47 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I did this project last semester. I was trying to detect copies of a master piece ‘Monalisa’ among thousands of pictures. I use two
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/16/copy-detection/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Jitter cancelation</title>
+      <link>http://blog.ycshao.com/2012/01/16/jitter-cancelation/</link>
+      <guid>http://blog.ycshao.com/2012/01/16/jitter-cancelation/</guid>
+      <pubDate>Tue, 17 Jan 2012 04:48:21 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I tried phase correlation to cancel jitter of a camera. For now I use full-pixel&amp;nbsp;precision. It turns out to be not bad.&lt;/p&gt;
+&lt;div
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/16/jitter-cancelation/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Motion detection using Markov Random field</title>
+      <link>http://blog.ycshao.com/2012/01/16/motion-detection-using-markov-random-field/</link>
+      <guid>http://blog.ycshao.com/2012/01/16/motion-detection-using-markov-random-field/</guid>
+      <pubDate>Tue, 17 Jan 2012 04:47:17 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Comparing to fixed-threshold hypothesis test, using variable-threshold hypothesis test with MRF is more effective due to the
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/16/motion-detection-using-markov-random-field/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Connected object labeling</title>
+      <link>http://blog.ycshao.com/2012/01/16/connected-object-labeling/</link>
+      <guid>http://blog.ycshao.com/2012/01/16/connected-object-labeling/</guid>
+      <pubDate>Tue, 17 Jan 2012 04:46:20 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;This project is about label connected objects and then use moments or orientation to find interesting objects.&lt;br&gt;First one is t&lt;span
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/16/connected-object-labeling/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Feature Tracking</title>
+      <link>http://blog.ycshao.com/2012/01/16/feature-tracking/</link>
+      <guid>http://blog.ycshao.com/2012/01/16/feature-tracking/</guid>
+      <pubDate>Tue, 17 Jan 2012 04:44:31 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;The method to detect an object is to calculate normalized correlation coefficient with a template and pick the largest one (above a
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2012/01/16/feature-tracking/#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>
