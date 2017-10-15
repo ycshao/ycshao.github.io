@@ -6,25 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="You can easily assign an object to itself without knowing it.
-// Example 1Foo  px, py;px = py;
-px = *py;
-// Example 2a[i] = a[i] // when i = jIt is dangerous to assign an object to itself if your clas">
+    <meta name="description" content="You can easily assign an object to itself without knowing it.1234567// Example 1Foo * px, py;px = py;*px = *py;// Example 2a[i] = a[i] // when i = j
+It is dangerous to assign an object to itself if yo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective C++ item 11: Handle assignment to self in operator=.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/04/08/effective-c-item-11-handle-assignment-to-self-in-operator/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="You can easily assign an object to itself without knowing it.
-// Example 1Foo  px, py;px = py;
-px = *py;
-// Example 2a[i] = a[i] // when i = jIt is dangerous to assign an object to itself if your clas">
-<meta property="og:updated_time" content="2017-03-05T02:29:07.000Z">
+<meta property="og:description" content="You can easily assign an object to itself without knowing it.1234567// Example 1Foo * px, py;px = py;*px = *py;// Example 2a[i] = a[i] // when i = j
+It is dangerous to assign an object to itself if yo">
+<meta property="og:updated_time" content="2017-10-15T02:32:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 11: Handle assignment to self in operator=.">
-<meta name="twitter:description" content="You can easily assign an object to itself without knowing it.
-// Example 1Foo  px, py;px = py;
-px = *py;
-// Example 2a[i] = a[i] // when i = jIt is dangerous to assign an object to itself if your clas">
+<meta name="twitter:description" content="You can easily assign an object to itself without knowing it.1234567// Example 1Foo * px, py;px = py;*px = *py;// Example 2a[i] = a[i] // when i = j
+It is dangerous to assign an object to itself if yo">
     
     
         
@@ -156,18 +150,14 @@ px = *py;
   
 
   <div class="content" itemprop="articleBody">
-    <p>You can easily assign an object to itself without knowing it.</p>
-<p><pre class="lang:c++ decode:true brush: cpp; gutter: true">// Example 1<br>Foo <em> px, py;<br>px = py;
-</em>px = *py;</pre></p>
-<p>// Example 2<br>a[i] = a[i] // when i = j<br>It is dangerous to assign an object to itself if your class doesn’t handle this kind of operator  appropriately. Let’s consider an example here:</p>
-<p><pre class="lang:c++ decode:true brush: cpp; gutter: true">class Bitmap{…};<br>class Widget<br>{<br>    …<br>private:<br>    Bitmap* m_pb;<br>};</pre></p>
-<p>// Assignment operator of class Widget<br>Widget&amp; Widget::operator=(const Widget&amp; rhs)<br>{<br>    delete pb;<br>    pb = new Bitmap(<em>rhs.m_pb);<br>    return </em>this;<br>}<br>You will be dead if you assign a Widget object to itself cause you will end up with holding a pointer to a deleted object!</p>
-<p>One way, but not best way to deal with self assignment is to write code to explicitly deal with this situation:</p>
-<p><pre class="lang:c++ decode:true brush: cpp; gutter: true">Widget&amp; Widget::operator=(const Widget&amp; rhs)<br>{<br>    if (this == &amp;rhs)<br>    {<br>        return <em>this;  // if a self-assignment, do nothing<br>    }<br>    delete pb;<br>    pb = new Bitmap(</em>rhs.m_pb);<br>    return *this;<br>}</pre><br>This is not the best way to solve the problem cause this operator is not exception-safe. What does this mean? Imagine what if an exception is thrown when</p>
-<p><pre class="lang:c++ decode:true brush: cpp; gutter: true">pb = new Bitmap(*rhs.m_pb);</pre><br>is been executed (for example, not enough memory), then the object will hold a pointer to a deleted Bitmap.</p>
-<p>Luckily, making operator= exception-save typically renders it self-assignment-safe, too. So  the best way to accomplish that is:</p>
-<p><pre class="lang:c++ decode:true brush: cpp; gutter: true crayon-selected">Widget&amp; Widget::operator=(const Widget&amp; rhs)<br>{<br>    Bitmap<em> temp = pb;<br>    pb = new Bitmap(</em>rhs.pb);<br>    delete temp;<br>    return *this;<br>}</pre><br>Now if “new Bitmap” throws an exception, pb remains unchanged. Even without the identity test, this code handles assignment to self, because we make a copy of the original bitmap, point to the copy we made, and then delete the original bitmap.</p>
-<p>&nbsp;</p>
+    <p>You can easily assign an object to itself without knowing it.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Example 1</span></div><div class="line">Foo * px, py;</div><div class="line">px = py;</div><div class="line">*px = *py;</div><div class="line"></div><div class="line"><span class="comment">// Example 2</span></div><div class="line">a[i] = a[i] <span class="comment">// when i = j</span></div></pre></td></tr></table></figure></p>
+<p>It is dangerous to assign an object to itself if your class doesn’t handle this kind of operator  appropriately. Let’s consider an example here:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Bitmap&#123;...&#125;;</div><div class="line"><span class="keyword">class</span> Widget</div><div class="line">&#123;</div><div class="line">    ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    Bitmap* m_pb;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// Assignment operator of class Widget</span></div><div class="line">Widget&amp; Widget::<span class="keyword">operator</span>=(<span class="keyword">const</span> Widget&amp; rhs)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">delete</span> pb;</div><div class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.m_pb);</div><div class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>You will be dead if you assign a Widget object to itself cause you will end up with holding a pointer to a deleted object!</p>
+<p>One way, but not best way to deal with self assignment is to write code to explicitly deal with this situation:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Widget&amp; Widget::<span class="keyword">operator</span>=(<span class="keyword">const</span> Widget&amp; rhs)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == &amp;rhs)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;  <span class="comment">// if a self-assignment, do nothing</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">delete</span> pb;</div><div class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.m_pb);</div><div class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>This is not the best way to solve the problem cause this operator is not exception-safe. What does this mean? Imagine what if an exception is thrown when<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pb = <span class="keyword">new</span> Bitmap(*rhs.m_pb);</div></pre></td></tr></table></figure></p>
+<p>is been executed (for example, not enough memory), then the object will hold a pointer to a deleted Bitmap.</p>
+<p>Luckily, making operator= exception-save typically renders it self-assignment-safe, too. So  the best way to accomplish that is:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Widget&amp; Widget::<span class="keyword">operator</span>=(<span class="keyword">const</span> Widget&amp; rhs)</div><div class="line">&#123;</div><div class="line">    Bitmap* temp = pb;</div><div class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.pb);</div><div class="line">    <span class="keyword">delete</span> temp;</div><div class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Now if “new Bitmap” throws an exception, pb remains unchanged. Even without the identity test, this code handles assignment to self, because we make a copy of the original bitmap, point to the copy we made, and then delete the original bitmap.</p>
 <p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
 
   </div>

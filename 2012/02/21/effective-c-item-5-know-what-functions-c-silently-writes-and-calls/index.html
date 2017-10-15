@@ -6,28 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="If you have an empty class, compilers will declare a default constructor, a copy constructor, a copy assignment operator and a destructor for you. So
-class Empty{};
-
-will be essentially the same as
-cl">
+    <meta name="description" content="If you have an empty class, compilers will declare a default constructor, a copy constructor, a copy assignment operator and a destructor for you. So1class Empty&amp;#123;&amp;#125;;
+will be essentially the s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective C++ item 5: Know what functions C++ silently writes and calls.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/02/21/effective-c-item-5-know-what-functions-c-silently-writes-and-calls/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="If you have an empty class, compilers will declare a default constructor, a copy constructor, a copy assignment operator and a destructor for you. So
-class Empty{};
-
-will be essentially the same as
-cl">
-<meta property="og:updated_time" content="2017-03-05T02:29:07.000Z">
+<meta property="og:description" content="If you have an empty class, compilers will declare a default constructor, a copy constructor, a copy assignment operator and a destructor for you. So1class Empty&amp;#123;&amp;#125;;
+will be essentially the s">
+<meta property="og:updated_time" content="2017-10-15T02:45:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 5: Know what functions C++ silently writes and calls.">
-<meta name="twitter:description" content="If you have an empty class, compilers will declare a default constructor, a copy constructor, a copy assignment operator and a destructor for you. So
-class Empty{};
-
-will be essentially the same as
-cl">
+<meta name="twitter:description" content="If you have an empty class, compilers will declare a default constructor, a copy constructor, a copy assignment operator and a destructor for you. So1class Empty&amp;#123;&amp;#125;;
+will be essentially the s">
     
     
         
@@ -159,52 +150,14 @@ cl">
   
 
   <div class="content" itemprop="articleBody">
-    <p>If you have an empty class, compilers will declare a default constructor, a copy constructor, a copy assignment operator and a destructor for you. So</p>
-<pre class="lang:c++ decode:true brush: cpp; gutter: true">class Empty{};</pre>
-
+    <p>If you have an empty class, compilers will declare a default constructor, a copy constructor, a copy assignment operator and a destructor for you. So<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Empty&#123;&#125;;</div></pre></td></tr></table></figure></p>
 <p>will be essentially the same as</p>
-<pre class="lang:c++ decode:true brush: cpp; gutter: true">class Empty
-{
-public:
-    Empty(){...}
-    Empty(const Empty& rhs){...}
-    ~Empty(){...}
-
-    Empty& operator=(const Empty& rhs){...}
-};</pre>
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Empty</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Empty()&#123;...&#125;</div><div class="line">    Empty(<span class="keyword">const</span> Empty&amp; rhs)&#123;...&#125;</div><div class="line">    ~Empty()&#123;...&#125;</div><div class="line"></div><div class="line">    Empty&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Empty&amp; rhs)&#123;...&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>Let’s see an example of how compiler will refuse to generate some code for you and you should write your own code explicitly.</p>
-<pre class="lang:c++ decode:true brush: cpp; gutter: true">#include <iostream>
-class Pair
-{
-public:
-    Pair(std::string& left, int right):
-        leftValue(left), rightValue(right)
-        {}
-private:
-    std::string& leftValue;
-    const int rightValue;
-};
-
-int main()
-{
-    std::string one("1");
-    std::string two("2");
-    Pair a(one, 1);
-    Pair b(two, 2);
-
-    a = b;
-    return 0;
-}</iostream></pre>
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">class</span> Pair</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Pair(<span class="built_in">std</span>::<span class="built_in">string</span>&amp; left, <span class="keyword">int</span> right):</div><div class="line">        leftValue(left), rightValue(right)</div><div class="line">        &#123;&#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span>&amp; leftValue;</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> rightValue;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">one</span><span class="params">(<span class="string">"1"</span>)</span></span>;</div><div class="line">    <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">two</span><span class="params">(<span class="string">"2"</span>)</span></span>;</div><div class="line">    <span class="function">Pair <span class="title">a</span><span class="params">(one, <span class="number">1</span>)</span></span>;</div><div class="line">    <span class="function">Pair <span class="title">b</span><span class="params">(two, <span class="number">2</span>)</span></span>;</div><div class="line"></div><div class="line">    a = b;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>will have such compilation errors:</p>
-<pre class="lang:c++ decode:true brush: bash; gutter: true crayon-selected">test.cpp: In member function ‘Pair& Pair::operator=(const Pair&)’:
-test.cpp:2:7: error: non-static reference member ‘std::string& Pair::leftValue’, can’t use default assignment operator
-test.cpp:2:7: error: non-static const member ‘const int Pair::rightValue’, can’t use default assignment operator
-test.cpp: In function ‘int main()’:
-test.cpp:20:9: note: synthesized method ‘Pair& Pair::operator=(const Pair&)’ first required here</pre>
-
-<p>It means that the compiler refuse to generate copy assignment constructor for line 20 when we are going to assign b to a. Why? The simple answer is that compilers don’t know what to do in copy constructor. Since C++ doesn’t provide a way to make a reference refer to a different object, neither can we modify a const object.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">test.cpp: In member function ‘Pair&amp; Pair::<span class="keyword">operator</span>=(<span class="keyword">const</span> Pair&amp;)’:</div><div class="line">test.cpp:<span class="number">2</span>:<span class="number">7</span>: error: non-<span class="keyword">static</span> reference member ‘<span class="built_in">std</span>::<span class="built_in">string</span>&amp; Pair::leftValue’, can’t use <span class="keyword">default</span> assignment <span class="keyword">operator</span></div><div class="line">test.cpp:<span class="number">2</span>:<span class="number">7</span>: error: non-<span class="keyword">static</span> <span class="keyword">const</span> member ‘<span class="keyword">const</span> <span class="keyword">int</span> Pair::rightValue’, can’t use <span class="keyword">default</span> assignment <span class="keyword">operator</span></div><div class="line">test.cpp: In function ‘<span class="keyword">int</span> main()’:</div><div class="line">test.cpp:<span class="number">20</span>:<span class="number">9</span>: note: synthesized method ‘Pair&amp; Pair::<span class="keyword">operator</span>=(<span class="keyword">const</span> Pair&amp;)’ first required here</div></pre></td></tr></table></figure>
+<p>It means that the compiler refuse to generate copy assignment constructor for line 20 when we are going to assign <code>b</code> to <code>a</code>. Why? The simple answer is that compilers don’t know what to do in copy constructor. Since C++ doesn’t provide a way to make a reference refer to a different object, neither can we modify a const object.</p>
 <p>So the solution is if you want to support copy assignment in a class containing reference members or const members, you must define the copy assignment operator yourself. Finally, compilers reject implicit copy assignment operators in derived classes that inherit from base classes declaring the copy assignment operator private, in other words, if base classes prevent doing something such as copy assignment, derived classes inherit that property from base classes implicitly (unless you explicitly define copy assignment operator in derived classes). After all, compiler-generated copy assignment operators for derived classes are supposed to handle base class parts too, but in doing so, they certainly can’t invoke member functions the derived class has no right to call.</p>
 <p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
 

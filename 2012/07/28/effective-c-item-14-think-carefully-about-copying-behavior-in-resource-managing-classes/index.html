@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://blog.ycshao.com/2012/07/28/effective-c-item-14-think-carefully-about-copying-behavior-in-resource-managing-classes/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="In C++, the only code that can be guaranteed to be executed after an exception is thrown are the destructors of objects residing on the stack. Resource management therefore needs to be tied to the lif">
-<meta property="og:updated_time" content="2017-02-24T04:18:04.000Z">
+<meta property="og:updated_time" content="2017-10-15T02:29:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 14: Think carefully about copying behavior in resource-managing classes.">
 <meta name="twitter:description" content="In C++, the only code that can be guaranteed to be executed after an exception is thrown are the destructors of objects residing on the stack. Resource management therefore needs to be tied to the lif">
@@ -152,8 +152,9 @@
 <li><span style="color: #00ccff;"><strong>Prohibit copying. </strong></span>If copying an RAII class doesn’t make sense, you should prohibit it by making copy constructor private. (see <a href="http://www.ycshao.com/2012/03/18/effective-c-item-6-explicitly-disallow-the-use-of-compiler-generated-functions-you-do-not-want/" target="_blank" rel="external">item 6</a>)</li>
 <li><span style="color: #00ccff;"><strong>Reference-count the underlying resource.</strong> </span>Sometimes it’s desirable to hold on to a resource until the last object using it has been destroyed. When that’s the case, copying an RAII object should increment the count of the number of objects referring to the resource. This is how shared_ptr implement copying behavior. So RAII class can implement reference-counting copying behavior by containing a shared_ptr data member. In addition, if you don’t want to delete the resource after reference count goes to 0 which is default behavior of shared_ptr, you can provide custom “deleter” for shared_ptr so that every time reference count goes to 0, this “deleter” will be called.</li>
 <li><span style="color: #00ccff;"><strong>Copy the underlying resource.</strong> </span>In this case, the only reason to use resource-managing class is to make sure each copy is released after you are done with it. So you should perform a deep copy of resource object.</li>
-<li><span style="color: #3366ff;"><strong><span style="color: #00ccff;">Transfer ownership of the underlying resource.</span> </strong></span>Sometimes you want to only keep one RAII object refers to a raw resource, you need to transfer ownership of the underlying resource to a new instance. This kind of behavior is implemented by auto_ptr.<br>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></li>
+<li><span style="color: #3366ff;"><strong><span style="color: #00ccff;">Transfer ownership of the underlying resource.</span> </strong></span>Sometimes you want to only keep one RAII object refers to a raw resource, you need to transfer ownership of the underlying resource to a new instance. This kind of behavior is implemented by auto_ptr.</li>
 </ol>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
 
   </div>
 </article>

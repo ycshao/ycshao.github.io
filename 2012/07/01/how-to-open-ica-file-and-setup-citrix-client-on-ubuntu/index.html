@@ -16,7 +16,7 @@ Downl">
 <meta property="og:description" content="The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica file using ICA client on Ubuntu, here is what you should do:
 
 Downl">
-<meta property="og:updated_time" content="2017-03-05T02:29:07.000Z">
+<meta property="og:updated_time" content="2017-10-15T02:27:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to open .ica file and setup Citrix client on Ubuntu.">
 <meta name="twitter:description" content="The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica file using ICA client on Ubuntu, here is what you should do:
@@ -156,16 +156,17 @@ Downl">
     <p>The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica file using ICA client on Ubuntu, here is what you should do:</p>
 <ol>
 <li><p>Download and install the 32-bit version of libmotif3 and create a symlink:</p>
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ wget -c http://nl.archive.ubuntu.com/ubuntu/pool/multiverse/o/openmotif/libmotif3_2.2.3-4_i386.deb
-$ sudo dpkg -i libmotif*i386.deb
-$ sudo ln -s /usr/lib/libXm.so.3 /usr/lib/libXm.so.4</pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ wget -c http://nl.archive.ubuntu.com/ubuntu/pool/multiverse/o/openmotif/libmotif3_2.2.3-4_i386.deb</div><div class="line">$ sudo dpkg -i libmotif*i386.deb</div><div class="line">$ sudo ln <span class="_">-s</span> /usr/lib/libXm.so.3 /usr/lib/libXm.so.4</div></pre></td></tr></table></figure>
 </li>
-<li><p>Download the Citrix Receiver 12.1 .deb files for ‘Receiver for Linux 12.1 from:<a href="http://www.citrix.com/English/ss/downloads/details.asp?downloadId=2323812&amp;productId=1689163" target="_blank" rel="external">http://www.citrix.com/English/ss/downloads/details.asp?downloadId=2323812&amp;productId=1689163</a></p>
+<li><p>Download the Citrix Receiver 12.1 .deb files for ‘Receiver for Linux 12.1 from <a href="http://www.citrix.com/English/ss/downloads/details.asp?downloadId=2323812&amp;productId=1689163" target="_blank" rel="external">here</a></p>
 </li>
-<li>Run hdxcheck.sh, which was installed with the Citrix Receiver:<br><pre class="lang:sh decode:true brush: bash; gutter: true">$ sudo /opt/Citrix/ICAClient/util/hdxcheck.sh</pre><br>Look back through the messages displayed to check that it found libjpeg.so, as it might fail to do so despite it being installed. If it failed to find it then you can edit /opt/Citrix/ICAClient/util/hdxcheck.sh and change<br>Lib=<tt>find <em>libjpeg.so</em><br></tt>to<br>Lib=<tt>find / -name <em>libjpeg.so</em><br>and run  hdxcheck.sh again.</tt></li>
-<li>Firefox will using ICA client to open .ica file, or you can manually choose /opt/Citrix/ICAClient/wfica.sh to open .ica file.<br>Reference:<br><a href="https://help.ubuntu.com/community/CitrixICAClientHowTo/" target="_blank" rel="external"> CitrixICAClientHowTo</a></li>
+<li><p>Run hdxcheck.sh, which was installed with the Citrix Receiver:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo /opt/Citrix/ICAClient/util/hdxcheck.sh</div></pre></td></tr></table></figure>
+<p>Look back through the messages displayed to check that it found libjpeg.so, as it might fail to do so despite it being installed. If it failed to find it then you can edit /opt/Citrix/ICAClient/util/hdxcheck.sh and change<br><code>Lib=find *libjpeg.so*</code> to <code>Lib=find / -name *libjpeg.so*</code><br>and run <code>hdxcheck.sh</code> again.</p>
+</li>
+<li>Firefox will using ICA client to open .ica file, or you can manually choose /opt/Citrix/ICAClient/wfica.sh to open .ica file.</li>
 </ol>
-<p>#</p>
+<p>Reference:<br><a href="https://help.ubuntu.com/community/CitrixICAClientHowTo/" target="_blank" rel="external"> CitrixICAClientHowTo</a></p>
 
   </div>
 </article>

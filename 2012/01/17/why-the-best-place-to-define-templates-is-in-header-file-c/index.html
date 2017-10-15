@@ -8,23 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="The C++ standard library: a tutorial and handbook:
 
-The only portable way of using templates at the moment is to implement them in header files by using inline functions.Why is that?
-Because when comp">
+The only portable way of using templates at the moment is to implement them in header files by using inline functions.
+
+Why is that?
+Because when co">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Why the best place to define templates is in header file? (c++)">
 <meta property="og:url" content="http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="The C++ standard library: a tutorial and handbook:
 
-The only portable way of using templates at the moment is to implement them in header files by using inline functions.Why is that?
-Because when comp">
-<meta property="og:updated_time" content="2017-03-05T02:29:07.000Z">
+The only portable way of using templates at the moment is to implement them in header files by using inline functions.
+
+Why is that?
+Because when co">
+<meta property="og:updated_time" content="2017-10-15T03:14:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Why the best place to define templates is in header file? (c++)">
 <meta name="twitter:description" content="The C++ standard library: a tutorial and handbook:
 
-The only portable way of using templates at the moment is to implement them in header files by using inline functions.Why is that?
-Because when comp">
+The only portable way of using templates at the moment is to implement them in header files by using inline functions.
+
+Why is that?
+Because when co">
     
     
         
@@ -158,8 +164,13 @@ Because when comp">
   <div class="content" itemprop="articleBody">
     <p><a href="http://books.google.com/books?id=n9VEG2Gp5pkC&amp;pg=PA10&amp;lpg=PA10&amp;dq=%22The%20only%20portable%20way%20of%20using%20templates%20at%20the%20moment%20is%20to%20implement%20them%20in%20header%20files%20by%20using%20inline%20functions.%22&amp;source=bl&amp;ots=Ref8pl8dPX&amp;sig=t4K5gvxtBblpcujNxodpwMfei8I&amp;hl=en&amp;ei=qkR6TvbiGojE0AHq4IzqAg&amp;sa=X&amp;oi=book_result&amp;ct=result&amp;resnum=3&amp;ved=0CC8Q6AEwAg#v=onepage&amp;q=%22The%20only%20portable%20way%20of%20using%20templates%20at%20the%20moment%20is%20to%20implement%20them%20in%20header%20files%20by%20using%20inline%20functions.%22&amp;f=false" target="_blank" rel="external">The C++ standard library: a tutorial and handbook</a>:</p>
 <blockquote>
-<p>The only portable way of using templates at the moment is to implement them in header files by using inline functions.<br>Why is that?</p>
-<div><br>Because when compiler instantiate the template, it need to access to the implementation of the methods. If it’s not together with it’s declaration, the compiler doesn’t know how to instantiate it. For example:</div><br><script class="brush:cpp" type="syntaxhighlighter"><br>template <typename T><br>class Foo<br>{<br>    T a;<br>}<br></typename></script><br><div><br>and when you declare:<br></div><br><script class="brush:cpp" type="syntaxhighlighter"><br>Foo<double> bar;<br></double></script><br><div><br>The compiler will generate code like this:<br></div><br><script class="brush:cpp" type="syntaxhighlighter"><br>class Foo<br>{<br>    double a;<br>}<br></script><br><div><br>There are other ways to achieve this, for example implement it in some .tpp files and include those files after their declaration, as long as compiler can access to the definition of that template.<br></div></blockquote>
+<p>The only portable way of using templates at the moment is to implement them in header files by using inline functions.</p>
+</blockquote>
+<p>Why is that?</p>
+<p>Because when compiler instantiate the template, it need to access to the implementation of the methods. If it’s not together with it’s declaration, the compiler doesn’t know how to instantiate it. For example:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">class</span> Foo</div><div class="line">&#123;</div><div class="line">    T a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>and when you declare:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo&lt;<span class="keyword">double</span>&gt; bar;</div></pre></td></tr></table></figure></p>
+<p>The compiler will generate code like this:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Foo</div><div class="line">&#123;</div><div class="line">    <span class="keyword">double</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>There are other ways to achieve this, for example implement it in some <code>.tpp</code> files and include those files after their declaration, as long as compiler can access to the definition of that template.</p>
 
   </div>
 </article>

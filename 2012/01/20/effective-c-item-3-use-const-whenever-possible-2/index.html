@@ -6,46 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="class Rational
-{
-public:
-    ....
-
-    const Rational operator*(const Rational&amp; lhs, const Rational&amp; rhs);
-
-    ....
-};
-If you miss the first &quot;const&quot;, one simple typo can make it wrong:
-Rational a, b,">
+    <meta name="description" content="123456789class Rational&amp;#123;public:    ....    const Rational operator*(const Rational&amp;amp; lhs, const Rational&amp;amp; rhs);    ....&amp;#125;;
+If you miss the first const, one simple typo can make it wron">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective C++ item 3: Use const whenever possible">
 <meta property="og:url" content="http://blog.ycshao.com/2012/01/20/effective-c-item-3-use-const-whenever-possible-2/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="class Rational
-{
-public:
-    ....
-
-    const Rational operator*(const Rational&amp; lhs, const Rational&amp; rhs);
-
-    ....
-};
-If you miss the first &quot;const&quot;, one simple typo can make it wrong:
-Rational a, b,">
-<meta property="og:updated_time" content="2017-03-05T02:29:07.000Z">
+<meta property="og:description" content="123456789class Rational&amp;#123;public:    ....    const Rational operator*(const Rational&amp;amp; lhs, const Rational&amp;amp; rhs);    ....&amp;#125;;
+If you miss the first const, one simple typo can make it wron">
+<meta property="og:updated_time" content="2017-10-15T03:01:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 3: Use const whenever possible">
-<meta name="twitter:description" content="class Rational
-{
-public:
-    ....
-
-    const Rational operator*(const Rational&amp; lhs, const Rational&amp; rhs);
-
-    ....
-};
-If you miss the first &quot;const&quot;, one simple typo can make it wrong:
-Rational a, b,">
+<meta name="twitter:description" content="123456789class Rational&amp;#123;public:    ....    const Rational operator*(const Rational&amp;amp; lhs, const Rational&amp;amp; rhs);    ....&amp;#125;;
+If you miss the first const, one simple typo can make it wron">
     
     
         
@@ -177,74 +150,15 @@ Rational a, b,">
   
 
   <div class="content" itemprop="articleBody">
-    <pre class="lang:c++ decode:true">class Rational
-{
-public:
-    ....
-
-    const Rational operator*(const Rational& lhs, const Rational& rhs);
-
-    ....
-};</pre>
-If you miss the first "const", one simple typo can make it wrong:
-<pre class="lang:c++ decode:true">Rational a, b, c;
-if (a * b = c)</pre>
-In the code above, I know you want to type "==" not "=". But compiler will happily generate code for you, and maybe you have to spend hours to debug. All you need to do is use const to prevent unwanted behavior.
-
-Let's see an example:
-<pre class="lang:c++ decode:true">class TextBlock
-{
-public:
-    ....
-
-    const char& operator[](std::size_t position) const
-    {
-        return m_text[position];
-    }
-    char& operator[](std::size_t position)
-    {
-        return m_text[position];
-    }
-private:
-    std::string m_text;
-};</pre>
-And then to illustrate how const member function works:
-<pre class="lang:c++ decode:true">TextBlock nonConstObj("Hello");
-const TextBlock constObj("Hello");
-std::cout << nonConstObj[0]; // call const member function
-std::cout << constObj[0]; // call const member function
-nonConstObj[0] = 'J'; // fine
-constObj[0] = 'J'; // error!</pre>
-
-<p>Typically corresponding const and non-const member functions are very similar, to avoid code duplication, we make non-const member function call const member function with certain cast:</p>
-<p><pre class="lang:c++ decode:true">class TextBlock<br>{<br>public:<br>    ….</pre></p>
-<pre><code>const char&amp; operator[](std::size_t position) const
-{
-    ...
-    return m_text[position];
-}
-char&amp; operator[](std::size_t position)
-{
-    return const_cast&lt;char&amp;&gt;(static_cast&lt;const TextBlock&amp;&gt;(*this)[position]);
-}
-</code></pre><p>private:<br>    std::string m_text;<br>};<br>As you can see, the code has two casts, not one. We want the non-const operator[] to call the const one, but if, inside the non-const operator[], we just call operator[], we’ll recursively call ourselves. So we cast *this from TextBlock&amp; to const TextBlock&amp;. The static_cast is to remove the const from the const operator[]’s return value.</p>
-<p>For example:</p>
-<p><pre class="lang:c++ decode:true crayon-selected">class TextBlock<br>{<br>public:<br>    ….</pre></p>
-<pre><code>const char&amp; operator[](std::size_t position) const
-{
-    ...
-    return m_text[position];
-}
-char&amp; operator[](std::size_t position)
-{
-    return const_cast&lt;char&amp;&gt;(static_cast&lt;const TextBlock&amp;&gt;(*this)[position]);
-}
-std::size_t length() const
-{
-    m_textLength = m_text.size();
-    return m_textLength;
-}
-</code></pre><p>private:<br>    std::string m_text;<br>    mutable std::size_t m_textLength;<br>};<br>Here, m_textLength can be changed in const member function.</p>
+    <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Rational</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ....</div><div class="line"></div><div class="line">    <span class="keyword">const</span> Rational <span class="keyword">operator</span>*(<span class="keyword">const</span> Rational&amp; lhs, <span class="keyword">const</span> Rational&amp; rhs);</div><div class="line"></div><div class="line">    ....</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>If you miss the first <code>const</code>, one simple typo can make it wrong:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Rational a, b, c;</div><div class="line"><span class="keyword">if</span> (a * b = c)</div></pre></td></tr></table></figure></p>
+<p>In the code above, I know you want to type <code>==</code> not <code>=</code>. But compiler will happily generate code for you, and maybe you have to spend hours to debug. All you need to do is use const to prevent unwanted behavior.</p>
+<p>Let’s see an example:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> TextBlock</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ....</div><div class="line"></div><div class="line">    <span class="keyword">const</span> <span class="keyword">char</span>&amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> position) <span class="keyword">const</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> m_text[position];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">char</span>&amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> position)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> m_text[position];</div><div class="line">    &#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> m_text;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>And then to illustrate how const member function works:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function">TextBlock <span class="title">nonConstObj</span><span class="params">(<span class="string">"Hello"</span>)</span></span>;</div><div class="line"><span class="function"><span class="keyword">const</span> TextBlock <span class="title">constObj</span><span class="params">(<span class="string">"Hello"</span>)</span></span>;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; nonConstObj[<span class="number">0</span>]; <span class="comment">// call const member function</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; constObj[<span class="number">0</span>]; <span class="comment">// call const member function</span></div><div class="line">nonConstObj[<span class="number">0</span>] = <span class="string">'J'</span>; <span class="comment">// fine</span></div><div class="line">constObj[<span class="number">0</span>] = <span class="string">'J'</span>; <span class="comment">// error!</span></div></pre></td></tr></table></figure></p>
+<p>Typically corresponding const and non-const member functions are very similar, to avoid code duplication, we make non-const member function call const member function with certain cast:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> TextBlock</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ....</div><div class="line"></div><div class="line">    <span class="keyword">const</span> <span class="keyword">char</span>&amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> position) <span class="keyword">const</span></div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">        <span class="keyword">return</span> m_text[position];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">char</span>&amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> position)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">const_cast</span>&lt;<span class="keyword">char</span>&amp;&gt;(<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> TextBlock&amp;&gt;(*<span class="keyword">this</span>)[position]);</div><div class="line">    &#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> m_text;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>As you can see, the code has two casts, not one. We want the non-const <code>operator[]</code> to call the const one, but if, inside the non-const <code>operator[]</code>, we just call <code>operator[]</code>, we’ll recursively call ourselves. So we cast <code>*this</code> from <code>TextBlock&amp;</code> to const <code>TextBlock&amp;</code>. The <code>static_cast</code> is to remove the const from the const <code>operator[]</code>‘s return value.</p>
+<p>For example:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> TextBlock</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ....</div><div class="line"></div><div class="line">    <span class="keyword">const</span> <span class="keyword">char</span>&amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> position) <span class="keyword">const</span></div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">        <span class="keyword">return</span> m_text[position];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">char</span>&amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> position)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">const_cast</span>&lt;<span class="keyword">char</span>&amp;&gt;(<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> TextBlock&amp;&gt;(*<span class="keyword">this</span>)[position]);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">std</span>::<span class="keyword">size_t</span> length() <span class="keyword">const</span></div><div class="line">    &#123;</div><div class="line">        m_textLength = m_text.size();</div><div class="line">        <span class="keyword">return</span> m_textLength;</div><div class="line">    &#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> m_text;</div><div class="line">    <span class="keyword">mutable</span> <span class="built_in">std</span>::<span class="keyword">size_t</span> m_textLength;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>Here, <code>m_textLength</code> can be changed in const member function.</p>
 <p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
 
   </div>

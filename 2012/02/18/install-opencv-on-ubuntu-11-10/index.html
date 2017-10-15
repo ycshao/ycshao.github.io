@@ -7,27 +7,18 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="If you don’t care about getting the cutting-edge version of opencv, you can do following:
-$ sudo apt-get install build-essential
-$ sudo apt-get install libavformat-dev
-$ sudo apt-get install ffmpeg
-$">
+  1234$ sudo apt-get install build-essential$ sudo apt-get install libavformat-dev$ sudo apt-get install ffmp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Install opencv on linux">
 <meta property="og:url" content="http://blog.ycshao.com/2012/02/18/install-opencv-on-ubuntu-11-10/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="If you don’t care about getting the cutting-edge version of opencv, you can do following:
-$ sudo apt-get install build-essential
-$ sudo apt-get install libavformat-dev
-$ sudo apt-get install ffmpeg
-$">
-<meta property="og:updated_time" content="2017-03-05T02:29:07.000Z">
+  1234$ sudo apt-get install build-essential$ sudo apt-get install libavformat-dev$ sudo apt-get install ffmp">
+<meta property="og:updated_time" content="2017-10-15T02:52:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Install opencv on linux">
 <meta name="twitter:description" content="If you don’t care about getting the cutting-edge version of opencv, you can do following:
-$ sudo apt-get install build-essential
-$ sudo apt-get install libavformat-dev
-$ sudo apt-get install ffmpeg
-$">
+  1234$ sudo apt-get install build-essential$ sudo apt-get install libavformat-dev$ sudo apt-get install ffmp">
     
     
         
@@ -120,7 +111,7 @@ $">
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#it-will-give-sth-like"><span class="toc-number">1.</span> <span class="toc-text">it will give sth like</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#I-where-you-have-installed-opencv-include-opencv"><span class="toc-number">2.</span> <span class="toc-text">-I/where/you/have/installed/opencv/include/opencv</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#it-will-give-sth-like-1"><span class="toc-number">3.</span> <span class="toc-text">it will give sth like</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#L-where-you-have-installed-opencv-lib-lcxcore-lcv-lhighgui-lcvaux"><span class="toc-number">4.</span> <span class="toc-text">-L/where/you/have/installed/opencv/lib -lcxcore -lcv -lhighgui -lcvaux</span></a></li></ol>
+      
     </div>
   </span>
 </div>
@@ -161,85 +152,33 @@ $">
   <div class="content" itemprop="articleBody">
     <ul>
 <li><p>If you don’t care about getting the cutting-edge version of opencv, you can do following:</p>
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ sudo apt-get install build-essential
-$ sudo apt-get install libavformat-dev
-$ sudo apt-get install ffmpeg
-$ sudo apt-get install libcv2.1 libcvaux2.1 libhighgui2.1 python-opencv opencv-doc libcv-dev libcvaux-dev libhighgui-dev</pre>
-To compile examples:
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ cd /usr/share/doc/opencv-doc/examples/c
-$ sudo su
-$ sh build_all.sh</pre>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install build-essential</div><div class="line">$ sudo apt-get install libavformat-dev</div><div class="line">$ sudo apt-get install ffmpeg</div><div class="line">$ sudo apt-get install libcv2.1 libcvaux2.1 libhighgui2.1 python-opencv opencv-doc libcv-dev libcvaux-dev libhighgui-dev</div></pre></td></tr></table></figure>
+<p>  To compile examples:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /usr/share/doc/opencv-doc/examples/c</div><div class="line">$ sudo su</div><div class="line">$ sh build_all.sh</div></pre></td></tr></table></figure>
 </li>
-<li><p>If you’re geek enough to pursue newest version of everything like me, you may have to spend a little more time on this:<br>To check out code from opencv svn repository: (you need to <a href="http://www.ycshao.com/2012/01/17/setup-svn-on-local-machine-environment/" target="_blank" rel="external">install svn</a> first)&nbsp;</p>
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ cd ~/<my_working_directory>
-$ svn co http://code.opencv.org/svn/opencv/trunk/opencv
-#or
-$ svn co http://code.opencv.org/svn/opencv/trunk/
-#to get opencv and opencv_extra (rather huge)</my_working_directory></pre>
-
-<p>To build libraries, you need to install cmake/cmake-gui first:</p>
+<li><p>If you’re geek enough to pursue newest version of everything like me, you may have to spend a little more time on this:<br>  To check out code from opencv svn repository: (you need to <a href="http://www.ycshao.com/2012/01/17/setup-svn-on-local-machine-environment/" target="_blank" rel="external">install svn</a> first)</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/&lt;my_working_directory&gt;</div><div class="line">$ svn co http://code.opencv.org/svn/opencv/trunk/opencv</div><div class="line"><span class="comment">#or</span></div><div class="line">$ svn co http://code.opencv.org/svn/opencv/trunk/</div><div class="line"><span class="comment">#to get opencv and opencv_extra (rather huge)</span></div></pre></td></tr></table></figure>
+<p>  To build libraries, you need to install cmake/cmake-gui first:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install cmake</div><div class="line"><span class="comment">#and</span></div><div class="line">$ sudo apt-get install cmake-gui</div></pre></td></tr></table></figure>
+<p>  Then we can build libraries using cmake:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/&lt;opencv <span class="built_in">source</span> dir&gt; <span class="comment">#where you just check out source codes</span></div><div class="line">$ mkdir release</div><div class="line">$ <span class="built_in">cd</span> release</div><div class="line">$ cmake-gui</div></pre></td></tr></table></figure>
+<p>  In <code>cmake-gui</code>,  check whatever you need(if you are not sure, you can just leave it default), click configure. After “Configuring done”, click generate. If you see “Generating done”, you are good to do next step:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/&lt;opencv <span class="built_in">source</span> dir&gt;/release</div><div class="line">$ make</div><div class="line">$ sudo make install</div></pre></td></tr></table></figure>
+<p>  Wait until it’s done.<br>  After you build opencv libraries, we’re ready to use them:<br>  Let’s begin with a hello world test program named helloWorld.cpp:</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cv.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;highgui.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span> **argv )</span></span></div><div class="line">&#123;</div><div class="line">  cvNamedWindow( <span class="string">"My Window"</span>, <span class="number">1</span> );</div><div class="line">  IplImage *img = cvCreateImage( cvSize( <span class="number">640</span>, <span class="number">480</span> ), IPL_DEPTH_8U, <span class="number">1</span> );</div><div class="line">  CvFont font;</div><div class="line">  <span class="keyword">double</span> hScale = <span class="number">1.0</span>;</div><div class="line">  <span class="keyword">double</span> vScale = <span class="number">1.0</span>;</div><div class="line">  <span class="keyword">int</span> lineWidth = <span class="number">1</span>;</div><div class="line">  cvInitFont( &amp;font, CV_FONT_HERSHEY_SIMPLEX | CV_FONT_ITALIC,</div><div class="line">              hScale, vScale, <span class="number">0</span>, lineWidth );</div><div class="line">  cvPutText( img, <span class="string">"Hello World!"</span>, cvPoint( <span class="number">200</span>, <span class="number">400</span> ), &amp;font,</div><div class="line">            cvScalar( <span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span> ) );</div><div class="line">  cvShowImage( <span class="string">"My Window"</span>, img );</div><div class="line">  cvWaitKey();</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  Then we create a CMakeLists.txt in the same directory as follows:</p>
+  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">cmake_minimum_required</span> (VERSION <span class="number">2.6</span>)</div><div class="line"><span class="keyword">project</span> (Test)</div><div class="line"><span class="keyword">FIND_PACKAGE</span>( OpenCV REQUIRED )</div><div class="line"><span class="keyword">ADD_EXECUTABLE</span>( helloWorld helloWorld.cpp )</div><div class="line"><span class="keyword">TARGET_LINK_LIBRARIES</span>( helloWorld <span class="variable">$&#123;OpenCV_LIBS&#125;</span> )</div></pre></td></tr></table></figure>
+<p>  Then use cmake to generate makefile and use make to generate executable:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ cmake .</div><div class="line"><span class="comment"># you will see</span></div><div class="line"><span class="comment"># Configuring done</span></div><div class="line"><span class="comment"># Generating done</span></div><div class="line">$ make</div><div class="line"><span class="comment">#you will see</span></div><div class="line"><span class="comment">#[100%] Building CXX object CMakeFiles/helloWorld.dir/helloWorld.cpp.o</span></div><div class="line"><span class="comment">#[100%] Built target helloWorld</span></div></pre></td></tr></table></figure>
+<p>  And you are done! Run it and you’ll see a hello world window.</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./helloWorld</div></pre></td></tr></table></figure>
+</li>
+<li><p>If you want to use opencv libraries in Eclipse, right click your project and select <code>properties</code>. In <code>c/c++ Build</code> -&gt; <code>Settings</code> -&gt; <code>Tool Settings</code> -&gt; <code>GCC C++ Compiler</code> -&gt; <code>Includes</code>, add your opencv include dir into Include paths (-I). Then in  <code>GCC C++ Linker</code> -&gt; <code>Libraries</code>, add libraries(such as <code>opencv_core</code>, <code>opencv_highgui</code>, your library names may var) to Libraries (-l) and your libraries dir to Library search path (-L).</p>
+<p>BTW, you can use these commands to locate your include files and libraries:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ pkg-config --cflags opencv</div><div class="line"><span class="comment"># it will give sth like</span></div><div class="line"><span class="comment"># -I/where/you/have/installed/opencv/include/opencv</span></div><div class="line">$ pkg-config --libs opencv</div><div class="line"><span class="comment"># it will give sth like</span></div><div class="line"><span class="comment"># -L/where/you/have/installed/opencv/lib -lcxcore -lcv -lhighgui -lcvaux</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ sudo apt-get install cmake
-#and
-$ sudo apt-get install cmake-gui</pre>
-
-<p>Then we can build libraries using cmake:</p>
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ cd ~/<opencv source="" dir=""> #where you just check out source codes
-$ mkdir release
-$ cd release
-$ cmake-gui</opencv></pre>
-
-<p>In cmake-gui,  check whatever you need(if you are not sure, you can just leave it default), click configure. After “Configuring done”, click generate. If you see “Generating done”, you are good to do next step:</p>
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ cd ~/<opencv source="" dir="">/release
-$ make
-$ sudo make install</opencv></pre>
-
-<p>Wait until it’s done.<br>After you build opencv libraries, we’re ready to use them:<br>Let’s begin with a hello world test program named helloWorld.cpp:</p>
-<pre class="lang:c++ decode:true brush: cpp; gutter: true">#include <cv.h>
-#include <highgui.h>
-int main ( int argc, char **argv )
-{
-  cvNamedWindow( "My Window", 1 );
-  IplImage *img = cvCreateImage( cvSize( 640, 480 ), IPL_DEPTH_8U, 1 );
-  CvFont font;
-  double hScale = 1.0;
-  double vScale = 1.0;
-  int lineWidth = 1;
-  cvInitFont( &font, CV_FONT_HERSHEY_SIMPLEX | CV_FONT_ITALIC,
-              hScale, vScale, 0, lineWidth );
-  cvPutText( img, "Hello World!", cvPoint( 200, 400 ), &font,
-             cvScalar( 255, 255, 0 ) );
-  cvShowImage( "My Window", img );
-  cvWaitKey();
-  return 0;
-}</highgui.h></cv.h></pre>
-
-<p>Then we create a CMakeLists.txt in the same directory as follows:</p>
-<pre class="lang:sh decode:true brush: text; gutter: true">cmake_minimum_required (VERSION 2.6)
-project (Test)
-FIND_PACKAGE( OpenCV REQUIRED )
-ADD_EXECUTABLE( helloWorld helloWorld.cpp )
-TARGET_LINK_LIBRARIES( helloWorld ${OpenCV_LIBS} )</pre>
-
-<p>Then use cmake to generate makefile and use make to generate executable:</p>
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ cmake .
-# you will see
-# Configuring done
-# Generating done
-$ make
-#you will see
-#[100%] Building CXX object CMakeFiles/helloWorld.dir/helloWorld.cpp.o
-#[100%] Built target helloWorld</pre>
-
-<p>And you are done! Run it and you’ll see a hello world window.</p>
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ ./helloWorld</pre>
-
-<ul>
-<li>If you want to use opencv libraries in Eclipse, right click your project and select <em>properties</em>. In _c/c++ Build -&gt; Settings -&gt; Tool Settings -&gt; GCC C++ Compiler -&gt; Includes, _add your opencv include dir into _Include paths (-I). _Then in  <em>GCC C++ Linker -&gt; Libraries</em>, add libraries(such as opencv_core, opencv_highgui, your library names may var) to <em>Libraries (-l)</em> and your libraries dir to _Library search path (-L).<br>_BWT, you can use these commands to locate your include files and libraries:&nbsp;<br><pre class="lang:sh decode:true brush: bash; gutter: true crayon-selected">$ pkg-config –cflags opencv<h1 id="it-will-give-sth-like"><a href="#it-will-give-sth-like" class="headerlink" title="it will give sth like"></a>it will give sth like</h1><h1 id="I-where-you-have-installed-opencv-include-opencv"><a href="#I-where-you-have-installed-opencv-include-opencv" class="headerlink" title="-I/where/you/have/installed/opencv/include/opencv"></a>-I/where/you/have/installed/opencv/include/opencv</h1>$ pkg-config –libs opencv<h1 id="it-will-give-sth-like-1"><a href="#it-will-give-sth-like-1" class="headerlink" title="it will give sth like"></a>it will give sth like</h1><h1 id="L-where-you-have-installed-opencv-lib-lcxcore-lcv-lhighgui-lcvaux"><a href="#L-where-you-have-installed-opencv-lib-lcxcore-lcv-lhighgui-lcvaux" class="headerlink" title="-L/where/you/have/installed/opencv/lib -lcxcore -lcv -lhighgui -lcvaux"></a>-L/where/you/have/installed/opencv/lib -lcxcore -lcv -lhighgui -lcvaux</h1></pre>Reference:</li>
-</ul>
-<p><a href="https://help.ubuntu.com/community/OpenCV" target="_blank" rel="external">OpenCV - Ubuntu Doc</a></p>
-<p><a href="http://opencv.willowgarage.com/wiki/InstallGuide" target="_blank" rel="external">OpenCV install guide</a></p>
+<p>Reference:<br><a href="https://help.ubuntu.com/community/OpenCV" target="_blank" rel="external">OpenCV - Ubuntu Doc</a><br><a href="http://opencv.willowgarage.com/wiki/InstallGuide" target="_blank" rel="external">OpenCV install guide</a></p>
 
   </div>
 </article>
@@ -270,7 +209,7 @@ $ make
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#it-will-give-sth-like"><span class="toc-number">1.</span> <span class="toc-text">it will give sth like</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#I-where-you-have-installed-opencv-include-opencv"><span class="toc-number">2.</span> <span class="toc-text">-I/where/you/have/installed/opencv/include/opencv</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#it-will-give-sth-like-1"><span class="toc-number">3.</span> <span class="toc-text">it will give sth like</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#L-where-you-have-installed-opencv-lib-lcxcore-lcv-lhighgui-lcvaux"><span class="toc-number">4.</span> <span class="toc-text">-L/where/you/have/installed/opencv/lib -lcxcore -lcv -lhighgui -lcvaux</span></a></li></ol>
+      
     </div>
 
     <div id="share-footer" style="display: none">

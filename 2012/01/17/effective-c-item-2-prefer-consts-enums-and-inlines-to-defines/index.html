@@ -6,37 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Here is an example for enum hack:
-class Foo
-{
-private:
-    enum{BAR = 100};
-    ....
-};
-To limit the scope of a constant to a class, we have to make it a member. And to ensure there&apos;s at most one copy">
+    <meta name="description" content="Here is an example for enum hack:123456class Foo&amp;#123;private:    enum&amp;#123;BAR = 100&amp;#125;;    ....&amp;#125;;
+To limit the scope of a constant to a class, we have to make it a member. And to ensure ther">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective C++ item 2: Prefer consts, enums, and inlines to #defines.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/01/17/effective-c-item-2-prefer-consts-enums-and-inlines-to-defines/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="Here is an example for enum hack:
-class Foo
-{
-private:
-    enum{BAR = 100};
-    ....
-};
-To limit the scope of a constant to a class, we have to make it a member. And to ensure there&apos;s at most one copy">
-<meta property="og:updated_time" content="2017-03-05T02:25:29.000Z">
+<meta property="og:description" content="Here is an example for enum hack:123456class Foo&amp;#123;private:    enum&amp;#123;BAR = 100&amp;#125;;    ....&amp;#125;;
+To limit the scope of a constant to a class, we have to make it a member. And to ensure ther">
+<meta property="og:updated_time" content="2017-10-15T03:04:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 2: Prefer consts, enums, and inlines to #defines.">
-<meta name="twitter:description" content="Here is an example for enum hack:
-class Foo
-{
-private:
-    enum{BAR = 100};
-    ....
-};
-To limit the scope of a constant to a class, we have to make it a member. And to ensure there&apos;s at most one copy">
+<meta name="twitter:description" content="Here is an example for enum hack:123456class Foo&amp;#123;private:    enum&amp;#123;BAR = 100&amp;#125;;    ....&amp;#125;;
+To limit the scope of a constant to a class, we have to make it a member. And to ensure ther">
     
     
         
@@ -168,35 +150,15 @@ To limit the scope of a constant to a class, we have to make it a member. And to
   
 
   <div class="content" itemprop="articleBody">
-    <p>Here is an example for enum hack:</p>
-<pre class="lang:c++ decode:true">class Foo
-{
-private:
-    enum{BAR = 100};
-    ....
-};</pre>
-To limit the scope of a constant to a class, we have to make it a member. And to ensure there's at most one copy of the constant, we must make it a _static_ member:
-<pre class="lang:c++ decode:true">class Foo
-{
-private:
-    static const double RATIO = 1.5;
-    ....
-};</pre>
-Above is a <span class="Apple-style-span" style="color: #f1c232;">declaration</span> for RATIO, not a definition. C++ requires that we provide a definition for anything we use, but class-specific constants that are static and of integral type(e.g., integers, doubles,  bools) are an exception. As long as we don't take their address, we can declare them and use them without providing a definition. If you do want to take the address, then provide a definition like this:
-<pre class="lang:c++ decode:true">const double Foo::RATIO;</pre>
-We put this in a .cpp file not a .h file. Because the initial value of class constants is provided where the constant is declared, no initial value is permitted at the point of definition.
-
-<pre class="lang:c++ decode:true">class Foo
-{
-private:
-    static const std::string BAR;
-    ....
-};</pre>
-
-<p><pre class="lang:c++ decode:true">const std::string Foo::BAR = “bar”;</pre><br>&nbsp;</p>
-<p>So if you define:</p>
-<p><pre class="lang:c++ decode:true">#define CALL_WITH_MAX(a,b) f((a) &gt; (b) ? a : b)</pre><br>and you will get unexpected behavior:</p>
-<p><pre class="lang:c++ decode:true crayon-selected">int a = 5, b = 0;<br>CALL_WITH_MAX(++a, b); //a is incremented twice<br>CALL_WITH_MAX(++a, b + 10); //a is incremented once</pre><br>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
+    <p>Here is an example for enum hack:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Foo</div><div class="line">&#123;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="keyword">enum</span>&#123;BAR = <span class="number">100</span>&#125;;</div><div class="line">    ....</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>To limit the scope of a constant to a class, we have to make it a member. And to ensure there’s at most one copy of the constant, we must make it a <code>static</code> member:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Foo</div><div class="line">&#123;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">double</span> RATIO = <span class="number">1.5</span>;</div><div class="line">    ....</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>Above is a declaration for <code>RATIO</code>, not a definition. C++ requires that we provide a definition for anything we use, but class-specific constants that are static and of integral type(e.g., integers, doubles,  bools) are an exception. As long as we don’t take their address, we can declare them and use them without providing a definition. If you do want to take the address, then provide a definition like this:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">double</span> Foo::RATIO;</div></pre></td></tr></table></figure></p>
+<p>We put this in <code>a.cpp</code> file not <code>a.h</code> file. Because the initial value of class constants is provided where the constant is declared, no initial value is permitted at the point of definition.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Foo</div><div class="line">&#123;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> BAR;</div><div class="line">    ....</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> Foo::BAR = <span class="string">"bar"</span>;</div></pre></td></tr></table></figure>
+<p>So if you define:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> CALL_WITH_MAX(a,b) f((a) &gt; (b) ? a : b)</span></div></pre></td></tr></table></figure></p>
+<p>and you will get unexpected behavior:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a = <span class="number">5</span>, b = <span class="number">0</span>;</div><div class="line">CALL_WITH_MAX(++a, b); <span class="comment">//a is incremented twice</span></div><div class="line">CALL_WITH_MAX(++a, b + <span class="number">10</span>); <span class="comment">//a is incremented once</span></div></pre></td></tr></table></figure></p>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
 
   </div>
 </article>

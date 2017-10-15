@@ -6,24 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Single Responsibility Principle.
-Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is a">
+    <meta name="description" content="Single Responsibility Principle.Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is an">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SOLID principles of Object Oriented Design.">
 <meta property="og:url" content="http://blog.ycshao.com/2013/01/10/solid-principles-of-object-oriented-design/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="Single Responsibility Principle.
-Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is a">
+<meta property="og:description" content="Single Responsibility Principle.Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is an">
 <meta property="og:image" content="http://blog.ycshao.com/./srp.jpg">
 <meta property="og:image" content="http://blog.ycshao.com/./ocp.jpg">
 <meta property="og:image" content="http://blog.ycshao.com/./lsp.jpg">
 <meta property="og:image" content="http://blog.ycshao.com/./isp.jpg">
 <meta property="og:image" content="http://blog.ycshao.com/./dip.jpg">
-<meta property="og:updated_time" content="2017-03-02T02:12:32.000Z">
+<meta property="og:updated_time" content="2017-10-15T02:09:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SOLID principles of Object Oriented Design.">
-<meta name="twitter:description" content="Single Responsibility Principle.
-Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is a">
+<meta name="twitter:description" content="Single Responsibility Principle.Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is an">
 <meta name="twitter:image" content="http://blog.ycshao.com/./srp.jpg">
     
     
@@ -157,33 +154,13 @@ Because each responsibility of a class is an axis of change and if a class has m
 
   <div class="content" itemprop="articleBody">
     <ol>
-<li><strong><span style="color: #00ccff;">Single Responsibility Principle.</span>
-</strong>Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is an idea of breaking things into molecular parts so that it becomes reusable and can be managed centrally. <strong>
-</strong>&nbsp;</li>
+<li>Single Responsibility Principle.<br>Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is an idea of breaking things into molecular parts so that it becomes reusable and can be managed centrally.<br><img src="./srp.jpg" alt="" title="Single Responsibility Principle"></li>
+<li>Open Closed Principle.<br>Abstraction is the key of OCP. If you do abstraction well, most likely, it would require no change when the functionality is to be extended. For example, if a client depends on a concrete server, and the server need to be changed, it is highly possible you need to change the client code too. But with OCP design, if client depends on an abstract server, even if you change the concrete server, client code don’t need to be changed.<br><img src="./ocp.jpg" alt="" title="Open closed Principle"></li>
+<li>Liskov Substitution Principle.<br>LSP means functions that use references to base classes must be able to use objects of derived classes without knowing it. This is to help designer to enforce is-a relationship when using inheritance.<br><img src="./lsp.jpg" alt="" title="Liskov Substitution Principle"></li>
+<li>Interface Segregation Principle.<br>Interfaces should be easy to use, which means client should not be forced to depend on interfaces they don’t use. In addition, client should be able to use your interface intuitively.<br><img src="./isp.jpg" alt="" title="Interface Segregation Principle"></li>
+<li>Dependency Inversion principle.<br>High level modules should not depend upon low level modules. Rather, both should depend upon abstractions.<br><img src="./dip.jpg" alt="" title="Dependency Inversion principle"></li>
 </ol>
-<p><img src="./srp.jpg" alt="" title="Single Responsibility Principle"></p>
-<ol>
-<li><span style="color: #00ccff;"><strong>Open Closed Principle.
-</strong></span>Abstraction is the key of OCP. If you do abstraction well, most likely, it would require no change when the functionality is to be extended. For example, if a client depends on a concrete server, and the server need to be changed, it is highly possible you need to change the client code too. But with OCP design, if client depends on an abstract server, even if you change the concrete server, client code don’t need to be changed.</li>
-</ol>
-<p><img src="./ocp.jpg" alt="" title="Open closed Principle"></p>
-<ol>
-<li><strong><span style="color: #00ccff;">Liskov Substitution Principle.</span>
-</strong>LSP means functions that use references to base classes must be able to use objects of derived classes without knowing it. This is to help designer to enforce is-a relationship when using inheritance.</li>
-</ol>
-<p><img src="./lsp.jpg" alt="" title="Liskov Substitution Principle"></p>
-<ol>
-<li><span style="color: #00ccff;"><strong>Interface Segregation Principle.
-</strong></span>Interfaces should be easy to use, which means client should not be forced to depend on interfaces they don’t use. In addition, client should be able to use your interface intuitively.</li>
-</ol>
-<p><img src="./isp.jpg" alt="" title="Interface Segregation Principle"></p>
-<ol>
-<li><span style="color: #00ccff;"><strong>Dependency Inversion principle.
-</strong></span>High level modules should not depend upon low level modules. Rather, both should depend upon abstractions.</li>
-</ol>
-<p><img src="./dip.jpg" alt="" title="Dependency Inversion principle"><br>Reference:</p>
-<p><a href="http://www.codeproject.com/Articles/93369/How-I-explained-OOD-to-my-wife" target="_blank" rel="external">How I explained OOD to my wife.</a></p>
-<p>&nbsp;</p>
+<p>Reference:<br><a href="http://www.codeproject.com/Articles/93369/How-I-explained-OOD-to-my-wife" target="_blank" rel="external">How I explained OOD to my wife.</a></p>
 
   </div>
 </article>

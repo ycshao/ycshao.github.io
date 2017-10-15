@@ -14,7 +14,7 @@ There are two critical aspe">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="Always use object to manage resources! If you delete a pointer or release a handler manually by yourself, there is a great chance you will make mistake or forget something.
 There are two critical aspe">
-<meta property="og:updated_time" content="2017-02-24T04:18:05.000Z">
+<meta property="og:updated_time" content="2017-10-15T02:31:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 13: Use objects to manage resources.">
 <meta name="twitter:description" content="Always use object to manage resources! If you delete a pointer or release a handler manually by yourself, there is a great chance you will make mistake or forget something.
@@ -154,14 +154,15 @@ There are two critical aspe">
 <p>There are two critical aspects of using objects to manage resources:</p>
 <ol>
 <li><strong>Resources are acquired and immediately turned over to resource-managing objects.</strong> The idea of using objects to manage resources is often called <em>Resource Acquisition Is Initialization</em> (RAII).</li>
-<li><strong>Resource-managing objects use their destructors to ensure that resources are released.</strong><br>You can use std::auto_ptrs or std::tr1::shared_ptr to manage heap memory.</li>
+<li><strong>Resource-managing objects use their destructors to ensure that resources are released.</strong><br>You can use <code>std::auto_ptrs</code> or <code>std::tr1::shared_ptr</code> to manage heap memory.</li>
 </ol>
 <p>There are several points you should keep in mind when you using those two smart pointers:</p>
 <ol>
 <li>std::auto_ptr assumes sole ownership which means copying one to another will set the previous one to null!</li>
-<li>STL containers require that their contents exhibit “normal” copying behavior, so containers of std::auto_ptr aren’t allowed.</li>
-<li>Both std::auto_ptr and std::tr1::shared_ptr use delete in their destructors, not delete[ ]. That means that using them with dynamically allocated arrays is a bad idea, though, regrettably, one that will compile.<br>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></li>
+<li>STL containers require that their contents exhibit “normal” copying behavior, so containers of <code>std::auto_ptr</code>aren’t allowed.</li>
+<li>Both <code>std::auto_ptr</code> and <code>std::tr1::shared_ptr</code> use delete in their destructors, not <code>delete[ ]</code>. That means that using them with dynamically allocated arrays is a bad idea, though, regrettably, one that will compile.</li>
 </ol>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
 
   </div>
 </article>

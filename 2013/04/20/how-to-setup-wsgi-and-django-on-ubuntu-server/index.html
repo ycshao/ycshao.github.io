@@ -6,25 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="It actually very easy to setup wsgi and Django.
-# Install Django first if not installed$ sudo apt-get install pip$ sudo pip install Django
-Install wsgi$ sudo apt-get install libapache2-mod-wsgi
-Edit v">
+    <meta name="description" content="It actually very easy to setup wsgi and Django.123456789101112131415161718192021222324# Install Django first if not installed$ sudo apt-get install pip$ sudo pip install Django# Install wsgi$ sudo apt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to setup wsgi and Django on Ubuntu server.">
 <meta property="og:url" content="http://blog.ycshao.com/2013/04/20/how-to-setup-wsgi-and-django-on-ubuntu-server/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="It actually very easy to setup wsgi and Django.
-# Install Django first if not installed$ sudo apt-get install pip$ sudo pip install Django
-Install wsgi$ sudo apt-get install libapache2-mod-wsgi
-Edit v">
-<meta property="og:updated_time" content="2017-03-05T02:25:29.000Z">
+<meta property="og:description" content="It actually very easy to setup wsgi and Django.123456789101112131415161718192021222324# Install Django first if not installed$ sudo apt-get install pip$ sudo pip install Django# Install wsgi$ sudo apt">
+<meta property="og:updated_time" content="2017-10-15T02:00:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to setup wsgi and Django on Ubuntu server.">
-<meta name="twitter:description" content="It actually very easy to setup wsgi and Django.
-# Install Django first if not installed$ sudo apt-get install pip$ sudo pip install Django
-Install wsgi$ sudo apt-get install libapache2-mod-wsgi
-Edit v">
+<meta name="twitter:description" content="It actually very easy to setup wsgi and Django.123456789101112131415161718192021222324# Install Django first if not installed$ sudo apt-get install pip$ sudo pip install Django# Install wsgi$ sudo apt">
     
     
         
@@ -117,7 +108,7 @@ Edit v">
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Install-wsgi"><span class="toc-number">1.</span> <span class="toc-text">Install wsgi</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Edit-virtual-host-config-file-as-follows"><span class="toc-number">2.</span> <span class="toc-text">Edit virtual host config file as follows:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Restart-apache"><span class="toc-number">3.</span> <span class="toc-text">Restart apache</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Don’t-forget-to-assign-owner-of-the-directory-to-www-data"><span class="toc-number">4.</span> <span class="toc-text">Don’t forget to assign owner of the directory to www-data</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Done"><span class="toc-number">5.</span> <span class="toc-text">Done!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Apply-WSGI-middleware-here"><span class="toc-number">6.</span> <span class="toc-text">Apply WSGI middleware here.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#from-helloworld-wsgi-import-HelloWorldApplication"><span class="toc-number">7.</span> <span class="toc-text">from helloworld.wsgi import HelloWorldApplication</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#application-HelloWorldApplication-application"><span class="toc-number">8.</span> <span class="toc-text">application = HelloWorldApplication(application)</span></a></li></ol>
+      
     </div>
   </span>
 </div>
@@ -156,23 +147,9 @@ Edit v">
   
 
   <div class="content" itemprop="articleBody">
-    <p>It actually very easy to setup wsgi and Django.</p>
-<p><pre class="lang:sh mark:13 decode:true"># Install Django first if not installed<br>$ sudo apt-get install pip<br>$ sudo pip install Django</pre></p>
-<h1 id="Install-wsgi"><a href="#Install-wsgi" class="headerlink" title="Install wsgi"></a>Install wsgi</h1><p>$ sudo apt-get install libapache2-mod-wsgi</p>
-<h1 id="Edit-virtual-host-config-file-as-follows"><a href="#Edit-virtual-host-config-file-as-follows" class="headerlink" title="Edit virtual host config file as follows:"></a>Edit virtual host config file as follows:</h1><p><virtualhost *:80=""><br>    ServerAdmin ycshao0402@gmail.com<br>    ServerName image.ycshao.com<br>    DocumentRoot /var/www/image<br>    WSGIScriptAlias / “/var/www/image/wsgi.py”</virtualhost></p>
-<pre><code>...
-</code></pre><virtualhost>
+    <p>It actually very easy to setup wsgi and Django.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Install Django first if not installed</span></div><div class="line">$ sudo apt-get install pip</div><div class="line">$ sudo pip install Django</div><div class="line"></div><div class="line"><span class="comment"># Install wsgi</span></div><div class="line">$ sudo apt-get install libapache2-mod-wsgi</div><div class="line"></div><div class="line"><span class="comment"># Edit virtual host config file as follows:</span></div><div class="line">&lt;VirtualHost *:80&gt;</div><div class="line">    ServerAdmin ycshao0402@gmail.com</div><div class="line">    ServerName image.ycshao.com</div><div class="line">    DocumentRoot /var/www/image</div><div class="line">    WSGIScriptAlias / <span class="string">"/var/www/image/wsgi.py"</span></div><div class="line"></div><div class="line">    ...</div><div class="line">&lt;virtualHost&gt;</div><div class="line"></div><div class="line"><span class="comment"># Restart apache</span></div><div class="line">$ service apache2 restart</div><div class="line"></div><div class="line"><span class="comment"># Don't forget to assign owner of the directory to www-data</span></div><div class="line">$ chown -R www-data /dir/to/your/site</div><div class="line"></div><div class="line"><span class="comment"># Done!</span></div></pre></td></tr></table></figure></p>
+<p>And wsgi.py will look like this:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> os.path</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">sys.path.append(os.path.join(os.path.dirname(__file__)))</div><div class="line"></div><div class="line">os.environ[<span class="string">'DJANGO_SETTINGS_MODULE'</span>] = <span class="string">'img_site.settings'</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> django.core.wsgi <span class="keyword">import</span> get_wsgi_application</div><div class="line">application = get_wsgi_application()</div><div class="line"><span class="comment">#application = django.core.handlers.wsgi.WSGIHandler()</span></div><div class="line"><span class="comment"># Apply WSGI middleware here.</span></div><div class="line"><span class="comment"># from helloworld.wsgi import HelloWorldApplication</span></div><div class="line"><span class="comment"># application = HelloWorldApplication(application)</span></div></pre></td></tr></table></figure></p>
 
-<h1 id="Restart-apache"><a href="#Restart-apache" class="headerlink" title="Restart apache"></a>Restart apache</h1><p>$ service apache2 restart</p>
-<h1 id="Don’t-forget-to-assign-owner-of-the-directory-to-www-data"><a href="#Don’t-forget-to-assign-owner-of-the-directory-to-www-data" class="headerlink" title="Don’t forget to assign owner of the directory to www-data"></a>Don’t forget to assign owner of the directory to www-data</h1><p>$ chown -R www-data /dir/to/your/site</p>
-<h1 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h1><p>And wsgi.py will look like this:</p>
-<p><pre class="lang:apache mark:7 decode:true crayon-selected">import os<br>import os.path<br>import sys</pre></p>
-<p>sys.path.append(os.path.join(os.path.dirname(<strong>file</strong>)))</p>
-<p>os.environ[‘DJANGO_SETTINGS_MODULE’] = ‘img_site.settings’</p>
-<p>from django.core.wsgi import get_wsgi_application<br>application = get_wsgi_application()</p>
-<p>#application = django.core.handlers.wsgi.WSGIHandler()</p>
-<h1 id="Apply-WSGI-middleware-here"><a href="#Apply-WSGI-middleware-here" class="headerlink" title="Apply WSGI middleware here."></a>Apply WSGI middleware here.</h1><h1 id="from-helloworld-wsgi-import-HelloWorldApplication"><a href="#from-helloworld-wsgi-import-HelloWorldApplication" class="headerlink" title="from helloworld.wsgi import HelloWorldApplication"></a>from helloworld.wsgi import HelloWorldApplication</h1><h1 id="application-HelloWorldApplication-application"><a href="#application-HelloWorldApplication-application" class="headerlink" title="application = HelloWorldApplication(application)"></a>application = HelloWorldApplication(application)</h1><p>&nbsp;</p>
-</virtualhost>
   </div>
 </article>
 
@@ -202,7 +179,7 @@ Edit v">
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Install-wsgi"><span class="toc-number">1.</span> <span class="toc-text">Install wsgi</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Edit-virtual-host-config-file-as-follows"><span class="toc-number">2.</span> <span class="toc-text">Edit virtual host config file as follows:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Restart-apache"><span class="toc-number">3.</span> <span class="toc-text">Restart apache</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Don’t-forget-to-assign-owner-of-the-directory-to-www-data"><span class="toc-number">4.</span> <span class="toc-text">Don’t forget to assign owner of the directory to www-data</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Done"><span class="toc-number">5.</span> <span class="toc-text">Done!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Apply-WSGI-middleware-here"><span class="toc-number">6.</span> <span class="toc-text">Apply WSGI middleware here.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#from-helloworld-wsgi-import-HelloWorldApplication"><span class="toc-number">7.</span> <span class="toc-text">from helloworld.wsgi import HelloWorldApplication</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#application-HelloWorldApplication-application"><span class="toc-number">8.</span> <span class="toc-text">application = HelloWorldApplication(application)</span></a></li></ol>
+      
     </div>
 
     <div id="share-footer" style="display: none">

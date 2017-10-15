@@ -8,23 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Last week I tried to use git and here are some tips to set up git environment and a beginner tutorial.
 
-Basics
-The key concept of Git is branches. A branch is a separate code line with its own history">
+BasicsThe key concept of Git is branches. A branch is a separate code line with its own history.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Setup git repository and start using git.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/03/17/setup-git-repository-and-start-using-git/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="Last week I tried to use git and here are some tips to set up git environment and a beginner tutorial.
 
-Basics
-The key concept of Git is branches. A branch is a separate code line with its own history">
-<meta property="og:updated_time" content="2017-02-24T04:17:25.000Z">
+BasicsThe key concept of Git is branches. A branch is a separate code line with its own history.">
+<meta property="og:updated_time" content="2017-10-15T02:44:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Setup git repository and start using git.">
 <meta name="twitter:description" content="Last week I tried to use git and here are some tips to set up git environment and a beginner tutorial.
 
-Basics
-The key concept of Git is branches. A branch is a separate code line with its own history">
+BasicsThe key concept of Git is branches. A branch is a separate code line with its own history.">
     
     
         
@@ -117,7 +114,7 @@ The key concept of Git is branches. A branch is a separate code line with its ow
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Packages"><span class="toc-number">1.</span> <span class="toc-text">Packages</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#it’s-better-to-unpack-these-files-and-commit-the-raw-source"><span class="toc-number">2.</span> <span class="toc-text">it’s better to unpack these files and commit the raw source</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-has-its-own-built-in-compression-methods"><span class="toc-number">3.</span> <span class="toc-text">git has its own built in compression methods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Logs-and-databases"><span class="toc-number">4.</span> <span class="toc-text">Logs and databases</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OS-generated-files"><span class="toc-number">5.</span> <span class="toc-text">OS generated files</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Add-all-files-and-directories-to-stage"><span class="toc-number">6.</span> <span class="toc-text">Add all (files and directories) to stage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Make-a-commit-of-your-file-to-the-local-repository"><span class="toc-number">7.</span> <span class="toc-text">Make a commit of your file to the local repository</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Show-the-log-file"><span class="toc-number">8.</span> <span class="toc-text">Show the log file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#add-deleted-files-to-the-stage"><span class="toc-number">9.</span> <span class="toc-text">add deleted files to the stage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#commit-changes"><span class="toc-number">10.</span> <span class="toc-text">commit changes</span></a></li></ol>
+      
     </div>
   </span>
 </div>
@@ -158,35 +155,36 @@ The key concept of Git is branches. A branch is a separate code line with its ow
   <div class="content" itemprop="articleBody">
     <p>Last week I tried to use git and here are some tips to set up git environment and a beginner tutorial.</p>
 <ol>
-<li><strong>Basics
-</strong>The key concept of Git is branches. A branch is a separate code line with its own history. You can create a new branch from an existing one and change the code independently from other branches. One of the branches is the default (normally named master). The user selects a branch and works in this selected branch, which is called the “working copy”. Selecting a branch is called “checkout a branch”.</li>
-<li><p><strong>Installation
-</strong>&nbsp;</p>
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ sudo apt-get install git-core</pre>
+<li><strong>Basics</strong><br>The key concept of Git is branches. A branch is a separate code line with its own history. You can create a new branch from an existing one and change the code independently from other branches. One of the branches is the default (normally named master). The user selects a branch and works in this selected branch, which is called the “working copy”. Selecting a branch is called “checkout a branch”.</li>
+<li><p><strong>Installation</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install git-core</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Setup
-</strong>To list your git configuration:&nbsp;<br><pre class="lang:sh decode:true brush: bash; gutter: true">$ git config –list</pre><br>To  configure your name and email:<br><pre class="lang:sh decode:true brush: actionscript3; gutter: true">$ git config –global user.name “Example Surname”<br>$ git config –global user.email “your.email@gmail.com”</pre><br>To enable highlighting:<br><pre class="lang:sh decode:true brush: bash; gutter: true">$ git config –global color.status auto<br>$ git config –global color.branch auto</pre><br>To set SVN-like alias:<br><pre class="lang:sh decode:true brush: actionscript3; gutter: true">$ git config –global alias.st status<br>$ git config –global alias.ci commit<br>$ git config –global alias.co checkout<br>$ git config –global alias.br branch</pre><br>To add ignore rules:<br>Firstly, create file ~/.gitignore and add these to the file:<br><pre class="lang:sh decode:true brush: text; gutter: true"># Compiled source #<br>###################<br><em>.com
-</em>.class<br><em>.dll
-</em>.exe<br><em>.o
-</em>.so</pre></p>
+<li><p><strong>Setup</strong><br>To list your git configuration:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --list</div></pre></td></tr></table></figure>
+<p>To configure your name and email:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"Example Surname"</span></div><div class="line">$ git config --global user.email <span class="string">"your.email@gmail.com"</span></div></pre></td></tr></table></figure>
+<p>To enable highlighting:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global color.status auto</div><div class="line">$ git config --global color.branch auto</div></pre></td></tr></table></figure>
+<p>To set SVN-like alias:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git config --global alias.st status</div><div class="line">$ git config --global alias.ci commit</div><div class="line">$ git config --global alias.co checkout</div><div class="line">$ git config --global alias.br branch</div></pre></td></tr></table></figure>
+<p>To add ignore rules:<br>Firstly, create file <code>~/.gitignore</code> and add these to the file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Compiled source #</span></div><div class="line"><span class="comment">###################</span></div><div class="line">*.com</div><div class="line">*.class</div><div class="line">*.dll</div><div class="line">*.exe</div><div class="line">*.o</div><div class="line">*.so</div><div class="line"></div><div class="line"><span class="comment"># Packages #</span></div><div class="line"><span class="comment">############</span></div><div class="line"><span class="comment"># it's better to unpack these files and commit the raw source</span></div><div class="line"><span class="comment"># git has its own built in compression methods</span></div><div class="line">*.7z</div><div class="line">*.dmg</div><div class="line">*.gz</div><div class="line">*.iso</div><div class="line">*.jar</div><div class="line">*.rar</div><div class="line">*.tar</div><div class="line">*.zip</div><div class="line"></div><div class="line"><span class="comment"># Logs and databases #</span></div><div class="line"><span class="comment">######################</span></div><div class="line">*.log</div><div class="line">*.sql</div><div class="line">*.sqlite</div><div class="line"></div><div class="line"><span class="comment"># OS generated files #</span></div><div class="line"><span class="comment">######################</span></div><div class="line">.DS_Store*</div><div class="line">ehthumbs.db</div><div class="line">Icon?</div><div class="line">Thumbs.db</div></pre></td></tr></table></figure>
+<p>Then run</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global core.excludesfile ~/.gitignore</div></pre></td></tr></table></figure>
 </li>
-</ol>
-<h1 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h1><p>############</p>
-<h1 id="it’s-better-to-unpack-these-files-and-commit-the-raw-source"><a href="#it’s-better-to-unpack-these-files-and-commit-the-raw-source" class="headerlink" title="it’s better to unpack these files and commit the raw source"></a>it’s better to unpack these files and commit the raw source</h1><h1 id="git-has-its-own-built-in-compression-methods"><a href="#git-has-its-own-built-in-compression-methods" class="headerlink" title="git has its own built in compression methods"></a>git has its own built in compression methods</h1><p><em>.7z
-</em>.dmg<br><em>.gz
-</em>.iso<br><em>.jar
-</em>.rar<br><em>.tar
-</em>.zip</p>
-<h1 id="Logs-and-databases"><a href="#Logs-and-databases" class="headerlink" title="Logs and databases"></a>Logs and databases</h1><p>######################<br><em>.log
-</em>.sql<br>*.sqlite</p>
-<h1 id="OS-generated-files"><a href="#OS-generated-files" class="headerlink" title="OS generated files"></a>OS generated files</h1><p>######################<br>.DS_Store*<br>ehthumbs.db<br>Icon?<br>Thumbs.db<br>Then run</p>
-<pre class="lang:sh decode:true brush: bash; gutter: true">$ git config --global core.excludesfile ~/.gitignore</pre>
-
-<ol>
-<li><strong>Getting started with Git
-</strong>To create and add files to repository:<strong>
-</strong>&nbsp;<br><pre class="lang:sh decode:true brush: bash; gutter: true"># Initialize the local Git repository<br>$ git init<h1 id="Add-all-files-and-directories-to-stage"><a href="#Add-all-files-and-directories-to-stage" class="headerlink" title="Add all (files and directories) to stage"></a>Add all (files and directories) to stage</h1>$ git add .<h1 id="Make-a-commit-of-your-file-to-the-local-repository"><a href="#Make-a-commit-of-your-file-to-the-local-repository" class="headerlink" title="Make a commit of your file to the local repository"></a>Make a commit of your file to the local repository</h1>$ git commit -m “Initial commit”<h1 id="Show-the-log-file"><a href="#Show-the-log-file" class="headerlink" title="Show the log file"></a>Show the log file</h1>$ git log</pre><br>To create a new branch:<br><pre class="lang:sh decode:true brush: bash; gutter: true">$ git branch new_branch_name</pre><br>To switch to a branch:<br><pre class="lang:sh decode:true brush: bash; gutter: true">$ git checkout branch_name</pre><br>To delete a file from the existing branch:<br><pre class="lang:sh decode:true brush: bash; gutter: true">#delete a file from dir<br>$ rm one_file<h1 id="add-deleted-files-to-the-stage"><a href="#add-deleted-files-to-the-stage" class="headerlink" title="add deleted files to the stage"></a>add deleted files to the stage</h1>$ git add -A .<h1 id="commit-changes"><a href="#commit-changes" class="headerlink" title="commit changes"></a>commit changes</h1>$ git commit -m “deleted one file”</pre><br>To push changes to branches/master of remote repository<br><pre class="lang:sh decode:true brush: actionscript3; gutter: true">$ git push</pre><br>To pull changes from remote repository:<br><pre class="lang:sh decode:true brush: bash; gutter: true crayon-selected">$ git pull</pre><br><strong>
-</strong></li>
+<li><p><strong>Getting started with Git</strong><br>To create and add files to repository:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Initialize the local Git repository</span></div><div class="line">$ git init</div><div class="line"><span class="comment"># Add all (files and directories) to stage</span></div><div class="line">$ git add .</div><div class="line"><span class="comment"># Make a commit of your file to the local repository</span></div><div class="line">$ git commit -m <span class="string">"Initial commit"</span></div><div class="line"><span class="comment"># Show the log file</span></div><div class="line">$ git <span class="built_in">log</span></div></pre></td></tr></table></figure>
+<p>To create a new branch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch new_branch_name</div></pre></td></tr></table></figure>
+<p>To switch to a branch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout branch_name</div></pre></td></tr></table></figure>
+<p>To delete a file from the existing branch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#delete a file from dir</span></div><div class="line">$ rm one_file</div><div class="line"><span class="comment"># add deleted files to the stage</span></div><div class="line">$ git add -A .</div><div class="line"><span class="comment"># commit changes</span></div><div class="line">$ git commit -m <span class="string">"deleted one file"</span></div></pre></td></tr></table></figure>
+<p>To push changes to branches/master of remote repository</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push</div></pre></td></tr></table></figure>
+<p>To pull changes from remote repository:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull</div></pre></td></tr></table></figure>
+</li>
 </ol>
 
   </div>
@@ -218,7 +216,7 @@ The key concept of Git is branches. A branch is a separate code line with its ow
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Packages"><span class="toc-number">1.</span> <span class="toc-text">Packages</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#it’s-better-to-unpack-these-files-and-commit-the-raw-source"><span class="toc-number">2.</span> <span class="toc-text">it’s better to unpack these files and commit the raw source</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-has-its-own-built-in-compression-methods"><span class="toc-number">3.</span> <span class="toc-text">git has its own built in compression methods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Logs-and-databases"><span class="toc-number">4.</span> <span class="toc-text">Logs and databases</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OS-generated-files"><span class="toc-number">5.</span> <span class="toc-text">OS generated files</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Add-all-files-and-directories-to-stage"><span class="toc-number">6.</span> <span class="toc-text">Add all (files and directories) to stage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Make-a-commit-of-your-file-to-the-local-repository"><span class="toc-number">7.</span> <span class="toc-text">Make a commit of your file to the local repository</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Show-the-log-file"><span class="toc-number">8.</span> <span class="toc-text">Show the log file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#add-deleted-files-to-the-stage"><span class="toc-number">9.</span> <span class="toc-text">add deleted files to the stage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#commit-changes"><span class="toc-number">10.</span> <span class="toc-text">commit changes</span></a></li></ol>
+      
     </div>
 
     <div id="share-footer" style="display: none">

@@ -7,33 +7,21 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="To install SVN: $sudo apt-get install subversionTo setup SVN repository:
-$svnadmin create ~/Documents/svn_repository
-
-$SVNREPO=~/Documents/svn_repository
-
-$vim $SVNREPO/conf/svnserve.conf
-and add the">
+123$svnadmin create ~/Documents/svn_repository$SVNREPO=~/Documents/svn_repository$vim $SVNREPO/conf/svnserve.conf
+and add the f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Setup SVN on local machine environment">
 <meta property="og:url" content="http://blog.ycshao.com/2012/01/17/setup-svn-on-local-machine-environment/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="To install SVN: $sudo apt-get install subversionTo setup SVN repository:
-$svnadmin create ~/Documents/svn_repository
-
-$SVNREPO=~/Documents/svn_repository
-
-$vim $SVNREPO/conf/svnserve.conf
-and add the">
-<meta property="og:updated_time" content="2017-02-24T04:17:23.000Z">
+123$svnadmin create ~/Documents/svn_repository$SVNREPO=~/Documents/svn_repository$vim $SVNREPO/conf/svnserve.conf
+and add the f">
+<meta property="og:updated_time" content="2017-10-15T03:19:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Setup SVN on local machine environment">
 <meta name="twitter:description" content="To install SVN: $sudo apt-get install subversionTo setup SVN repository:
-$svnadmin create ~/Documents/svn_repository
-
-$SVNREPO=~/Documents/svn_repository
-
-$vim $SVNREPO/conf/svnserve.conf
-and add the">
+123$svnadmin create ~/Documents/svn_repository$SVNREPO=~/Documents/svn_repository$vim $SVNREPO/conf/svnserve.conf
+and add the f">
     
     
         
@@ -166,38 +154,15 @@ and add the">
 
   <div class="content" itemprop="articleBody">
     <p>To install SVN: $sudo apt-get install subversion<br>To setup SVN repository:</p>
-<pre class="lang:sh decode:true">$svnadmin create ~/Documents/svn_repository</pre>
-
-<pre class="lang:sh decode:true">$SVNREPO=~/Documents/svn_repository</pre>
-
-<pre class="lang:sh decode:true">$vim $SVNREPO/conf/svnserve.conf</pre>
-and add the following:
-<pre class="lang:sh decode:true">anon-access = none
-auth-access = write
-password-db = passwd</pre>
-To add user name and password:
-<pre class="lang:sh decode:true">$vim $SVNREPO/conf/passwd</pre>
-and add your user name and password in the format:
-<pre class="lang:sh decode:true">userName = password</pre>
-
-<pre class="lang:sh decode:true">$svn mkdir file:///$SVNREPO/project1 -m "my first project"
-$svn mkdir file:///$SVNREPO/project1/branches -m ""
-$svn mkdir file:///$SVNREPO/project1/tags -m ""
-$svn mkdir file:///$SVNREPO/project1/trunk -m ""
-$svn mkdir file:///$SVNREPO/project2 -m "my second project"
-$svn mkdir file:///$SVNREPO/project2/branches -m ""
-$svn mkdir file:///$SVNREPO/project2/tags -m ""
-$svn mkdir file:///$SVNREPO/project2/trunk -m ""
-...</pre>
-
-<pre class="lang:sh decode:true">$svn import project1/src file:///$SVNREPO/project1/trunk -m "import from project1 to repository"</pre>
-
-<pre class="lang:sh decode:true">$cd project1/src
-$svn co file:///$SVNREPO/project1/trunk .</pre>
-
-<ol>
-<li>Done.<br>Reference:<br><strong><a href="http://www.abbeyworkshop.com/howto/misc/svn01/" target="_blank" rel="external">Subversion Cheat Sheet </a></strong></li>
-</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$svnadmin</span> create ~/Documents/svn_repository</div><div class="line"><span class="variable">$SVNREPO</span>=~/Documents/svn_repository</div><div class="line"><span class="variable">$vim</span> <span class="variable">$SVNREPO</span>/conf/svnserve.conf</div></pre></td></tr></table></figure>
+<p>and add the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">anon-access = none</div><div class="line">auth-access = write</div><div class="line">password-db = passwd</div></pre></td></tr></table></figure></p>
+<p>To add user name and password:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$vim</span> <span class="variable">$SVNREPO</span>/conf/passwd</div></pre></td></tr></table></figure></p>
+<p>and add your user name and password in the format:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">userName = password</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$svn</span> mkdir file:///<span class="variable">$SVNREPO</span>/project1 -m <span class="string">"my first project"</span></div><div class="line"><span class="variable">$svn</span> mkdir file:///<span class="variable">$SVNREPO</span>/project1/branches -m <span class="string">""</span></div><div class="line"><span class="variable">$svn</span> mkdir file:///<span class="variable">$SVNREPO</span>/project1/tags -m <span class="string">""</span></div><div class="line"><span class="variable">$svn</span> mkdir file:///<span class="variable">$SVNREPO</span>/project1/trunk -m <span class="string">""</span></div><div class="line"><span class="variable">$svn</span> mkdir file:///<span class="variable">$SVNREPO</span>/project2 -m <span class="string">"my second project"</span></div><div class="line"><span class="variable">$svn</span> mkdir file:///<span class="variable">$SVNREPO</span>/project2/branches -m <span class="string">""</span></div><div class="line"><span class="variable">$svn</span> mkdir file:///<span class="variable">$SVNREPO</span>/project2/tags -m <span class="string">""</span></div><div class="line"><span class="variable">$svn</span> mkdir file:///<span class="variable">$SVNREPO</span>/project2/trunk -m <span class="string">""</span></div><div class="line">...</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$svn</span> import project1/src file:///<span class="variable">$SVNREPO</span>/project1/trunk -m <span class="string">"import from project1 to repository"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> project1/src</div><div class="line"><span class="variable">$svn</span> co file:///<span class="variable">$SVNREPO</span>/project1/trunk .</div></pre></td></tr></table></figure>
+<p>Done.</p>
+<p>Reference:<br><a href="http://www.abbeyworkshop.com/howto/misc/svn01/" target="_blank" rel="external">Subversion Cheat Sheet </a>**</p>
 
   </div>
 </article>

@@ -470,8 +470,7 @@
         
           
           
-            &lt;p&gt;It actually very easy to setup wsgi and Django.&lt;/p&gt;
-&lt;p&gt;&lt;pre class=&quot;lang:sh mark:13 decode:true&quot;&gt;# Install Django first if not
+            &lt;p&gt;It actually very easy to setup wsgi and Django.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
           
         
       
@@ -513,9 +512,7 @@
           
             &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Install phpMyAdmin:&lt;/p&gt;
-&lt;pre class=&quot;lang:sh decode:true&quot;&gt;$ sudo apt-get install phpmyadmin&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Add phpMyAdmin
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
           
         
       
@@ -556,8 +553,7 @@
           
           
             &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;span style=&quot;color: #00ccff;&quot;&gt;Single Responsibility Principle.&lt;/span&gt;
-&lt;/strong&gt;Because each responsibility of a class is
+&lt;li&gt;Single Responsibility Principle.&lt;br&gt;Because each responsibility of a class is an axis of change and if a class has more than one
           
         
       
@@ -1173,8 +1169,7 @@
         
           
           
-            &lt;p&gt;You can easily assign an object to itself without knowing it.&lt;/p&gt;
-&lt;p&gt;&lt;pre class=&quot;lang:c++ decode:true brush: cpp; gutter: true&quot;&gt;//
+            &lt;p&gt;You can easily assign an object to itself without knowing it.&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
           
         
       
@@ -1397,8 +1392,7 @@
         
           
           
-            &lt;p&gt;I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:&lt;/p&gt;
-&lt;pre class=&quot;lang:sh
+            &lt;p&gt;I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:&lt;br&gt;&lt;figure
           
         
       
@@ -1420,7 +1414,7 @@
           
             &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;If you don’t care about getting the cutting-edge version of opencv, you can do following:&lt;/p&gt;
-&lt;pre class=&quot;lang:sh decode:true
+  &lt;figure class=&quot;highlight
           
         
       
@@ -1524,12 +1518,7 @@
         
           
           
-            &lt;pre class=&quot;lang:c++ decode:true&quot;&gt;class Rational
-{
-public:
-    ....
-
-    const Rational operator*(const Rational&amp; lhs, const Rational&amp;
+            &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div
           
         
       
@@ -1549,14 +1538,7 @@ public:
         
           
           
-            &lt;p&gt;Here is an example for enum hack:&lt;/p&gt;
-&lt;pre class=&quot;lang:c++ decode:true&quot;&gt;class Foo
-{
-private:
-    enum{BAR = 100};
-    ....
-};&lt;/pre&gt;
-To
+            &lt;p&gt;Here is an example for enum hack:&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div
           
         
       
@@ -1616,8 +1598,7 @@ To
         
           
           
-            &lt;p&gt;Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:&lt;/p&gt;
-&lt;pre
+            &lt;p&gt;Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:&lt;br&gt;&lt;figure
           
         
       
@@ -1657,8 +1638,7 @@ To
         
           
           
-            &lt;p&gt;I learned that pure virtual function can be called in abstract classes.&lt;br&gt;Let’s look at an example:&lt;/p&gt;
-&lt;p&gt;&lt;pre class=&quot;lang:c++
+            &lt;p&gt;I learned that pure virtual function can be called in abstract classes.&lt;br&gt;Let’s look at an example:&lt;br&gt;&lt;figure class=&quot;highlight
           
         
       
@@ -1700,8 +1680,7 @@ To
         
           
           
-            &lt;p&gt;After I upgrade to Ubuntu 11.10, I found that gvim acted very slow. To fix this, simply use&lt;/p&gt;
-&lt;pre class=&quot;lang:sh decode:true&quot;&gt;$ gvim
+            &lt;p&gt;After I upgrade to Ubuntu 11.10, I found that gvim acted very slow. To fix this, simply use&lt;br&gt;&lt;figure class=&quot;highlight
           
         
       
@@ -1805,7 +1784,7 @@ To
           
           
             &lt;p&gt;To install SVN: $sudo apt-get install subversion&lt;br&gt;To setup SVN repository:&lt;/p&gt;
-&lt;pre class=&quot;lang:sh decode:true&quot;&gt;$svnadmin create
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
           
         
       
