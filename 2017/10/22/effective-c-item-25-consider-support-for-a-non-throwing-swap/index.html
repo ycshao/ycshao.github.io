@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="How to write a swap functon for your own class? This is especially useful when default swap behavior is too heavy for your class. You can imagine this is how std‘s implementation123456789namespace std">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ item 25: Consider Support For a Non-throwing swap">
+<meta property="og:url" content="http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/index.html">
+<meta property="og:site_name" content="Sharp Ear">
+<meta property="og:description" content="How to write a swap functon for your own class? This is especially useful when default swap behavior is too heavy for your class. You can imagine this is how std‘s implementation123456789namespace std">
+<meta property="og:updated_time" content="2017-10-22T22:46:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective C++ item 25: Consider Support For a Non-throwing swap">
+<meta name="twitter:description" content="How to write a swap functon for your own class? This is especially useful when default swap behavior is too heavy for your class. You can imagine this is how std‘s implementation123456789namespace std">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/fandroid-chrome-144x144.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Effective C++ item 25: Consider Support For a Non-throwing swap</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2017/10/16/effective-c-item-24-declare-non-member-functions-when-type-conversions-should-apply-to-all-parameters/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&text=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&title=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&is_video=false&description=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 25: Consider Support For a Non-throwing swap&body=Check out this article: http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&title=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&title=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&title=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&title=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&name=Effective C++ item 25: Consider Support For a Non-throwing swap&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Effective C++ item 25: Consider Support For a Non-throwing swap
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sharp Ear</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-10-22T18:10:54.000Z" itemprop="datePublished">2017-10-22</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/exception/">exception</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>How to write a swap functon for your own class? This is especially useful when default swap behavior is too heavy for your class. You can imagine this is how <code>std</code>‘s implementation<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> <span class="built_in">std</span> &#123;</div><div class="line">  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(T&amp; a, T&amp; b)</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="function">T <span class="title">temp</span><span class="params">(a)</span></span>;</div><div class="line">    a = b;</div><div class="line">    b = temp;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>And if you have any classes implement <code>pimpl idiom</code> like such<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> WidgetImpl &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">  <span class="keyword">int</span> a, b, c;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; v;</div><div class="line">  ...</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Widget &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  Widget(<span class="keyword">const</span> Widget&amp; rhs);</div><div class="line">  Widget&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Widget&amp; rhs)</div><div class="line">  &#123;</div><div class="line">   ...</div><div class="line">   *pImpl = *(rhs.pImpl);</div><div class="line">   ...</div><div class="line">  &#125;</div><div class="line">  ...</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">  WidgetImpl *pImpl;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>If you want to swap such object, you only need to swap the implementation pointer instead of the whole object. That’s when you need to write your own <code>swap</code> method. Most likely <code>swap</code> needs access to private members, so you will write a member <code>swap</code> method<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Widget &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  ...</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(Widget&amp; other)</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::swap;</div><div class="line">    swap(pImpl, other.pImpl);</div><div class="line">  &#125;</div><div class="line">  ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>And if you want to support conventional <code>std::swap</code> function, you can add a specialized version for <code>std::swap</code> which calls the member <code>swap</code> as such<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> <span class="built_in">std</span> &#123;</div><div class="line">  <span class="keyword">template</span>&lt;&gt;</div><div class="line">  <span class="keyword">void</span> swap&lt;Widget&gt;(Widget&amp; a,</div><div class="line">                    Widget&amp; b)</div><div class="line">  &#123;</div><div class="line">    a.swap(b);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>You may wonder why we need <code>using std::swap</code> in above member <code>swap</code> example. In above case, it seems not necessary because we know <code>pImpl</code> is pointer type and <code>std::swap</code> supports such. So you could use <code>std::swap</code> directly. But above way of calling <code>swap</code> works for all cases. Let’s discuss what’s the special case we need to consider.</p>
+<p>You may have guessed it, it’s when user defined class is a template class. When you make <code>Widget</code> and <code>WidgetImpl</code> class templates<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">class</span> WidgetImplTP &#123;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;T&gt; v;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">class</span> WidgetTP &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    WidgetTP &amp;<span class="keyword">operator</span>=(<span class="keyword">const</span> WidgetTP &amp;rhs) &#123;</div><div class="line">        *pImpl = *(rhs.pImpl);</div><div class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(WidgetTP &amp;other)</span> </span>&#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"WidgetTP::swap\n"</span>;</div><div class="line">        <span class="keyword">using</span> <span class="built_in">std</span>::swap;</div><div class="line">        swap(pImpl, other.pImpl);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    WidgetImplTP&lt;T&gt; *pImpl;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>You would natually provide following specialized <code>std::swap</code> implementation<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> <span class="built_in">std</span> &#123;</div><div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line">    <span class="keyword">void</span> swap&lt;WidgetTP&lt;T&gt; &gt;(WidgetTP&lt;T&gt; &amp;a, WidgetTP&lt;T&gt; &amp;b) &#123;</div><div class="line">        a.swap(b);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>This won’t compile because you cannot partially specialize a function template <code>error: function template partial specialization is not allowed</code>.</p>
+<p>The common solution is to use overloading instead of total template specialization. But there is a problem doing so in <code>std</code> namespace. It’s okay to totally specialize templates in std, but it’s not okay to add new templates (or classes or functions or anything else) to <code>std</code>. Voilating such rule will lead to undefined behavior.</p>
+<p>So what’s the solution to this? Creating a namespace and define a free <code>swap</code> there.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> WidgetStuff &#123;</div><div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line">    <span class="keyword">class</span> WidgetImplTP &#123;</div><div class="line">    <span class="keyword">private</span>:</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;T&gt; v;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line">    <span class="keyword">class</span> WidgetTP &#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        WidgetTP &amp;<span class="keyword">operator</span>=(<span class="keyword">const</span> WidgetTP &amp;rhs) &#123;</div><div class="line">            *pImpl = *(rhs.pImpl);</div><div class="line">            <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(WidgetTP &amp;other)</span> </span>&#123;</div><div class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"WidgetTP::swap\n"</span>;</div><div class="line">            <span class="keyword">using</span> <span class="built_in">std</span>::swap;</div><div class="line">            swap(pImpl, other.pImpl);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span>:</div><div class="line">        WidgetImplTP&lt;T&gt; *pImpl;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(WidgetTP&lt;T&gt; &amp;a, WidgetTP&lt;T&gt; &amp;b)</span> </span>&#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"WidgetTP::swap(WidgetTP&lt;T&gt;&amp; a, WidgetTP&lt;T&gt;&amp; b)\n"</span>;</div><div class="line">        a.swap(b);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>For any user of <code>swap</code> who may or may not know whether the class implements it’s own <code>swap</code>, always bring <code>std::swap</code> into scope by doing <code>using std::swap</code> and then call <code>swap</code>. This way, it will call cusomized <code>swap</code> function if it’s available, otherwise, it will call <code>std::swap</code>.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(T&amp; obj1, T&amp; obj2)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">using</span> <span class="built_in">std</span>::swap;           <span class="comment">// make std::swap available in this function</span></div><div class="line">  swap(obj1, obj2);          <span class="comment">// call the best swap for objects of type T</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+         
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&text=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&title=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&is_video=false&description=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 25: Consider Support For a Non-throwing swap&body=Check out this article: http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&title=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&title=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&title=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&title=Effective C++ item 25: Consider Support For a Non-throwing swap"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/&name=Effective C++ item 25: Consider Support For a Non-throwing swap&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-top">
+    Copyright &copy; 2017 Yuecheng Shao
+  </div>
+  <div class="footer-bottom">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-97811930-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

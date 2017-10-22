@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Tue, 17 Oct 2017 01:39:38 GMT</pubDate>
+    <pubDate>Sun, 22 Oct 2017 22:46:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 25: Consider Support For a Non-throwing swap</title>
+      <link>http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/</link>
+      <guid>http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/</guid>
+      <pubDate>Sun, 22 Oct 2017 18:10:54 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;How to write a swap functon for your own class? This is especially useful when default swap behavior is too heavy for your class. You
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/10/22/effective-c-item-25-consider-support-for-a-non-throwing-swap/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 24: Declare Non-member Functions When Type Conversions Should Apply to All Parameters</title>
