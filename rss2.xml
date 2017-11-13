@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Mon, 13 Nov 2017 03:25:22 GMT</pubDate>
+    <pubDate>Mon, 13 Nov 2017 04:05:20 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 27: Minimize Casting</title>
+      <link>http://blog.ycshao.com/2017/11/12/effective-c-item-27-minimize-casting/</link>
+      <guid>http://blog.ycshao.com/2017/11/12/effective-c-item-27-minimize-casting/</guid>
+      <pubDate>Mon, 13 Nov 2017 03:27:28 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;There are usually three different ways to write the same cast.&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/12/effective-c-item-27-minimize-casting/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 26: Postpone Variable Definitions As Long As Possible</title>
