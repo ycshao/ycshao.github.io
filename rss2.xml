@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 22 Oct 2017 22:55:53 GMT</pubDate>
+    <pubDate>Mon, 13 Nov 2017 03:25:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 26: Postpone Variable Definitions As Long As Possible</title>
+      <link>http://blog.ycshao.com/2017/11/12/effective-c-item-26-postpone-variable-definitions-as-long-as-possible/</link>
+      <guid>http://blog.ycshao.com/2017/11/12/effective-c-item-26-postpone-variable-definitions-as-long-as-possible/</guid>
+      <pubDate>Mon, 13 Nov 2017 03:25:22 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;This rule is very obvious. Instead of&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/12/effective-c-item-26-postpone-variable-definitions-as-long-as-possible/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 25: Consider Support For a Non-throwing swap</title>
