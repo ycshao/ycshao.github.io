@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Mon, 13 Nov 2017 04:05:20 GMT</pubDate>
+    <pubDate>Wed, 15 Nov 2017 05:10:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 28: Avoid Returning &quot;handles&quot; to Object Internals</title>
+      <link>http://blog.ycshao.com/2017/11/12/effective-c-item-28-avoid-returning-handles-to-object-internals/</link>
+      <guid>http://blog.ycshao.com/2017/11/12/effective-c-item-28-avoid-returning-handles-to-object-internals/</guid>
+      <pubDate>Mon, 13 Nov 2017 04:17:57 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Assume you have following classes&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/12/effective-c-item-28-avoid-returning-handles-to-object-internals/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 27: Minimize Casting</title>
