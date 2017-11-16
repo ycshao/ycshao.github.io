@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Suppose we have a class for representing GUI menus with background images. The class is designed to be used in a threaded environment, so it has a mutex for concurrency control.12345678910111213141516">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ item 29: Strive For Exception-safe Code">
+<meta property="og:url" content="http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/index.html">
+<meta property="og:site_name" content="Sharp Ear">
+<meta property="og:description" content="Suppose we have a class for representing GUI menus with background images. The class is designed to be used in a threaded environment, so it has a mutex for concurrency control.12345678910111213141516">
+<meta property="og:updated_time" content="2017-11-16T04:49:50.380Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective C++ item 29: Strive For Exception-safe Code">
+<meta name="twitter:description" content="Suppose we have a class for representing GUI menus with background images. The class is designed to be used in a threaded environment, so it has a mutex for concurrency control.12345678910111213141516">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/fandroid-chrome-144x144.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Effective C++ item 29: Strive For Exception-safe Code</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2017/11/12/effective-c-item-28-avoid-returning-handles-to-object-internals/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&text=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&title=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&is_video=false&description=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 29: Strive For Exception-safe Code&body=Check out this article: http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&title=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&title=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&title=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&title=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&name=Effective C++ item 29: Strive For Exception-safe Code&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Effective C++ item 29: Strive For Exception-safe Code
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sharp Ear</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-11-16T04:19:20.000Z" itemprop="datePublished">2017-11-15</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/effective-c/">Effective C++</a>, <a class="tag-link" href="/tags/exception/">exception</a>, <a class="tag-link" href="/tags/resource-leak/">resource leak</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Suppose we have a class for representing GUI menus with background images. The class is designed to be used in a threaded environment, so it has a mutex for concurrency control.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> PrettyMenu &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">changeBackground</span><span class="params">(<span class="built_in">std</span>::istream&amp; imgSrc)</span></span>;</div><div class="line">    ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    Mutex mutex;</div><div class="line">    Image *bgImage;</div><div class="line">    <span class="keyword">int</span> imageChanges;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">void</span> PrettyMenu::changeBackground(<span class="built_in">std</span>::istream&amp; imgSrc)</div><div class="line">&#123;</div><div class="line">    lock(&amp;mutex);</div><div class="line">    <span class="keyword">delete</span> bgImage;                    <span class="comment">// get rid of old background</span></div><div class="line">    ++imageChanges;                    <span class="comment">// update image change count</span></div><div class="line">    bgImage = <span class="keyword">new</span> Image(imgSrc);       <span class="comment">// install new background</span></div><div class="line">    unlock(&amp;mutex);                    <span class="comment">// release mutex</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>From the perspective of exception safety, this function is about as bad as it gets. There are two requirements for exception safety, and this satisfies neither.</p>
+<p>When an exception is thrown, exception-safe functions:</p>
+<ul>
+<li>Leak no resources. The code above fails this test, because if the “new Image(imgSrc)” expression yields an exception, the call to unlock never gets executed, and the mutex is held forever.</li>
+<li>Don’t allow data structures to become corrupted. If “new Image(imgSrc)” throws, <code>bgImage</code> is left pointing to a deleted object. In addition, <code>imageChanges</code> has been incremented, even though it’s not true that a new image has been installed.</li>
+</ul>
+<p>Exception-safe functions offer one of three guarantees:</p>
+<ul>
+<li>Functions offering the basic guarantee promise that if an exception is thrown, everything in the program remains in a valid state. No objects or data structures become corrupted, and all objects are in an internally consistent state (e.g., all class invariants are satisfied). However, the exact state of the program may not be predictable. For example, we could write changeBackground so that if an exception were thrown, the PrettyMenu object might continue to have the old background image, or it might have some default background image, but clients wouldn’t be able to predict which. (To find out, they’d presumably have to call some member function that would tell them what the current background image was.)</li>
+<li>Functions offering the strong guarantee promise that if an exception is thrown, the state of the program is unchanged. Calls to such functions are atomic in the sense that if they succeed, they succeed completely, and if they fail, the program state is as if they’d never been called.</li>
+<li>Functions offering the nothrow guarantee promise never to throw exceptions, because they always do what they promise to do. All operations on built-in types (e.g., ints, pointers, etc.) are nothrow (i.e., offer the nothrow guarantee). This is a critical building block of exception-safe code.</li>
+</ul>
+<p>Working with functions offering the strong guarantee is easier than working with functions offering only the basic guarantee, because after calling a function offering the strong guarantee, there are only two possible program states: as expected following successful execution of the function, or the state that existed at the time the function was called. In contrast, if a call to a function offering only the basic guarantee yields an exception, the program could be in any valid state.</p>
+<p>If we write <code>changeBackground</code> as following<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> PrettyMenu &#123;</div><div class="line">  ...</div><div class="line">  <span class="built_in">std</span>::tr1::<span class="built_in">shared_ptr</span>&lt;Image&gt; bgImage;</div><div class="line">  ...</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">void</span> PrettyMenu::changeBackground(<span class="built_in">std</span>::istream&amp; imgSrc)</div><div class="line">&#123;</div><div class="line">  <span class="function">Lock <span class="title">ml</span><span class="params">(&amp;mutex)</span></span>;</div><div class="line"></div><div class="line">  bgImage.reset(<span class="keyword">new</span> Image(imgSrc));  <span class="comment">// replace bgImage's internal</span></div><div class="line">                                     <span class="comment">// pointer with the result of the</span></div><div class="line">                                     <span class="comment">// "new Image" expression</span></div><div class="line">  ++imageChanges;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>changeBackground</code> now offers strong exception-safe guarantee assuming <code>new Image(imgSrc)</code> won’t modify any state of <code>imgSrc</code>.</p>
+<p>A very common strategy to provide strong exception-safe guarantee is to use <code>copy-and-swap</code> strategy. It’s extremely helpful when you have many state need to be managed or restored when exception is thrown. <code>copy-and-swap</code> strategy goes very well with <code>pimpl idiom</code>.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> PMImpl &#123;                               <span class="comment">// PMImpl = "PrettyMenu</span></div><div class="line">  <span class="built_in">std</span>::tr1::<span class="built_in">shared_ptr</span>&lt;Image&gt; bgImage;        <span class="comment">// Impl."; see below for</span></div><div class="line">  <span class="keyword">int</span> imageChanges;                           <span class="comment">// why it's a struct</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">class</span> PrettyMenu &#123;</div><div class="line">  ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">  Mutex mutex;</div><div class="line">  <span class="built_in">std</span>::tr1::<span class="built_in">shared_ptr</span>&lt;PMImpl&gt; pImpl;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">void</span> PrettyMenu::changeBackground(<span class="built_in">std</span>::istream&amp; imgSrc)</div><div class="line">&#123;</div><div class="line">  <span class="keyword">using</span> <span class="built_in">std</span>::swap;</div><div class="line">  <span class="function">Lock <span class="title">ml</span><span class="params">(&amp;mutex)</span></span>;</div><div class="line">  <span class="built_in">std</span>::tr1::<span class="built_in">shared_ptr</span>&lt;PMImpl&gt;                <span class="comment">// copy obj. data</span></div><div class="line">    pNew(<span class="keyword">new</span> PMImpl(*pImpl));</div><div class="line">  pNew-&gt;bgImage.reset(<span class="keyword">new</span> Image(imgSrc));     <span class="comment">// modify the copy</span></div><div class="line">  ++pNew-&gt;imageChanges;</div><div class="line">  swap(pImpl, pNew);                          <span class="comment">// swap the new</span></div><div class="line">                                              <span class="comment">// data into place</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>As you can see, it doesn’t matter how many object has changed, as long as we don’t do the last <code>swap</code> step, objects will remain in their original state. Of course <code>copy-and-swap</code> comes with a cost of copying the object.</p>
+<p>Another very important point is that even the function you are calling provides strong exception-safe guarantee, it doesn’t mean your function automatically can provide exception-safe guarantee. For example<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">someFunc</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  ...   <span class="comment">// make copy of local state</span></div><div class="line">  f1();</div><div class="line">  f2();</div><div class="line">  ...   <span class="comment">// swap modified state into place</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>If both <code>f1</code> and <code>f2</code> provide strong exception-safe guarantee, and <code>f1</code> executed without any exception and modified some database value, and then <code>f2</code> throws exception. How can <code>someFunc</code> restore database modification to it’s original value? This is really tough or almost impossible to achieve.<br>The problem is side effects. As long as functions operate only on local state (e.g., <code>someFunc</code> affects only the state of the object on which it’s invoked), it’s relatively easy to offer the strong guarantee. When functions have side effects on non-local data, it’s much harder.</p>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+         
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&text=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&title=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&is_video=false&description=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 29: Strive For Exception-safe Code&body=Check out this article: http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&title=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&title=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&title=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&title=Effective C++ item 29: Strive For Exception-safe Code"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/&name=Effective C++ item 29: Strive For Exception-safe Code&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-top">
+    Copyright &copy; 2017 Yuecheng Shao
+  </div>
+  <div class="footer-bottom">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-97811930-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

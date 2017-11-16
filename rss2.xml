@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Wed, 15 Nov 2017 05:10:18 GMT</pubDate>
+    <pubDate>Thu, 16 Nov 2017 04:49:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 29: Strive For Exception-safe Code</title>
+      <link>http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/</link>
+      <guid>http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/</guid>
+      <pubDate>Thu, 16 Nov 2017 04:19:20 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Suppose we have a class for representing GUI menus with background images. The class is designed to be used in a threaded environment,
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 28: Avoid Returning &quot;handles&quot; to Object Internals</title>
