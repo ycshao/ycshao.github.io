@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://blog.ycshao.com/2017/11/18/effective-c-item-30-understand-the-ins-and-outs-of-inlining/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="You may know inline keyword, which requests compiler to replace the function with it’s implementation in place to reduce funcion lookup time. Notice that I say request, not command. Compilers are free">
-<meta property="og:updated_time" content="2017-11-19T03:15:42.345Z">
+<meta property="og:updated_time" content="2017-11-19T03:51:01.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 30: Understand The Ins and Outs of Inlining">
 <meta name="twitter:description" content="You may know inline keyword, which requests compiler to replace the function with it’s implementation in place to reduce funcion lookup time. Notice that I say request, not command. Compilers are free">
@@ -77,6 +77,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2017/11/18/effective-c-item-31-minimize-compilation-dependencies-between-files/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
         
         
         <li><a class="icon" href="/2017/11/15/effective-c-item-29-strive-for-exception-safe-code/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
@@ -150,7 +152,7 @@
 <p>One misunderstanding lots of people have about <code>inline</code> is that templates must be <code>inline</code>. This is often based on the observation of oth <code>inline</code> and templates have to be in headers. In fact, they are independent of each other. The reason <code>inline</code> function has to be in header is in order for compiler to insert implementation into the place where this function is called, it has to know what’s the implementation. The reason template has to be defined in header is because compilers need to know what a template looks like in order to instantiate it when it’s used. Template instantiation is independent of inlining.</p>
 <p>For inlining, compiler has the final call to either make it inline or not, unless you explicitly specify <code>__attribute__((noinline))</code> or <code>__attribute__((inline))</code> attributes. Consider following fucntion<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> T&amp; <span class="title">foo</span><span class="params">(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b)</span></span></div><div class="line">&#123; ... &#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">const</span> T&amp; <span class="title">foo</span><span class="params">(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b)</span></span></div><div class="line">&#123; ... &#125;</div></pre></td></tr></table></figure>
-<p>They may result in the same machine code depending on what compiler decides. But you need to understand the meaning of these two example to programmers are different. The first function means please inline this function if possible. The second means don’t inline unless compiler decide to optimize.</p>
+<p>They may result in the same machine code depending on what compiler decides. But you need to understand that the meaning of these two examples to programmers are different. The first function means please inline this function if possible. The second means don’t inline unless compiler decide to optimize.</p>
 <p>The rule of thumb is don’t inline anything initially unless for speed optimization reason.</p>
 <p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
 

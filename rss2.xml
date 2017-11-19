@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 19 Nov 2017 03:15:42 GMT</pubDate>
+    <pubDate>Sun, 19 Nov 2017 03:50:14 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 31: Minimize Compilation Dependencies Between Files</title>
+      <link>http://blog.ycshao.com/2017/11/18/effective-c-item-31-minimize-compilation-dependencies-between-files/</link>
+      <guid>http://blog.ycshao.com/2017/11/18/effective-c-item-31-minimize-compilation-dependencies-between-files/</guid>
+      <pubDate>Sun, 19 Nov 2017 03:49:31 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Reference:&lt;br&gt;&lt;a href=&quot;http://aristeia.com/books.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;“Effective C++” Third Edition by Scott
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/18/effective-c-item-31-minimize-compilation-dependencies-between-files/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 30: Understand The Ins and Outs of Inlining</title>
