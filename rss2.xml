@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Thu, 16 Nov 2017 04:51:44 GMT</pubDate>
+    <pubDate>Sun, 19 Nov 2017 03:15:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 30: Understand The Ins and Outs of Inlining</title>
+      <link>http://blog.ycshao.com/2017/11/18/effective-c-item-30-understand-the-ins-and-outs-of-inlining/</link>
+      <guid>http://blog.ycshao.com/2017/11/18/effective-c-item-30-understand-the-ins-and-outs-of-inlining/</guid>
+      <pubDate>Sun, 19 Nov 2017 01:19:53 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;You may know &lt;code&gt;inline&lt;/code&gt; keyword, which requests compiler to replace the function with it’s implementation in place to reduce
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/18/effective-c-item-30-understand-the-ins-and-outs-of-inlining/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 29: Strive For Exception-safe Code</title>
