@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 19 Nov 2017 05:48:44 GMT</pubDate>
+    <pubDate>Mon, 20 Nov 2017 04:19:12 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 32: Make Sure Public Inheritance Models &quot;is-a&quot;</title>
+      <link>http://blog.ycshao.com/2017/11/19/effective-c-item-32-make-sure-public-inheritance-models-is-a/</link>
+      <guid>http://blog.ycshao.com/2017/11/19/effective-c-item-32-make-sure-public-inheritance-models-is-a/</guid>
+      <pubDate>Mon, 20 Nov 2017 03:34:58 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;If you write that class D (“Derived”) publicly inherits from class B (“Base”), you are telling C++ compilers (as well as human readers
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/19/effective-c-item-32-make-sure-public-inheritance-models-is-a/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 31: Minimize Compilation Dependencies Between Files</title>
