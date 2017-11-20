@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Mon, 20 Nov 2017 04:19:12 GMT</pubDate>
+    <pubDate>Mon, 20 Nov 2017 05:02:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 33: Avoid Hiding Inherited Names</title>
+      <link>http://blog.ycshao.com/2017/11/19/effective-c-item-33-avoid-hiding-inherited-names/</link>
+      <guid>http://blog.ycshao.com/2017/11/19/effective-c-item-33-avoid-hiding-inherited-names/</guid>
+      <pubDate>Mon, 20 Nov 2017 04:31:18 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;You probably know that local variable hides global variable name regardless of types&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/19/effective-c-item-33-avoid-hiding-inherited-names/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 32: Make Sure Public Inheritance Models &quot;is-a&quot;</title>
