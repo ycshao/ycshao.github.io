@@ -8,8 +8,30 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Mon, 20 Nov 2017 05:02:02 GMT</pubDate>
+    <pubDate>Fri, 24 Nov 2017 05:30:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 34: Differentiate Between Inheritance of Interface and Inheritance of Implementation</title>
+      <link>http://blog.ycshao.com/2017/11/24/effective-c-item-34-differentiate-between-inheritance-of-interface-and-inheritance-of-implementation/</link>
+      <guid>http://blog.ycshao.com/2017/11/24/effective-c-item-34-differentiate-between-inheritance-of-interface-and-inheritance-of-implementation/</guid>
+      <pubDate>Fri, 24 Nov 2017 05:07:11 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;When you design public inheritance classes, you will mainly use three type of inheritance features.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pure virtual functions
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/24/effective-c-item-34-differentiate-between-inheritance-of-interface-and-inheritance-of-implementation/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 33: Avoid Hiding Inherited Names</title>
