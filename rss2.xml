@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Fri, 24 Nov 2017 05:32:29 GMT</pubDate>
+    <pubDate>Sat, 25 Nov 2017 05:04:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 35: Consider Alternatives to Virtual Functions</title>
+      <link>http://blog.ycshao.com/2017/11/24/effective-c-item-35-consider-alternatives-to-virtual-functions/</link>
+      <guid>http://blog.ycshao.com/2017/11/24/effective-c-item-35-consider-alternatives-to-virtual-functions/</guid>
+      <pubDate>Sat, 25 Nov 2017 02:38:40 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;So you’re working on a video game, and you’re designing a hierarchy for characters in the game. Your game being of the slash-and-burn
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/24/effective-c-item-35-consider-alternatives-to-virtual-functions/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 34: Differentiate Between Inheritance of Interface and Inheritance of Implementation</title>
