@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Virtual functions are dynamically bound, but default parameter values are statically bound. This make redefining an inherited function’s default parameter a really bad idea. Let’s see an example123456">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ item 37: Never Redefine a Function's Inherited Default Parameter Value">
+<meta property="og:url" content="http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/index.html">
+<meta property="og:site_name" content="Sharp Ear">
+<meta property="og:description" content="Virtual functions are dynamically bound, but default parameter values are statically bound. This make redefining an inherited function’s default parameter a really bad idea. Let’s see an example123456">
+<meta property="og:updated_time" content="2017-11-26T04:27:08.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective C++ item 37: Never Redefine a Function's Inherited Default Parameter Value">
+<meta name="twitter:description" content="Virtual functions are dynamically bound, but default parameter values are statically bound. This make redefining an inherited function’s default parameter a really bad idea. Let’s see an example123456">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/fandroid-chrome-144x144.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2017/11/25/effective-c-item-36-never-redefine-an-inherited-non-virtual-function/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&text=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&title=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&is_video=false&description=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value&body=Check out this article: http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&title=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&title=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&title=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&title=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&name=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sharp Ear</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-11-26T03:28:20.000Z" itemprop="datePublished">2017-11-25</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/effective-c/">Effective C++</a>, <a class="tag-link" href="/tags/inheritance/">inheritance</a>, <a class="tag-link" href="/tags/virtual-function/">virtual function</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Virtual functions are dynamically bound, but default parameter values are statically bound. This make redefining an inherited function’s default parameter a really bad idea. Let’s see an example<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Shape &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="keyword">enum</span> ShapeColor &#123; Red, Green, Blue &#125;;</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">(ShapeColor color = Red)</span> <span class="keyword">const</span> </span>= <span class="number">0</span>;</div><div class="line">  ...</div><div class="line">&#125;;</div><div class="line"><span class="keyword">class</span> Rectangle: <span class="keyword">public</span> Shape &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">(ShapeColor color = Green)</span> <span class="keyword">const</span></span>;</div><div class="line">  ...</div><div class="line">&#125;;</div><div class="line"><span class="keyword">class</span> Circle: <span class="keyword">public</span> Shape &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">(ShapeColor color)</span> <span class="keyword">const</span></span>;</div><div class="line">  ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>The symptom of the problem is similar to the one described in <a href="http://blog.ycshao.com/2017/11/25/effective-c-item-36-never-redefine-an-inherited-non-virtual-function/">item 36</a>. It’s unpredictable behavior depend on how <code>draw</code> is called.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Shape *pc = <span class="keyword">new</span> Circle;</div><div class="line">Shape *pr = <span class="keyword">new</span> Rectangle;</div><div class="line">pc-&gt;draw(); <span class="comment">// calls Circle::draw(Shape::Red)</span></div><div class="line">pr-&gt;draw(); <span class="comment">// calls Rectangle::draw(Shape::Red)!</span></div></pre></td></tr></table></figure></p>
+<p><code>pr-draw()</code> calls the correct function through dynamic binding but uses the default parameter from base class due to static binding.</p>
+<p>Someone may think that this rule says never redefine inherited default parameter, what if I redefine it but make them the same? Like following?<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Shape &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="keyword">enum</span> ShapeColor &#123; Red, Green, Blue &#125;;</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">(ShapeColor color = Red)</span> <span class="keyword">const</span> </span>= <span class="number">0</span>;</div><div class="line">  ...</div><div class="line">&#125;;</div><div class="line"><span class="keyword">class</span> Rectangle: <span class="keyword">public</span> Shape &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">(ShapeColor color = Red)</span> <span class="keyword">const</span></span>;</div><div class="line">  ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>Yeah of course you can do that but you just deferred the problem to the future, what if someone change just one place instead of all? So the correct thing to do it never redefine it.</p>
+<p>One way to prevent derived class redefining it is using NVI idiom mentioned in <a href="http://blog.ycshao.com/2017/11/24/effective-c-item-35-consider-alternatives-to-virtual-functions/">item 35</a><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Shape &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="keyword">enum</span> ShapeColor &#123; Red, Green, Blue &#125;;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">(ShapeColor color = Red)</span> <span class="keyword">const</span></span></div><div class="line">  &#123;</div><div class="line">    doDraw(color);</div><div class="line">  &#125;</div><div class="line">  ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">doDraw</span><span class="params">(ShapeColor color)</span> <span class="keyword">const</span> </span>= <span class="number">0</span>;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">class</span> Rectangle: <span class="keyword">public</span> Shape &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">doDraw</span><span class="params">(ShapeColor color)</span> <span class="keyword">const</span></span>;</div><div class="line">  ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+         
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&text=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&title=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&is_video=false&description=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value&body=Check out this article: http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&title=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&title=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&title=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&title=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/&name=Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-top">
+    Copyright &copy; 2017 Yuecheng Shao
+  </div>
+  <div class="footer-bottom">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-97811930-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

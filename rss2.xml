@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 26 Nov 2017 03:27:38 GMT</pubDate>
+    <pubDate>Sun, 26 Nov 2017 04:27:08 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 37: Never Redefine a Function&#39;s Inherited Default Parameter Value</title>
+      <link>http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/</link>
+      <guid>http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/</guid>
+      <pubDate>Sun, 26 Nov 2017 03:28:20 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Virtual functions are dynamically bound, but default parameter values are statically bound. This make redefining an inherited function’s
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/25/effective-c-item-37-never-redefine-a-functions-inherited-default-parameter-value/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 36: Never Redefine an Inherited Non-virtual Function Value</title>
