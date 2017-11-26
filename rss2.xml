@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sat, 25 Nov 2017 05:04:03 GMT</pubDate>
+    <pubDate>Sun, 26 Nov 2017 03:27:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 36: Never Redefine an Inherited Non-virtual Function Value</title>
+      <link>http://blog.ycshao.com/2017/11/25/effective-c-item-36-never-redefine-an-inherited-non-virtual-function/</link>
+      <guid>http://blog.ycshao.com/2017/11/25/effective-c-item-36-never-redefine-an-inherited-non-virtual-function/</guid>
+      <pubDate>Sun, 26 Nov 2017 03:14:52 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Defining an inherited non-virtual function will produce unpredictable behavior.&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/11/25/effective-c-item-36-never-redefine-an-inherited-non-virtual-function/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 35: Consider Alternatives to Virtual Functions</title>
