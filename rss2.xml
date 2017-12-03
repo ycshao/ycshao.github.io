@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Wed, 29 Nov 2017 04:22:46 GMT</pubDate>
+    <pubDate>Sun, 03 Dec 2017 19:41:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 39: Use Private Inheritance Judiciously</title>
+      <link>http://blog.ycshao.com/2017/12/03/effective-c-item-39-use-private-inheritance-judiciously/</link>
+      <guid>http://blog.ycshao.com/2017/12/03/effective-c-item-39-use-private-inheritance-judiciously/</guid>
+      <pubDate>Sun, 03 Dec 2017 18:48:12 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;The rule of thumb is, never use private inheritance unless you absolutely have to, and you almost never have to. Let’s see
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/12/03/effective-c-item-39-use-private-inheritance-judiciously/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 38: Model &quot;has-a&quot; or &quot;is-implemented-in-terms-of&quot; through composition</title>
