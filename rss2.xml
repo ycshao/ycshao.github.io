@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 17 Dec 2017 02:57:00 GMT</pubDate>
+    <pubDate>Sun, 17 Dec 2017 02:59:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 41: Understand implicit interfaces and compile-time polymorphism</title>
+      <link>http://blog.ycshao.com/2017/12/16/effective-c-item-41-understand-implicit-interfaces-and-compile-time-polymorphism/</link>
+      <guid>http://blog.ycshao.com/2017/12/16/effective-c-item-41-understand-implicit-interfaces-and-compile-time-polymorphism/</guid>
+      <pubDate>Sun, 17 Dec 2017 02:59:38 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;People are mostly familar with explicit interface, let’s use an example&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/12/16/effective-c-item-41-understand-implicit-interfaces-and-compile-time-polymorphism/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 40: Use Multiple Inheritance Judiciously</title>
