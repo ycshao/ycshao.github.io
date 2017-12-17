@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 03 Dec 2017 19:41:07 GMT</pubDate>
+    <pubDate>Sun, 17 Dec 2017 02:57:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 40: Use Multiple Inheritance Judiciously</title>
+      <link>http://blog.ycshao.com/2017/12/16/effective-c-item-40-use-multiple-inheritance-judiciously/</link>
+      <guid>http://blog.ycshao.com/2017/12/16/effective-c-item-40-use-multiple-inheritance-judiciously/</guid>
+      <pubDate>Sun, 17 Dec 2017 01:48:17 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Multiple inheritance is more complex than single inheritance. It can lead to new ambiguity issues and to the need for virtual
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/12/16/effective-c-item-40-use-multiple-inheritance-judiciously/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 39: Use Private Inheritance Judiciously</title>
