@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 17 Dec 2017 02:59:38 GMT</pubDate>
+    <pubDate>Sun, 17 Dec 2017 20:14:36 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 42: Understand the Two Meanings of typename</title>
+      <link>http://blog.ycshao.com/2017/12/17/effective-c-item-42-understand-the-two-meanings-of-typename/</link>
+      <guid>http://blog.ycshao.com/2017/12/17/effective-c-item-42-understand-the-two-meanings-of-typename/</guid>
+      <pubDate>Sun, 17 Dec 2017 20:14:36 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Ever wonder why you need to specify &lt;code&gt;typename&lt;/code&gt; when you use nested dependent type name? Consider following example without
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/12/17/effective-c-item-42-understand-the-two-meanings-of-typename/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 41: Understand implicit interfaces and compile-time polymorphism</title>
