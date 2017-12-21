@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Regarding calling functions in base class, there is a difference between how non-template polymorphism and template polymorphism. This is because we have total template specialization in template worl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ item 43: Know How to Access Names in Templatized Base Classes">
+<meta property="og:url" content="http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/index.html">
+<meta property="og:site_name" content="Sharp Ear">
+<meta property="og:description" content="Regarding calling functions in base class, there is a difference between how non-template polymorphism and template polymorphism. This is because we have total template specialization in template worl">
+<meta property="og:updated_time" content="2017-12-21T18:49:43.732Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective C++ item 43: Know How to Access Names in Templatized Base Classes">
+<meta name="twitter:description" content="Regarding calling functions in base class, there is a difference between how non-template polymorphism and template polymorphism. This is because we have total template specialization in template worl">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/fandroid-chrome-144x144.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Effective C++ item 43: Know How to Access Names in Templatized Base Classes</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2017/12/17/effective-c-item-42-understand-the-two-meanings-of-typename/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&text=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&title=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&is_video=false&description=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 43: Know How to Access Names in Templatized Base Classes&body=Check out this article: http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&title=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&title=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&title=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&title=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&name=Effective C++ item 43: Know How to Access Names in Templatized Base Classes&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Effective C++ item 43: Know How to Access Names in Templatized Base Classes
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sharp Ear</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-12-21T18:49:43.000Z" itemprop="datePublished">2017-12-21</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/effective-c/">Effective C++</a>, <a class="tag-link" href="/tags/polymorphism/">polymorphism</a>, <a class="tag-link" href="/tags/template/">template</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Regarding calling functions in base class, there is a difference between how non-template polymorphism and template polymorphism. This is because we have total template specialization in template world which will confuse compiler unless we are specific about it. Let me show you an example<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> CompanyA &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendCleartext</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendEncrypted</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span>&#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> CompanyB &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendCleartext</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendEncrypted</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span>&#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Company&gt;</div><div class="line"><span class="keyword">class</span> MsgSender &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendClear</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span></div><div class="line">    &#123;</div><div class="line">        Company c;</div><div class="line">        c.sendCleartext(msg);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendSecret</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span>&#123;</div><div class="line">        Company c;</div><div class="line">        c.sendEncrypted(msg);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Company&gt;</div><div class="line"><span class="keyword">class</span> LoggingMsgSender: <span class="keyword">public</span> MsgSender&lt;Company&gt; &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">using</span> MsgSender&lt;Company&gt;::sendClear;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendClearMsg</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">//write "before sending" info to the log;</span></div><div class="line">        sendClear(msg); <span class="comment">// &lt;-------- won't compile!</span></div><div class="line">        <span class="comment">//write "after sending" info to the log;</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>You might be surprised that calling <code>sendClear</code> won’t compile. There is a reason compiler gives you this error. Imagine you also have following code<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> CompanyC &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendEncrypted</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span>&#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;&gt;</div><div class="line"><span class="keyword">class</span> MsgSender&lt;CompanyC&gt; &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendSecret</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span>&#123;&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>Where <code>CompanyC</code> doesn’t have <code>sendCleartext</code> method and a total template specialization version of the class <code>MsgSender</code> for <code>CompanyC</code> which doesn’t have <code>sendClear</code> method. Now you will appreciate your compiler thinking ahead of you previously because now it really doesn’t make sense to compile!</p>
+<p>There are three ways to tell compiler that please assume <code>sendClear</code> always exists.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Company&gt;</div><div class="line"><span class="keyword">class</span> LoggingMsgSender: <span class="keyword">public</span> MsgSender&lt;Company&gt; &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">using</span> MsgSender&lt;Company&gt;::sendClear;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendClearMsg</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span></div><div class="line">    &#123;</div><div class="line">        sendClear(msg);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Company&gt;</div><div class="line"><span class="keyword">class</span> LoggingMsgSender: <span class="keyword">public</span> MsgSender&lt;Company&gt; &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendClearMsg</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>-&gt;sendClear(msg);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// This is not preferred because if the function being called is virtual,</span></div><div class="line"><span class="comment">// explicit qualification turns off the virtual binding behavior.</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Company&gt;</div><div class="line"><span class="keyword">class</span> LoggingMsgSender: <span class="keyword">public</span> MsgSender&lt;Company&gt; &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendClearMsg</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span></div><div class="line">    &#123;</div><div class="line">        MsgSender&lt;Company&gt;::sendClear(msg);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>You can argue that compiler can detect this in two places</p>
+<ol>
+<li>when derived class template definitions are parsed</li>
+<li>when those templates are instantiated with specific template arguments<br>You are correct. But C++’s policy is to prefer early diagnoses, and that’s why it assumes it knows nothing about the contents of base classes when those classes are instantiated from templates.</li>
+</ol>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+         
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&text=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&title=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&is_video=false&description=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 43: Know How to Access Names in Templatized Base Classes&body=Check out this article: http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&title=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&title=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&title=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&title=Effective C++ item 43: Know How to Access Names in Templatized Base Classes"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/&name=Effective C++ item 43: Know How to Access Names in Templatized Base Classes&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-top">
+    Copyright &copy; 2017 Yuecheng Shao
+  </div>
+  <div class="footer-bottom">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+          <li><a href="/categories/book-digest">Book Digest / 好书摘要</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-97811930-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

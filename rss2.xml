@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 17 Dec 2017 20:14:36 GMT</pubDate>
+    <pubDate>Thu, 21 Dec 2017 18:49:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 43: Know How to Access Names in Templatized Base Classes</title>
+      <link>http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/</link>
+      <guid>http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/</guid>
+      <pubDate>Thu, 21 Dec 2017 18:49:43 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Regarding calling functions in base class, there is a difference between how non-template polymorphism and template polymorphism. This
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/12/21/effective-c-item-43-know-how-to-access-names-in-templatized-base-classes/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 42: Understand the Two Meanings of typename</title>
