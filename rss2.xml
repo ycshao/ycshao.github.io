@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Thu, 21 Dec 2017 18:49:43 GMT</pubDate>
+    <pubDate>Sat, 23 Dec 2017 03:19:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 44: Factor Parameter-independent code Out of Templates</title>
+      <link>http://blog.ycshao.com/2017/12/22/effective-c-item-44-factor-parameter-independent-code-out-of-templates/</link>
+      <guid>http://blog.ycshao.com/2017/12/22/effective-c-item-44-factor-parameter-independent-code-out-of-templates/</guid>
+      <pubDate>Sat, 23 Dec 2017 03:19:10 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;You probably heard of &lt;code&gt;code bloat&lt;/code&gt; or &lt;code&gt;object bloat&lt;/code&gt; when using templates. It is caused by instanciate too many
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/12/22/effective-c-item-44-factor-parameter-independent-code-out-of-templates/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 43: Know How to Access Names in Templatized Base Classes</title>
