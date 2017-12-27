@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sat, 23 Dec 2017 03:19:10 GMT</pubDate>
+    <pubDate>Wed, 27 Dec 2017 03:20:33 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 45: Use Member Function Templates to Accept &quot;All Compatible Types&quot;</title>
+      <link>http://blog.ycshao.com/2017/12/26/effective-c-item-45-use-member-function-templates-to-accept-all-compatible-types/</link>
+      <guid>http://blog.ycshao.com/2017/12/26/effective-c-item-45-use-member-function-templates-to-accept-all-compatible-types/</guid>
+      <pubDate>Tue, 26 Dec 2017 21:27:59 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Have you ever wonder how to implement a &lt;code&gt;shared_ptr&lt;/code&gt;? This item is to make you think about how to implement the behavior that
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/12/26/effective-c-item-45-use-member-function-templates-to-accept-all-compatible-types/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 44: Factor Parameter-independent code Out of Templates</title>
