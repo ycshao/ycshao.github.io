@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Wed, 27 Dec 2017 03:20:33 GMT</pubDate>
+    <pubDate>Thu, 28 Dec 2017 02:44:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired</title>
+      <link>http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/</link>
+      <guid>http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/</guid>
+      <pubDate>Thu, 28 Dec 2017 02:44:56 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;As explained in item24, we use non-member function to support implicit type conversion for all arguments. So that following code will
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 45: Use Member Function Templates to Accept &quot;All Compatible Types&quot;</title>
