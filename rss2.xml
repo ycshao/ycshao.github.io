@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Thu, 28 Dec 2017 02:44:56 GMT</pubDate>
+    <pubDate>Tue, 02 Jan 2018 02:49:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 47: Use Traits Classes For Information About Types</title>
+      <link>http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/</link>
+      <guid>http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/</guid>
+      <pubDate>Tue, 02 Jan 2018 02:49:07 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;If you want to write a function &lt;code&gt;advance&lt;/code&gt; to do iterator arithmetic, how do you implement it?&lt;br&gt;&lt;figure class=&quot;highlight
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired</title>
