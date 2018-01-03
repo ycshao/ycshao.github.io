@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Tue, 02 Jan 2018 02:49:07 GMT</pubDate>
+    <pubDate>Wed, 03 Jan 2018 04:48:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Effective C++ item 48: Be Aware of Template Metaprogramming</title>
+      <link>http://blog.ycshao.com/2018/01/02/effective-c-item-48-be-aware-of-template-metaprogramming/</link>
+      <guid>http://blog.ycshao.com/2018/01/02/effective-c-item-48-be-aware-of-template-metaprogramming/</guid>
+      <pubDate>Wed, 03 Jan 2018 04:48:17 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Template metaprogramming(TMP) is the process of writing template-based C++ programs that execute during compilation. A template
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2018/01/02/effective-c-item-48-be-aware-of-template-metaprogramming/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 47: Use Traits Classes For Information About Types</title>
