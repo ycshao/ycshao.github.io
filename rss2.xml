@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sat, 06 Jan 2018 21:53:10 GMT</pubDate>
+    <pubDate>Sat, 06 Jan 2018 22:26:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>What is bitcoin mining?</title>
+      <link>http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/</link>
+      <guid>http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/</guid>
+      <pubDate>Sat, 06 Jan 2018 22:26:49 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Bitcoin mining is a process of assembling transactions into a block, and find a SHA-256 hash of that block which is smaller or equal to
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>What is bitcoin target and difficulty?</title>
