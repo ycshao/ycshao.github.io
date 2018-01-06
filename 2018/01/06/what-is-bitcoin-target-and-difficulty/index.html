@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="TargetThe target is a 256-bit number that all Bitcoin clients share. The SHA-256 hash of a block’s header must be lower than or equal to the current target for the block to be accepted by the network.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is bitcoin target and difficulty?">
+<meta property="og:url" content="http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/index.html">
+<meta property="og:site_name" content="Sharp Ear">
+<meta property="og:description" content="TargetThe target is a 256-bit number that all Bitcoin clients share. The SHA-256 hash of a block’s header must be lower than or equal to the current target for the block to be accepted by the network.">
+<meta property="og:image" content="http://blog.ycshao.com/./difficulty-cycle.png">
+<meta property="og:updated_time" content="2018-01-06T21:53:10.626Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What is bitcoin target and difficulty?">
+<meta name="twitter:description" content="TargetThe target is a 256-bit number that all Bitcoin clients share. The SHA-256 hash of a block’s header must be lower than or equal to the current target for the block to be accepted by the network.">
+<meta name="twitter:image" content="http://blog.ycshao.com/./difficulty-cycle.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/fandroid-chrome-144x144.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>What is bitcoin target and difficulty?</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/01/02/effective-c-item-48-be-aware-of-template-metaprogramming/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&text=What is bitcoin target and difficulty?"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&title=What is bitcoin target and difficulty?"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&is_video=false&description=What is bitcoin target and difficulty?"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=What is bitcoin target and difficulty?&body=Check out this article: http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&title=What is bitcoin target and difficulty?"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&title=What is bitcoin target and difficulty?"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&title=What is bitcoin target and difficulty?"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&title=What is bitcoin target and difficulty?"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&name=What is bitcoin target and difficulty?&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Target"><span class="toc-number">1.</span> <span class="toc-text">Target</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Difficulty"><span class="toc-number">2.</span> <span class="toc-text">Difficulty</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        What is bitcoin target and difficulty?
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sharp Ear</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-01-06T20:59:44.000Z" itemprop="datePublished">2018-01-06</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/sha-256/">SHA-256</a>, <a class="tag-link" href="/tags/difficulty/">difficulty</a>, <a class="tag-link" href="/tags/hash/">hash</a>, <a class="tag-link" href="/tags/target/">target</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h1><p>The target is a 256-bit number that all Bitcoin clients share. The SHA-256 hash of a block’s header must be lower than or equal to the current target for the block to be accepted by the network. The lower the target, the more difficult it is to generate a block.</p>
+<p>The maximum target used by bitcoin miners is<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">0x00000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</div></pre></td></tr></table></figure></p>
+<p>Because Bitcoin stores the target as a float type, this is truncated to be <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">0x00000000FFFF0000000000000000000000000000000000000000000000000000</div></pre></td></tr></table></figure></p>
+<p>The lower bits doesn’t matter since people are just comparing to make sure <code>hash &lt;= target</code>. You may ask why the maximum is not<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2^256 - 1 = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</div></pre></td></tr></table></figure></p>
+<p>There is no definite answer, but the most promising one I found is <a href="https://bitcoin.stackexchange.com/questions/50859/why-was-the-maximum-target-set-to-0xffff0000000" target="_blank" rel="external">here</a>. Basically if the maximum target is set to be<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</div></pre></td></tr></table></figure></p>
+<p>initially, it means you can mine block the first time you generate a hash, because any SHA-256 hash satisfy <code>hash &lt;= target</code>. This defeats the purpose of proof-of-work(which I’ll talk about in later posts) enforced by bitcoin blockchain.</p>
+<h1 id="Difficulty"><a href="#Difficulty" class="headerlink" title="Difficulty"></a>Difficulty</h1><p>Difficulty is a measure of how difficult it is to find a hash below a given target. The goal of difficulty is to make sure bitcoin generate one block every 10 minutes. So as you imagine, difficulty is not a constant number. In fact, the bitcoin rule is to change it every 2016 blocks. It is easy to figure out that to mine 2016, it takes 2 weeks time (2016 block * 10 mins/block). So difficulty is adjusted every 2 weeks.</p>
+<p>How difficulty is calculated? It is very easy <code>difficulty = maximum_target / current_target</code>. Assuming <code>current_target</code> is<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">0x00000000000404CB000000000000000000000000000000000000000000000000</div></pre></td></tr></table></figure></p>
+<p>then difficulty is<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">0x00000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF / 0x00000000000404CB000000000000000000000000000000000000000000000000</div><div class="line">= 16307.669773817162</div></pre></td></tr></table></figure></p>
+<p>At the end, I want to show you a very interesting graph to illustrate difficulty and mining time relationship and reason behind those. As you can see, every time difficulty is adjusted, the average minting time resets back to 600 seconds which is exactly where we want it to be. Over time, more and more power added by miners, they find block quicker and quicker. After two weeks, everything resets again.</p>
+<p><a href="./difficulty-cycle.png"><img src="./difficulty-cycle.png" alt=""></a></p>
+<p><center><em>Difficulty Cycle</em></center></p>
+<p>Reference:<br><a href="https://en.bitcoin.it/wiki/Difficulty" target="_blank" rel="external">https://en.bitcoin.it/wiki/Difficulty</a><br><a href="https://en.bitcoin.it/wiki/Target" target="_blank" rel="external">https://en.bitcoin.it/wiki/Target</a><br><a href="https://www.coursera.org/learn/cryptocurrency/lecture/0htpQ/the-task-of-bitcoin-miners" target="_blank" rel="external">https://www.coursera.org/learn/cryptocurrency/lecture/0htpQ/the-task-of-bitcoin-miners</a><br><a href="https://bitcoinwisdom.com/bitcoin/difficulty" target="_blank" rel="external">https://bitcoinwisdom.com/bitcoin/difficulty</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Target"><span class="toc-number">1.</span> <span class="toc-text">Target</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Difficulty"><span class="toc-number">2.</span> <span class="toc-text">Difficulty</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&text=What is bitcoin target and difficulty?"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&title=What is bitcoin target and difficulty?"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&is_video=false&description=What is bitcoin target and difficulty?"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=What is bitcoin target and difficulty?&body=Check out this article: http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&title=What is bitcoin target and difficulty?"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&title=What is bitcoin target and difficulty?"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&title=What is bitcoin target and difficulty?"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&title=What is bitcoin target and difficulty?"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/&name=What is bitcoin target and difficulty?&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-top">
+    Copyright &copy; 2018 Yuecheng Shao
+  </div>
+  <div class="footer-bottom">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-97811930-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

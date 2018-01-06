@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Wed, 03 Jan 2018 04:48:17 GMT</pubDate>
+    <pubDate>Sat, 06 Jan 2018 21:53:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>What is bitcoin target and difficulty?</title>
+      <link>http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/</link>
+      <guid>http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/</guid>
+      <pubDate>Sat, 06 Jan 2018 20:59:44 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1 id=&quot;Target&quot;&gt;&lt;a href=&quot;#Target&quot; class=&quot;headerlink&quot; title=&quot;Target&quot;&gt;&lt;/a&gt;Target&lt;/h1&gt;&lt;p&gt;The target is a 256-bit number that all Bitcoin
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2018/01/06/what-is-bitcoin-target-and-difficulty/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Effective C++ item 48: Be Aware of Template Metaprogramming</title>
