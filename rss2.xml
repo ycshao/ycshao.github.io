@@ -8,8 +8,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sat, 06 Jan 2018 22:38:33 GMT</pubDate>
+    <pubDate>Wed, 10 Jan 2018 04:47:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>What&#39;s Proof of X?</title>
+      <link>http://blog.ycshao.com/2018/01/09/what-s-proof-of-x/</link>
+      <guid>http://blog.ycshao.com/2018/01/09/what-s-proof-of-x/</guid>
+      <pubDate>Wed, 10 Jan 2018 03:59:09 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Proof of Work&lt;br&gt;A proof of work is a piece of data which is difficult (costly, time-consuming) to produce but easy for others
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2018/01/09/what-s-proof-of-x/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>What is bitcoin mining?</title>
