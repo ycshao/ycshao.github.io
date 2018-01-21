@@ -8,11 +8,31 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Wed, 10 Jan 2018 04:47:18 GMT</pubDate>
+    <pubDate>Sun, 21 Jan 2018 05:50:30 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>What&#39;s Proof of X?</title>
+      <title>What is Merkle tree?</title>
+      <link>http://blog.ycshao.com/2018/01/20/what-s-merkle-tree/</link>
+      <guid>http://blog.ycshao.com/2018/01/20/what-s-merkle-tree/</guid>
+      <pubDate>Sat, 20 Jan 2018 21:55:07 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Merkle tree is a data structure which build from the leaf to root using hash functions. It is used in many applications other than
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2018/01/20/what-s-merkle-tree/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>What is Proof of X?</title>
       <link>http://blog.ycshao.com/2018/01/09/what-s-proof-of-x/</link>
       <guid>http://blog.ycshao.com/2018/01/09/what-s-proof-of-x/</guid>
       <pubDate>Wed, 10 Jan 2018 03:59:09 GMT</pubDate>
