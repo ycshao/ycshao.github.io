@@ -8,15 +8,23 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 11 Feb 2018 22:24:03 GMT</pubDate>
+    <pubDate>Sun, 11 Feb 2018 22:43:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>What is ERC20 tocken?</title>
+      <title>What is ERC20 token?</title>
       <link>http://blog.ycshao.com/2018/02/11/what-is-erc20-tocken/</link>
       <guid>http://blog.ycshao.com/2018/02/11/what-is-erc20-tocken/</guid>
       <pubDate>Sun, 11 Feb 2018 22:24:03 GMT</pubDate>
       <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;If you come across any ICOs, you must have heard of ERC20 token. In fact, majority ICO tokens are ERC20 compatible. What does that mean?
+          
+        
       
       </description>
       
