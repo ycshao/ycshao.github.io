@@ -6,19 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Python is relied on indentation, and if you edit python code in Vim, you may found it will mess up your indentation. Here is a simple way to fix it.
-Open your file in Vim you will see something like t">
+    <meta name="description" content="Python is relied on indentation, and if you edit python code in Vim, you may found it will mess up your indentation. Here is a simple way to fix it. Open your file in Vim you will see something like t">
+<meta name="keywords" content="indentation,python,python code,tabs,vim,white spaces">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Editing Python code in Vim.">
 <meta property="og:url" content="http://blog.ycshao.com/2013/05/19/editing-python-code-in-vim/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="Python is relied on indentation, and if you edit python code in Vim, you may found it will mess up your indentation. Here is a simple way to fix it.
-Open your file in Vim you will see something like t">
+<meta property="og:description" content="Python is relied on indentation, and if you edit python code in Vim, you may found it will mess up your indentation. Here is a simple way to fix it. Open your file in Vim you will see something like t">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-05-14T19:33:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Editing Python code in Vim.">
-<meta name="twitter:description" content="Python is relied on indentation, and if you edit python code in Vim, you may found it will mess up your indentation. Here is a simple way to fix it.
-Open your file in Vim you will see something like t">
+<meta name="twitter:description" content="Python is relied on indentation, and if you edit python code in Vim, you may found it will mess up your indentation. Here is a simple way to fix it. Open your file in Vim you will see something like t">
     
     
         
@@ -151,19 +150,19 @@ Open your file in Vim you will see something like t">
 
   <div class="content" itemprop="articleBody">
     <p>Python is relied on indentation, and if you edit python code in Vim, you may found it will mess up your indentation. Here is a simple way to fix it.</p>
-<p>Open your file in Vim you will see something like this:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload</span><span class="params">(request)</span>:</span></div><div class="line">    c = &#123;&#125;</div><div class="line">    c.update(csrf(request))</div><div class="line">    <span class="keyword">print</span> c</div></pre></td></tr></table></figure></p>
+<p>Open your file in Vim you will see something like this:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload</span><span class="params">(request)</span>:</span></span><br><span class="line">    c = &#123;&#125;</span><br><span class="line">    c.update(csrf(request))</span><br><span class="line">    <span class="keyword">print</span> c</span><br></pre></td></tr></table></figure></p>
 <p>and enter Vim command</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:<span class="keyword">set</span> <span class="keyword">list</span></div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">set</span> <span class="keyword">list</span></span><br></pre></td></tr></table></figure>
 <p>to see all white spaces. If you see something like this:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload</span><span class="params">(request)</span>:</span>$</div><div class="line">^Ic = &#123;&#125;$</div><div class="line">^Ic.update(csrf(request))$</div><div class="line">    <span class="keyword">print</span> c$</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload</span><span class="params">(request)</span>:</span>$</span><br><span class="line">^Ic = &#123;&#125;$</span><br><span class="line">^Ic.update(csrf(request))$</span><br><span class="line">    <span class="keyword">print</span> c$</span><br></pre></td></tr></table></figure>
 <p>You know you have inconsistent indentation. “^I” means tab, but “print c” statement is indented by space.</p>
 <p>How to fix this? Easy.</p>
 <ol>
 <li><p>Edit your .vimrc file to have following:</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> smartindent</div><div class="line"><span class="keyword">set</span> expandtab</div><div class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span></div><div class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span></div><div class="line"><span class="keyword">set</span> softtabstop=<span class="number">4</span></div><div class="line"><span class="keyword">set</span> smarttab</div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> smartindent</span><br><span class="line"><span class="keyword">set</span> expandtab</span><br><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> softtabstop=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> smarttab</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>For the files having indentation issue, run Vim command to fix them:</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:<span class="keyword">retab</span></div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">retab</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Now check the file again using “:set list”, and you will see all tabs are gone. They are places by spaces.</p>
 </li>

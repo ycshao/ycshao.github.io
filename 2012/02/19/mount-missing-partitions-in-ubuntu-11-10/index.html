@@ -6,19 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:1$ sudo fdisk -l
-to check what are partitions available. And I figured out that sda4 is the">
+    <meta name="description" content="I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:1$ sudo fdisk -l to check what are partitions available. And I figured out that sda4 is the">
+<meta name="keywords" content="ubuntu,windows,mount,NTFS,partition">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mount missing partitions in Ubuntu 11.10">
 <meta property="og:url" content="http://blog.ycshao.com/2012/02/19/mount-missing-partitions-in-ubuntu-11-10/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:1$ sudo fdisk -l
-to check what are partitions available. And I figured out that sda4 is the">
+<meta property="og:description" content="I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:1$ sudo fdisk -l to check what are partitions available. And I figured out that sda4 is the">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-15T02:46:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mount missing partitions in Ubuntu 11.10">
-<meta name="twitter:description" content="I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:1$ sudo fdisk -l
-to check what are partitions available. And I figured out that sda4 is the">
+<meta name="twitter:description" content="I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:1$ sudo fdisk -l to check what are partitions available. And I figured out that sda4 is the">
     
     
         
@@ -150,13 +149,13 @@ to check what are partitions available. And I figured out that sda4 is the">
   
 
   <div class="content" itemprop="articleBody">
-    <p>I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo fdisk <span class="_">-l</span></div></pre></td></tr></table></figure></p>
+    <p>I found that one of my partition in windows was missing in Ubuntu, so I tried to mount it back. Firstly type:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fdisk -l</span><br></pre></td></tr></table></figure></p>
 <p>to check what are partitions available. And I figured out that sda4 is the partition missing, so I tried</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo mkdir /media/e</div><div class="line">$ sudo mount -t ntfs -o nls=utf8,<span class="built_in">umask</span>=0222 /dev/sda4 /media/e</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mkdir /media/e</span><br><span class="line">$ sudo mount -t ntfs -o nls=utf8,<span class="built_in">umask</span>=0222 /dev/sda4 /media/e</span><br></pre></td></tr></table></figure>
 <p>But it gave me:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Mount is denied because the NTFS volume is already exclusively opened.</div><div class="line">The volume may be already mounted, or another software may use it <span class="built_in">which</span></div><div class="line">could be identified <span class="keyword">for</span> example by the <span class="built_in">help</span> of the <span class="string">'fuser'</span> command.</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Mount is denied because the NTFS volume is already exclusively opened.</span><br><span class="line">The volume may be already mounted, or another software may use it <span class="built_in">which</span></span><br><span class="line">could be identified <span class="keyword">for</span> example by the <span class="built_in">help</span> of the <span class="string">'fuser'</span> <span class="built_in">command</span>.</span><br></pre></td></tr></table></figure>
 <p>Maybe it’s because auto-mount performed by Ubuntu somehow grab the handle, so I unmounted this partition first and mounted it back by:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo umount <span class="_">-l</span> /dev/sda4</div><div class="line">$ sudo mount -t ntfs -o nls=utf8,<span class="built_in">umask</span>=0222 /dev/sda4 /media/e</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo umount -l /dev/sda4</span><br><span class="line">$ sudo mount -t ntfs -o nls=utf8,<span class="built_in">umask</span>=0222 /dev/sda4 /media/e</span><br></pre></td></tr></table></figure>
 
   </div>
 </article>

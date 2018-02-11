@@ -6,19 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:123$ svn st!  +  C foo      &amp;gt;   local edit, incoming delete upon update
-or123$">
+    <meta name="description" content="Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:123$ svn st!  +  C foo      &amp;gt;   local edit, incoming delete upon update or123$">
+<meta name="keywords" content="repository,SVN,resolve,BACKUP,conflict">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SVN: local delete/edit, incoming delete upon update">
+<meta property="og:title" content="SVN: local delete&#x2F;edit, incoming delete upon update">
 <meta property="og:url" content="http://blog.ycshao.com/2012/01/17/svn-local-deleteedit-incoming-delete-upon-update/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:123$ svn st!  +  C foo      &amp;gt;   local edit, incoming delete upon update
-or123$">
+<meta property="og:description" content="Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:123$ svn st!  +  C foo      &amp;gt;   local edit, incoming delete upon update or123$">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-15T03:07:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SVN: local delete/edit, incoming delete upon update">
-<meta name="twitter:description" content="Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:123$ svn st!  +  C foo      &amp;gt;   local edit, incoming delete upon update
-or123$">
+<meta name="twitter:title" content="SVN: local delete&#x2F;edit, incoming delete upon update">
+<meta name="twitter:description" content="Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:123$ svn st!  +  C foo      &amp;gt;   local edit, incoming delete upon update or123$">
     
     
         
@@ -150,10 +149,10 @@ or123$">
   
 
   <div class="content" itemprop="articleBody">
-    <p>Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ svn st</div><div class="line">!  +  C foo</div><div class="line">      &gt;   <span class="built_in">local</span> edit, incoming delete upon update</div></pre></td></tr></table></figure></p>
-<p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ svn st</div><div class="line">!     C foo</div><div class="line">      &gt;   <span class="built_in">local</span> delete, incoming delete upon update</div></pre></td></tr></table></figure></p>
+    <p>Have you ever encounter such a weird situation that you have no idea what happend and how to resolve this SVN conflict:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ svn st</span><br><span class="line">!  +  C foo</span><br><span class="line">      &gt;   <span class="built_in">local</span> edit, incoming delete upon update</span><br></pre></td></tr></table></figure></p>
+<p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ svn st</span><br><span class="line">!     C foo</span><br><span class="line">      &gt;   <span class="built_in">local</span> delete, incoming delete upon update</span><br></pre></td></tr></table></figure></p>
 <p>This is because that file has been deleted from repository and you either edited or deleted it in your working directory. Even though it’s the right thing for you to do to delete the file locally, SVN will not satisfy with that! And here is a simple way to resolve this conflict: (NOTE: Here I assume you indeed want to delete that file. If you don’t, please BACKUP that file first and after done all steps here, commit it back to repository.)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ touch foo</div><div class="line">$ svn revert foo</div><div class="line">$ rm foo</div><div class="line">$ svn st</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ touch foo</span><br><span class="line">$ svn revert foo</span><br><span class="line">$ rm foo</span><br><span class="line">$ svn st</span><br></pre></td></tr></table></figure>
 <p>Done.</p>
 
   </div>

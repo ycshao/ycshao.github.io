@@ -7,11 +7,13 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Since I’m a newbie programmer and code in our team is really complicated, I always found myself lost somewhere in the code sea. Luckily our code is doxygenized long times ago, so  I want to try out so">
+<meta name="keywords" content="inheritance,reference,feature,caller diagram,documentation,doxygen,inheritance diagram,YES">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to use doxygen to generate caller and inheritance diagram.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/04/15/how-to-use-doxygen-to-generate-caller-and-inheritance-diagram/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="Since I’m a newbie programmer and code in our team is really complicated, I always found myself lost somewhere in the code sea. Luckily our code is doxygenized long times ago, so  I want to try out so">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-15T02:28:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to use doxygen to generate caller and inheritance diagram.">
@@ -150,16 +152,16 @@
     <p>Since I’m a newbie programmer and code in our team is really complicated, I always found myself lost somewhere in the code sea. Luckily our code is doxygenized long times ago, so  I want to try out some cool features of doxygen. The most important feature to me is inheritance diagram and the usage relations between classes. (something like class A has a member of class B) So here is how to do it:</p>
 <ol>
 <li><p>Install graphviz which has a tool called dot that doxygen use to draw those diagrams:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install graphviz</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install graphviz</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Set <code>HAVE_DOT</code>, <code>CALL_GRAPH</code>, <code>CALLER_GRAPH</code>, and <code>EXTRACT_ALL</code> to YES.</p>
 </li>
 <li>Set <code>DOT_GRAPH_MAX_NODES</code> and <code>MAX_DOT_GRAPH_DEPTH</code> to some big number.</li>
 <li>Generate doxygen files.</li>
-<li>Done. Then you will see diagrams as <a href="http://www.stack.nl/~dimitri/doxygen/examples/diagrams/html/class_d.html" target="_blank" rel="external">this</a>.<br>Here we assume your files are already doxygenized. If you don’t know what doxygen is or how to use doxygen, you may refer to the reference link to find out.</li>
+<li>Done. Then you will see diagrams as <a href="http://www.stack.nl/~dimitri/doxygen/examples/diagrams/html/class_d.html" target="_blank" rel="noopener">this</a>.<br>Here we assume your files are already doxygenized. If you don’t know what doxygen is or how to use doxygen, you may refer to the reference link to find out.</li>
 </ol>
-<p>References:<br><a href="http://www.stack.nl/~dimitri/doxygen/" target="_blank" rel="external">Doxygen
-</a><a href="http://www.stack.nl/~dimitri/doxygen/manual.html" target="_blank" rel="external">Doxygen manual</a></p>
+<p>References:<br><a href="http://www.stack.nl/~dimitri/doxygen/" target="_blank" rel="noopener">Doxygen
+</a><a href="http://www.stack.nl/~dimitri/doxygen/manual.html" target="_blank" rel="noopener">Doxygen manual</a></p>
 
   </div>
 </article>

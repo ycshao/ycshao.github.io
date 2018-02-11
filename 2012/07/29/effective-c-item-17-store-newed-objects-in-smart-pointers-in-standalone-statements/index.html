@@ -7,11 +7,13 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Sometimes if you try to do multiple things in one statement, you should think carefully about abnormal behavior especially exceptions. For example:1processWidget(std::tr1::shared_ptr&amp;lt;Widget&amp;gt;(new">
+<meta name="keywords" content="exception,Effective C++,shared_ptr,smart pointer,resource leak">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective C++ item 17: Store newed objects in smart pointers in standalone statements.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/07/29/effective-c-item-17-store-newed-objects-in-smart-pointers-in-standalone-statements/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="Sometimes if you try to do multiple things in one statement, you should think carefully about abnormal behavior especially exceptions. For example:1processWidget(std::tr1::shared_ptr&amp;lt;Widget&amp;gt;(new">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-15T02:19:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 17: Store newed objects in smart pointers in standalone statements.">
@@ -147,7 +149,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>Sometimes if you try to do multiple things in one statement, you should think carefully about abnormal behavior especially exceptions. For example:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">processWidget(<span class="built_in">std</span>::tr1::<span class="built_in">shared_ptr</span>&lt;Widget&gt;(<span class="keyword">new</span> Widget), priority());</div></pre></td></tr></table></figure></p>
+    <p>Sometimes if you try to do multiple things in one statement, you should think carefully about abnormal behavior especially exceptions. For example:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">processWidget(<span class="built_in">std</span>::tr1::<span class="built_in">shared_ptr</span>&lt;Widget&gt;(<span class="keyword">new</span> Widget), priority());</span><br></pre></td></tr></table></figure></p>
 <p>With this statement, if compile choose to do things in following order:</p>
 <ol>
 <li>Execute “new Widget”.</li>
@@ -155,7 +157,7 @@
 <li>Call the <code>std::tr1::shared_ptr</code> constructor.<br>In addition, if the call to priority yields an exception, you are running into resource leak. Because the pointer returned from “new Widget” will be lost before it’s put into <code>shared_ptr</code>.</li>
 </ol>
 <p>So what’s the suggestion? Don’t combine too many calls into one statement, especially dangerous ones like new objects.</p>
-<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="noopener">“Effective C++” Third Edition by Scott Meyers.</a></p>
 
   </div>
 </article>

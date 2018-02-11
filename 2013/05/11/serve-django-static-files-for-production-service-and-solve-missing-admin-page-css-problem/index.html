@@ -7,11 +7,13 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="It works perfectly on dev version of my django site. But when I deploy it to production (served by apache), I realized that css is missing for admin pages. Then I digged a little deeper to see what I">
+<meta name="keywords" content="folders,apache,django,alias,apps,config files,sessions,static files,static url">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Serve django static files for production service and solve missing admin page css problem.">
 <meta property="og:url" content="http://blog.ycshao.com/2013/05/11/serve-django-static-files-for-production-service-and-solve-missing-admin-page-css-problem/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="It works perfectly on dev version of my django site. But when I deploy it to production (served by apache), I realized that css is missing for admin pages. Then I digged a little deeper to see what I">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-05-14T19:36:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Serve django static files for production service and solve missing admin page css problem.">
@@ -149,17 +151,17 @@
   <div class="content" itemprop="articleBody">
     <p>It works perfectly on dev version of my django site. But when I deploy it to production (served by apache), I realized that css is missing for admin pages. Then I digged a little deeper to see what I could do to solve this issue. It actually quite simple. There are two files you need to modify.</p>
 <ol>
-<li>Modify settings.py.<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">...</div><div class="line"># create 'static' folder in your app if you haven't done so,</div><div class="line"># which will be in the same level of your settings.py file.</div><div class="line">STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static/')</div><div class="line">...</div><div class="line">STATIC_URL = '/static/'</div><div class="line">...</div><div class="line">INSTALLED_APPS = (</div><div class="line">    'django.contrib.auth',</div><div class="line">    'django.contrib.contenttypes',</div><div class="line">    'django.contrib.sessions',</div><div class="line">    'django.contrib.sites',</div><div class="line">    'django.contrib.messages',</div><div class="line">    'django.contrib.staticfiles',</div><div class="line">    'django.contrib.admin',</div><div class="line">)</div></pre></td></tr></table></figure>
+<li>Modify settings.py.<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="comment"># create 'static' folder in your app if you haven't done so,</span></span><br><span class="line"><span class="comment"># which will be in the same level of your settings.py file.</span></span><br><span class="line"><span class="attribute">STATIC_ROOT</span> = os.path.join(os.path.dirname(__file__), 'static/')</span><br><span class="line">...</span><br><span class="line"><span class="attribute">STATIC_URL</span> = '/static/'</span><br><span class="line">...</span><br><span class="line"><span class="attribute">INSTALLED_APPS</span> = (</span><br><span class="line">    'django.contrib.auth',</span><br><span class="line">    'django.contrib.contenttypes',</span><br><span class="line">    'django.contrib.sessions',</span><br><span class="line">    'django.contrib.sites',</span><br><span class="line">    'django.contrib.messages',</span><br><span class="line">    'django.contrib.staticfiles',</span><br><span class="line">    'django.contrib.admin',</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>here <span style="color: #00ccff;">STATIC_ROOT</span> will be the folder where django will copy all admin static files. <span style="color: #00ccff;">STATIC_URL</span> will corresponding to the alias name in your apache config file. Don’t worry, keep reading and it will be clear to you.</p>
 <ol>
-<li>Go to your django site directory and run<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py collectstatic</div></pre></td></tr></table></figure>
+<li>Go to your django site directory and run<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python manage.py collectstatic</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>This will copy all static files including admin css, image, js files into your <span style="color: #00ccff;">STATIC_ROOT</span>. Now check your “static” folder, you should see “admin” folder which has “css”, “img” and “js” sub-folders.</p>
 <ol>
-<li>Modify corresponding apache config files under /etc/apache2/sites-available/ folder.<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;VirtualHost *:80&gt;</div><div class="line">    ...</div><div class="line">    ...</div><div class="line">    ServerAdmin xxx</div><div class="line">    ServerName xxx</div><div class="line">    ServerAlias xxx</div><div class="line">    Alias /static/ /dir/to/your/static/</div><div class="line">    ...</div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure>
+<li>Modify corresponding apache config files under /etc/apache2/sites-available/ folder.<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;VirtualHost *:80&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">    <span class="attribute">ServerAdmin</span> xxx</span><br><span class="line">    <span class="attribute"><span class="nomarkup">ServerName</span></span> xxx</span><br><span class="line">    <span class="attribute">ServerAlias</span> xxx</span><br><span class="line">    <span class="attribute">Alias</span> /static/ /dir/to/your/static/</span><br><span class="line">    ...</span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>where “/static/“ is your <span style="color: #00ccff;">STATIC_URL</span> and “/dir/to/your/static/“ will be the location of your “static” folder which is your <span style="color: #00ccff;">STATIC_ROOT</span>.</p>
@@ -167,16 +169,16 @@
 <li>You are all set! Restart your apache and checkout your admin page.</li>
 </ol>
 <h1 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h1><ul>
-<li><p><a href="https://docs.djangoproject.com/en/dev/howto/static-files/deployment/" target="_blank" rel="external">Deploying static files</a></p>
+<li><p><a href="https://docs.djangoproject.com/en/dev/howto/static-files/deployment/" target="_blank" rel="noopener">Deploying static files</a></p>
 </li>
-<li><p><a href="https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-STATICFILES_DIRS" target="_blank" rel="external">STATIC_DIR
+<li><p><a href="https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-STATICFILES_DIRS" target="_blank" rel="noopener">STATIC_DIR
 </a></p>
 </li>
-<li><p><a href="https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/" target="_blank" rel="external">The staticfiles app</a></p>
+<li><p><a href="https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/" target="_blank" rel="noopener">The staticfiles app</a></p>
 </li>
-<li><p><a href="https://docs.djangoproject.com/en/dev/howto/deployment/wsgi/modwsgi/#serving-files" target="_blank" rel="external">How to use Django with Apache and mod_wsgi</a></p>
+<li><p><a href="https://docs.djangoproject.com/en/dev/howto/deployment/wsgi/modwsgi/#serving-files" target="_blank" rel="noopener">How to use Django with Apache and mod_wsgi</a></p>
 </li>
-<li><p><a href="https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-STATICFILES_DIRS" target="_blank" rel="external">Setting static file dirs</a></p>
+<li><p><a href="https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-STATICFILES_DIRS" target="_blank" rel="noopener">Setting static file dirs</a></p>
 </li>
 </ul>
 

@@ -7,11 +7,13 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Of cause I know delete corresponding to new and delete [] corresponding to new []. But sometimes things are not that simple. Imaging you are fixing a bug and need to delete an object somebody else wro">
+<meta name="keywords" content="bug,Effective C++,STL,Oops Foo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective C++ item 16: Use the same form in corresponding uses of new and delete.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/07/29/effective-c-item-16-use-the-same-form-in-corresponding-uses-of-new-and-delete/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="Of cause I know delete corresponding to new and delete [] corresponding to new []. But sometimes things are not that simple. Imaging you are fixing a bug and need to delete an object somebody else wro">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-15T02:21:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 16: Use the same form in corresponding uses of new and delete.">
@@ -147,12 +149,12 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>Of cause I know delete corresponding to new and delete [] corresponding to new []. But sometimes things are not that simple. Imaging you are fixing a bug and need to delete an object somebody else wrote, for example:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span> *foo = <span class="keyword">new</span> Foo;</div></pre></td></tr></table></figure></p>
-<p>How will you delete it? Pretty much everyone will write:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> foo;</div></pre></td></tr></table></figure></p>
-<p>But this is not necessary right if you look a little bit further until you come across this line:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">std</span>::<span class="built_in">string</span> Foo[<span class="number">4</span>];</div></pre></td></tr></table></figure></p>
-<p>Oops! <code>Foo</code> is actually array of strings. So you need to use<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> [] foo;</div></pre></td></tr></table></figure></p>
+    <p>Of cause I know delete corresponding to new and delete [] corresponding to new []. But sometimes things are not that simple. Imaging you are fixing a bug and need to delete an object somebody else wrote, for example:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> *foo = <span class="keyword">new</span> Foo;</span><br></pre></td></tr></table></figure></p>
+<p>How will you delete it? Pretty much everyone will write:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> foo;</span><br></pre></td></tr></table></figure></p>
+<p>But this is not necessary right if you look a little bit further until you come across this line:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">std</span>::<span class="built_in">string</span> Foo[<span class="number">4</span>];</span><br></pre></td></tr></table></figure></p>
+<p>Oops! <code>Foo</code> is actually array of strings. So you need to use<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> [] foo;</span><br></pre></td></tr></table></figure></p>
 <p>So what’s the lesson learned here? Probably it’s good for you to comment your typedefs, and as a people editing other’s code, look a little bit further. But other than that, my suggestion is to use STL library instead of dynamically allocate arrays of objects unless it’s absolutely necassary.</p>
-<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="noopener">“Effective C++” Third Edition by Scott Meyers.</a></p>
 
   </div>
 </article>

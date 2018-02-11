@@ -7,11 +7,13 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="We all know from previous posts that compiler will generate constructors, destructors  and assignment operator for you. What if you don’t need or you want to prevent compiler to generate them for you?">
+<meta name="keywords" content="Effective C++,assignment operator,constructor,copy constructor,compiler,assignment constructor,linker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective C++ item 6: Explicitly disallow the use of compiler-generated functions you do not want.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/03/18/effective-c-item-6-explicitly-disallow-the-use-of-compiler-generated-functions-you-do-not-want/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="We all know from previous posts that compiler will generate constructors, destructors  and assignment operator for you. What if you don’t need or you want to prevent compiler to generate them for you?">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-15T02:39:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 6: Explicitly disallow the use of compiler-generated functions you do not want.">
@@ -147,10 +149,10 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>We all know from previous posts that compiler will generate constructors, destructors  and assignment operator for you. What if you don’t need or you want to prevent compiler to generate them for you? The ways is to declare the corresponding member functions private and give no implementations. Here we will have a uncopyable class to demonstrate how to implement this.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Uncopyable</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Uncopyable&#123;&#125;</div><div class="line">    ~Uncopyable&#123;&#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    Uncopyable(<span class="keyword">const</span> Uncopyable&amp;);</div><div class="line">    Uncopyable&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Uncopyable&amp;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>If you do<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Uncopyable a, b;</div><div class="line">a = b;</div></pre></td></tr></table></figure></p>
+    <p>We all know from previous posts that compiler will generate constructors, destructors  and assignment operator for you. What if you don’t need or you want to prevent compiler to generate them for you? The ways is to declare the corresponding member functions private and give no implementations. Here we will have a uncopyable class to demonstrate how to implement this.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Uncopyable</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Uncopyable&#123;&#125;</span><br><span class="line">    ~Uncopyable&#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Uncopyable(<span class="keyword">const</span> Uncopyable&amp;);</span><br><span class="line">    Uncopyable&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Uncopyable&amp;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>If you do<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Uncopyable a, b;</span><br><span class="line">a = b;</span><br></pre></td></tr></table></figure></p>
 <p>The compiler will complain about assignment operator is private. and if you call it in a member or a friend function, the linker will complain about can’t find implementation of this function.</p>
-<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="noopener">“Effective C++” Third Edition by Scott Meyers.</a></p>
 
   </div>
 </article>

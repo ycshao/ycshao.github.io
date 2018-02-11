@@ -6,22 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica file using ICA client on Ubuntu, here is what you should do:
-
-Downl">
+    <meta name="description" content="The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica file using ICA client on Ubuntu, here is what you should do:  Downl">
+<meta name="keywords" content="ubuntu,Citrix,Citrix Receiver,ICA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to open .ica file and setup Citrix client on Ubuntu.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/07/01/how-to-open-ica-file-and-setup-citrix-client-on-ubuntu/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica file using ICA client on Ubuntu, here is what you should do:
-
-Downl">
+<meta property="og:description" content="The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica file using ICA client on Ubuntu, here is what you should do:  Downl">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-15T02:27:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to open .ica file and setup Citrix client on Ubuntu.">
-<meta name="twitter:description" content="The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica file using ICA client on Ubuntu, here is what you should do:
-
-Downl">
+<meta name="twitter:description" content="The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica file using ICA client on Ubuntu, here is what you should do:  Downl">
     
     
         
@@ -156,17 +152,17 @@ Downl">
     <p>The Citrix ICA Client (=Citrix Receiver) allows access to remote Windows sessions run from a Citrix server. If you want to open .ica file using ICA client on Ubuntu, here is what you should do:</p>
 <ol>
 <li><p>Download and install the 32-bit version of libmotif3 and create a symlink:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ wget -c http://nl.archive.ubuntu.com/ubuntu/pool/multiverse/o/openmotif/libmotif3_2.2.3-4_i386.deb</div><div class="line">$ sudo dpkg -i libmotif*i386.deb</div><div class="line">$ sudo ln <span class="_">-s</span> /usr/lib/libXm.so.3 /usr/lib/libXm.so.4</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget -c http://nl.archive.ubuntu.com/ubuntu/pool/multiverse/o/openmotif/libmotif3_2.2.3-4_i386.deb</span><br><span class="line">$ sudo dpkg -i libmotif*i386.deb</span><br><span class="line">$ sudo ln -s /usr/lib/libXm.so.3 /usr/lib/libXm.so.4</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Download the Citrix Receiver 12.1 .deb files for ‘Receiver for Linux 12.1 from <a href="http://www.citrix.com/English/ss/downloads/details.asp?downloadId=2323812&amp;productId=1689163" target="_blank" rel="external">here</a></p>
+<li><p>Download the Citrix Receiver 12.1 .deb files for ‘Receiver for Linux 12.1 from <a href="http://www.citrix.com/English/ss/downloads/details.asp?downloadId=2323812&amp;productId=1689163" target="_blank" rel="noopener">here</a></p>
 </li>
 <li><p>Run hdxcheck.sh, which was installed with the Citrix Receiver:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo /opt/Citrix/ICAClient/util/hdxcheck.sh</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /opt/Citrix/ICAClient/util/hdxcheck.sh</span><br></pre></td></tr></table></figure>
 <p>Look back through the messages displayed to check that it found libjpeg.so, as it might fail to do so despite it being installed. If it failed to find it then you can edit /opt/Citrix/ICAClient/util/hdxcheck.sh and change<br><code>Lib=find *libjpeg.so*</code> to <code>Lib=find / -name *libjpeg.so*</code><br>and run <code>hdxcheck.sh</code> again.</p>
 </li>
 <li>Firefox will using ICA client to open .ica file, or you can manually choose /opt/Citrix/ICAClient/wfica.sh to open .ica file.</li>
 </ol>
-<p>Reference:<br><a href="https://help.ubuntu.com/community/CitrixICAClientHowTo/" target="_blank" rel="external"> CitrixICAClientHowTo</a></p>
+<p>Reference:<br><a href="https://help.ubuntu.com/community/CitrixICAClientHowTo/" target="_blank" rel="noopener"> CitrixICAClientHowTo</a></p>
 
   </div>
 </article>

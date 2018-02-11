@@ -6,19 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Always use object to manage resources! If you delete a pointer or release a handler manually by yourself, there is a great chance you will make mistake or forget something.
-There are two critical aspe">
+    <meta name="description" content="Always use object to manage resources! If you delete a pointer or release a handler manually by yourself, there is a great chance you will make mistake or forget something. There are two critical aspe">
+<meta name="keywords" content="Effective C++,object-oriented,STL,heap memory,auto_ptr,RAII,resource management,shared_ptr,smart pointer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective C++ item 13: Use objects to manage resources.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/04/09/effective-c-item-13-use-objects-to-manage-resources/index.html">
 <meta property="og:site_name" content="Sharp Ear">
-<meta property="og:description" content="Always use object to manage resources! If you delete a pointer or release a handler manually by yourself, there is a great chance you will make mistake or forget something.
-There are two critical aspe">
+<meta property="og:description" content="Always use object to manage resources! If you delete a pointer or release a handler manually by yourself, there is a great chance you will make mistake or forget something. There are two critical aspe">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-15T02:31:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ item 13: Use objects to manage resources.">
-<meta name="twitter:description" content="Always use object to manage resources! If you delete a pointer or release a handler manually by yourself, there is a great chance you will make mistake or forget something.
-There are two critical aspe">
+<meta name="twitter:description" content="Always use object to manage resources! If you delete a pointer or release a handler manually by yourself, there is a great chance you will make mistake or forget something. There are two critical aspe">
     
     
         
@@ -162,7 +161,7 @@ There are two critical aspe">
 <li>STL containers require that their contents exhibit “normal” copying behavior, so containers of <code>std::auto_ptr</code>aren’t allowed.</li>
 <li>Both <code>std::auto_ptr</code> and <code>std::tr1::shared_ptr</code> use delete in their destructors, not <code>delete[ ]</code>. That means that using them with dynamically allocated arrays is a bad idea, though, regrettably, one that will compile.</li>
 </ol>
-<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="external">“Effective C++” Third Edition by Scott Meyers.</a></p>
+<p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="noopener">“Effective C++” Third Edition by Scott Meyers.</a></p>
 
   </div>
 </article>

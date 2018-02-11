@@ -8,8 +8,20 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 21 Jan 2018 05:50:30 GMT</pubDate>
+    <pubDate>Sun, 11 Feb 2018 22:24:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>What is ERC20 tocken?</title>
+      <link>http://blog.ycshao.com/2018/02/11/what-is-erc20-tocken/</link>
+      <guid>http://blog.ycshao.com/2018/02/11/what-is-erc20-tocken/</guid>
+      <pubDate>Sun, 11 Feb 2018 22:24:03 GMT</pubDate>
+      <description>
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2018/02/11/what-is-erc20-tocken/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>What is Merkle tree?</title>
@@ -505,7 +517,7 @@
         
           
           
-            &lt;p&gt;Assume you have following classes&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div
+            &lt;p&gt;Assume you have following classes&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
           
         
       
@@ -525,7 +537,7 @@
         
           
           
-            &lt;p&gt;There are usually three different ways to write the same cast.&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
+            &lt;p&gt;There are usually three different ways to write the same cast.&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
           
         
       
@@ -545,7 +557,7 @@
         
           
           
-            &lt;p&gt;This rule is very obvious. Instead of&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div
+            &lt;p&gt;This rule is very obvious. Instead of&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
           
         
       
@@ -605,7 +617,7 @@
         
           
           
-            &lt;p&gt;Imagine you have following class&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div
+            &lt;p&gt;Imagine you have following class&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
           
         
       
@@ -1053,7 +1065,7 @@
         
           
           
-            &lt;p&gt;It actually very easy to setup wsgi and Django.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
+            &lt;p&gt;It actually very easy to setup wsgi and Django.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
           
         
       
@@ -1073,7 +1085,7 @@
         
           
           
-            &lt;p&gt;I’m moving my site from &lt;a href=&quot;http://www.fatcow.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;fatcow.com&lt;/a&gt; to &lt;a href=&quot;http://www.linode.com&quot;
+            &lt;p&gt;I’m moving my site from &lt;a href=&quot;http://www.fatcow.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;fatcow.com&lt;/a&gt; to &lt;a href=&quot;http://www.linode.com&quot;
           
         
       
@@ -1095,7 +1107,7 @@
           
             &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Install phpMyAdmin:&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
           
         
       
@@ -1199,7 +1211,7 @@
           
           
             &lt;ol&gt;
-&lt;li&gt;Download and extract &lt;a href=&quot;http://opencv.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;opencv 2.4.3&lt;/a&gt; for windows. (I extracted it to
+&lt;li&gt;Download and extract &lt;a href=&quot;http://opencv.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;opencv 2.4.3&lt;/a&gt; for windows. (I extracted it to
           
         
       
@@ -1752,7 +1764,7 @@
         
           
           
-            &lt;p&gt;You can easily assign an object to itself without knowing it.&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
+            &lt;p&gt;You can easily assign an object to itself without knowing it.&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
           
         
       
@@ -1772,7 +1784,7 @@
         
           
           
-            &lt;p&gt;If you want to concatenate assignments like:&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
+            &lt;p&gt;If you want to concatenate assignments like:&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
           
         
       
@@ -2101,7 +2113,7 @@
         
           
           
-            &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div
+            &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
           
         
       
@@ -2121,7 +2133,7 @@
         
           
           
-            &lt;p&gt;Here is an example for enum hack:&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div
+            &lt;p&gt;Here is an example for enum hack:&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
           
         
       
@@ -2283,7 +2295,7 @@
         
           
           
-            &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div
+            &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
           
         
       

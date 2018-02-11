@@ -7,14 +7,16 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="I just came back from cppcon 2017, and there were so much information about c++17 or c++2x. I just can’t wait to try out thoes features. I found lots of new versions of gcc/g++ are not ready in packag">
+<meta name="keywords" content="gcc,CentOS,RHEL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to install custom gcc version on CentOS/RHEL">
+<meta property="og:title" content="How to install custom gcc version on CentOS&#x2F;RHEL">
 <meta property="og:url" content="http://blog.ycshao.com/2017/10/01/how-to-install-custom-gcc-version-on-centos-rhel/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="I just came back from cppcon 2017, and there were so much information about c++17 or c++2x. I just can’t wait to try out thoes features. I found lots of new versions of gcc/g++ are not ready in packag">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-01T19:43:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="How to install custom gcc version on CentOS/RHEL">
+<meta name="twitter:title" content="How to install custom gcc version on CentOS&#x2F;RHEL">
 <meta name="twitter:description" content="I just came back from cppcon 2017, and there were so much information about c++17 or c++2x. I just can’t wait to try out thoes features. I found lots of new versions of gcc/g++ are not ready in packag">
     
     
@@ -147,28 +149,28 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>I just came back from <a href="https://www.facebook.com/ycshao0402/posts/10155851686057340?pnref=story" target="_blank" rel="external">cppcon 2017</a>, and there were so much information about c++17 or c++2x. I just can’t wait to try out thoes features. I found lots of new versions of gcc/g++ are not ready in package form on most of OS, including CentOS/RHEL. The latest packaged gcc I can find is the one comes with <code>Devtoolset-6</code>, which only supports up to c++14. Here are the steps to install any custom versions of gcc/g++ on CentOS/RHEL.</p>
+    <p>I just came back from <a href="https://www.facebook.com/ycshao0402/posts/10155851686057340?pnref=story" target="_blank" rel="noopener">cppcon 2017</a>, and there were so much information about c++17 or c++2x. I just can’t wait to try out thoes features. I found lots of new versions of gcc/g++ are not ready in package form on most of OS, including CentOS/RHEL. The latest packaged gcc I can find is the one comes with <code>Devtoolset-6</code>, which only supports up to c++14. Here are the steps to install any custom versions of gcc/g++ on CentOS/RHEL.</p>
 <ol>
 <li><p>Install dependencies in order to build gcc</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum -y install libmpc-devel mpfr-devel gmp-devel gcc-g++ zlib-devel</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum -y install libmpc-devel mpfr-devel gmp-devel gcc-g++ zlib-devel</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>For example, I want to install the latest stable version of gcc, which is gcc 7.2.0. You can find all versions <a href="ftp://ftp.gnu.org/pub/gnu/gcc/" target="_blank" rel="external">here</a> and modify the url to download the version you want.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl ftp://ftp.gnu.org/pub/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.gz -O</div></pre></td></tr></table></figure>
+<li><p>For example, I want to install the latest stable version of gcc, which is gcc 7.2.0. You can find all versions <a href="ftp://ftp.gnu.org/pub/gnu/gcc/" target="_blank" rel="noopener">here</a> and modify the url to download the version you want.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl ftp://ftp.gnu.org/pub/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.gz -O</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Uncompress it</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tar xvf gcc-7.2.0.tar.gz</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar xvf gcc-7.2.0.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Configure it</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> gcc-7.2.0</div><div class="line">$ ./configure --with-system-zlib --disable-multilib --enable-languages=c,c++</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> gcc-7.2.0</span><br><span class="line">$ ./configure --with-system-zlib --<span class="built_in">disable</span>-multilib --<span class="built_in">enable</span>-languages=c,c++</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Build it and install it</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ make -j 8</div><div class="line">$ sudo make install</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make -j 8</span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>By default it will install all stuff to <code>/usr/local/</code>. And you are done!</p>
 </li>
 <li>Type <code>/usr/local/bin/gcc -v</code> should show you the correct version.</li>
 </ol>
-<p>If you just want to try out new few features in a very light-weight form, <a href="https://wandbox.org/" target="_blank" rel="external">wandbox</a> is the best tool you can use without installing anything!</p>
+<p>If you just want to try out new few features in a very light-weight form, <a href="https://wandbox.org/" target="_blank" rel="noopener">wandbox</a> is the best tool you can use without installing anything!</p>
 
   </div>
 </article>

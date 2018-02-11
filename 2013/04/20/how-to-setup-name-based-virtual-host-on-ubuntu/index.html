@@ -7,11 +7,13 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="I’m moving my site from fatcow.com to linode.com because I setup VPS on linode so I’ll have more control of it. The first step is to setup name-based virtual host so that I can link my sub-domains to">
+<meta name="keywords" content="ubuntu,blog,dns records,domain name,folder names,folders,important things,ip address,servername,start from scratch,url points,virtual host">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to setup name-based virtual host on Ubuntu server.">
 <meta property="og:url" content="http://blog.ycshao.com/2013/04/20/how-to-setup-name-based-virtual-host-on-ubuntu/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="I’m moving my site from fatcow.com to linode.com because I setup VPS on linode so I’ll have more control of it. The first step is to setup name-based virtual host so that I can link my sub-domains to">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-15T02:05:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to setup name-based virtual host on Ubuntu server.">
@@ -147,25 +149,25 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>I’m moving my site from <a href="http://www.fatcow.com" target="_blank" rel="external">fatcow.com</a> to <a href="http://www.linode.com" target="_blank" rel="external">linode.com</a> because I setup VPS on linode so I’ll have more control of it. The first step is to setup name-based virtual host so that I can link my sub-domains to my “www” sub-directories.</p>
+    <p>I’m moving my site from <a href="http://www.fatcow.com" target="_blank" rel="noopener">fatcow.com</a> to <a href="http://www.linode.com" target="_blank" rel="noopener">linode.com</a> because I setup VPS on linode so I’ll have more control of it. The first step is to setup name-based virtual host so that I can link my sub-domains to my “www” sub-directories.</p>
 <ol>
-<li><a href="http://library.linode.com/hosting-website#sph_adding-dns-records" target="_blank" rel="external">Create DNS records</a> for domains and sub-domains. The IP address of sub-domains can be the same as your main domain.</li>
-<li>Now the world know how to resolve your domain name to an IP address, next step is to create name-based virtual host on Ubuntu server so that we can host different sites on different sub-domains. I want to create 2 sites. One is my main domain which host my blog <a href="http://www.ycshao.com" target="_blank" rel="external">www.ycshao.com</a>, another one is for testing purpose <a href="http://image.ycshao.com" target="_blank" rel="external">image.ycshao.com</a>.</li>
+<li><a href="http://library.linode.com/hosting-website#sph_adding-dns-records" target="_blank" rel="noopener">Create DNS records</a> for domains and sub-domains. The IP address of sub-domains can be the same as your main domain.</li>
+<li>Now the world know how to resolve your domain name to an IP address, next step is to create name-based virtual host on Ubuntu server so that we can host different sites on different sub-domains. I want to create 2 sites. One is my main domain which host my blog <a href="http://www.ycshao.com" target="_blank" rel="noopener">www.ycshao.com</a>, another one is for testing purpose <a href="http://image.ycshao.com" target="_blank" rel="noopener">image.ycshao.com</a>.</li>
 <li><p>Enable name-based virtual host on Ubuntu:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/apache2/ports.conf</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/apache2/ports.conf</span><br></pre></td></tr></table></figure>
 <p>and add following line to the end if it’s not there</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NameVirtualHost *:80</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NameVirtualHost *:80</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>There are two folders in <code>/etc/apache2</code>, which are sites-available and sites-enabled. Usually sites-enabled folder will have soft link to files in sites-available folder. The folder names are pretty obvious, “available” means available sites and “enabled” means  sites which can be accessed. Let’s start from scratch.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /etc/apache2/sites-available <span class="comment"># Go to directory</span></div><div class="line">$ cp default wordpress <span class="comment"># Make a copy of default setting file</span></div><div class="line">$ vim wordpress</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/apache2/sites-available <span class="comment"># Go to directory</span></span><br><span class="line">$ cp default wordpress <span class="comment"># Make a copy of default setting file</span></span><br><span class="line">$ vim wordpress</span><br></pre></td></tr></table></figure>
 <p>and modify first few lines to</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;VirtualHost *:<span class="number">80</span>&gt;</div><div class="line">    ServerAdmin ycshao0402@gmail.com</div><div class="line">    ServerName www.ycshao.com</div><div class="line">    ServerAlias ycshao.com</div><div class="line">    DocumentRoot /var/www/wordpress</div><div class="line">    ...</div><div class="line">&lt;virtualHost&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:<span class="number">80</span>&gt;</span><br><span class="line">    ServerAdmin ycshao0402@gmail.com</span><br><span class="line">    ServerName www.ycshao.com</span><br><span class="line">    ServerAlias ycshao.com</span><br><span class="line">    DocumentRoot /var/www/wordpress</span><br><span class="line">    ...</span><br><span class="line">&lt;virtualHost&gt;</span><br></pre></td></tr></table></figure>
 <p>The most important things are your “ServerName” corresponding to url you want to set and “DocumentRoot” corresponding to which directory this url points to. Then make a soft link to enable this site:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ln <span class="_">-s</span> /etc/apache2/sites-available/wordpress /etc/apache2/sites-enabled/wordpress</div><div class="line">$ service apache2 restart</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ln -s /etc/apache2/sites-available/wordpress /etc/apache2/sites-enabled/wordpress</span><br><span class="line">$ service apache2 restart</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Now you should be able to access <a href="http://www.ycshao.com" target="_blank" rel="external">www.ycshao.com</a> and it should go to my wordpress blog sitting in /var/www/wordpress.</p>
+<li><p>Now you should be able to access <a href="http://www.ycshao.com" target="_blank" rel="noopener">www.ycshao.com</a> and it should go to my wordpress blog sitting in /var/www/wordpress.</p>
 </li>
-<li>Now repeat step 4 for <a href="http://image.ycshao.com" target="_blank" rel="external">image.ycshao.com</a> and other sites you want to configure.</li>
+<li>Now repeat step 4 for <a href="http://image.ycshao.com" target="_blank" rel="noopener">image.ycshao.com</a> and other sites you want to configure.</li>
 </ol>
 
   </div>

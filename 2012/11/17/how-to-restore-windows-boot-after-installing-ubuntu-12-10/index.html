@@ -7,11 +7,13 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="After re-installed Ubuntu 12.10, I found my windows cannot boot from GRUB boot loader. So I have to do the following to resolve this issue (I assume you installed GRUB boot loader in the same place yo">
+<meta name="keywords" content="windows,Advanced Settings,boot,Devices Automatically,GRUB,Open Boot Repair,resolve,Ubuntu 12.10">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to restore windows boot after installing Ubuntu 12.10.">
 <meta property="og:url" content="http://blog.ycshao.com/2012/11/17/how-to-restore-windows-boot-after-installing-ubuntu-12-10/index.html">
 <meta property="og:site_name" content="Sharp Ear">
 <meta property="og:description" content="After re-installed Ubuntu 12.10, I found my windows cannot boot from GRUB boot loader. So I have to do the following to resolve this issue (I assume you installed GRUB boot loader in the same place yo">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-03-05T02:25:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to restore windows boot after installing Ubuntu 12.10.">
@@ -147,11 +149,11 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>After re-installed Ubuntu 12.10, I found my windows cannot boot from <a href="http://en.wikipedia.org/wiki/GNU_GRUB" target="_blank" rel="external">GRUB boot loader</a>. So I have to do the following to resolve this issue (I assume you installed GRUB boot loader in the same place you install Ubuntu, otherwise you will be able to boot windows but not Ubuntu.):</p>
+    <p>After re-installed Ubuntu 12.10, I found my windows cannot boot from <a href="http://en.wikipedia.org/wiki/GNU_GRUB" target="_blank" rel="noopener">GRUB boot loader</a>. So I have to do the following to resolve this issue (I assume you installed GRUB boot loader in the same place you install Ubuntu, otherwise you will be able to boot windows but not Ubuntu.):</p>
 <ol>
-<li>Install <a href="https://help.ubuntu.com/community/Boot-Repair" target="_blank" rel="external">Boot-Repair</a> in Ubuntu 12.10.</li>
+<li>Install <a href="https://help.ubuntu.com/community/Boot-Repair" target="_blank" rel="noopener">Boot-Repair</a> in Ubuntu 12.10.</li>
 <li>Open Boot-Repair and go to Advanced options, select “Restore MBR” and hit apply. Reboot.</li>
-<li>Now you should see your original windows boot screen. But now you cannot boot Ubuntu anymore. So we have to make Ubuntu boot again. Install <a href="http://neosmart.net/EasyBCD/#comparison" target="_blank" rel="external">EasyBCD</a> which is free for  non-commercial users in windows. Open it and go to “Add New Entry” -&gt; “Linux/BSD” -&gt; type “GRUB2” -&gt; give it a name -&gt; click “Add Entry”. <span style="color: #00ccff;">Don’t be fool by the text “Devices: (Automatically configured)”! </span>You have not finished yet.</li>
+<li>Now you should see your original windows boot screen. But now you cannot boot Ubuntu anymore. So we have to make Ubuntu boot again. Install <a href="http://neosmart.net/EasyBCD/#comparison" target="_blank" rel="noopener">EasyBCD</a> which is free for  non-commercial users in windows. Open it and go to “Add New Entry” -&gt; “Linux/BSD” -&gt; type “GRUB2” -&gt; give it a name -&gt; click “Add Entry”. <span style="color: #00ccff;">Don’t be fool by the text “Devices: (Automatically configured)”! </span>You have not finished yet.</li>
 <li>Go to “Advanced Settings” -&gt; select Ubuntu OS -&gt; in “Basic” tab, select the drive where you installed Ubuntu -&gt; save settings.</li>
 <li>Reboot. Done. Both windows and Ubuntu boot should work now!</li>
 </ol>
