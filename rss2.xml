@@ -8,8 +8,31 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 11 Feb 2018 22:43:43 GMT</pubDate>
+    <pubDate>Fri, 27 Apr 2018 05:12:16 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Different behavior of &#39;this&#39; keyword in arrow and non-arrow function</title>
+      <link>http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/</link>
+      <guid>http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/</guid>
+      <pubDate>Fri, 27 Apr 2018 04:32:56 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;There are two primary reason arrow function is introduced in ES6(also known as ES2015).&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Shorter syntax&lt;/li&gt;
+&lt;li&gt;No binding
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>What is ERC20 token?</title>
