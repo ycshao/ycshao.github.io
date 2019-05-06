@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sun, 29 Apr 2018 23:48:55 GMT</pubDate>
+    <pubDate>Mon, 06 May 2019 01:49:36 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Fixing npm for Homebrew Users</title>
+      <link>http://blog.ycshao.com/2019/05/05/fixing-npm-for-homebrew-users/</link>
+      <guid>http://blog.ycshao.com/2019/05/05/fixing-npm-for-homebrew-users/</guid>
+      <pubDate>Mon, 06 May 2019 01:12:06 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I have installed &lt;code&gt;node&lt;/code&gt; via &lt;code&gt;brew&lt;/code&gt; and when I tried to upgrade &lt;code&gt;node&lt;/code&gt; version via &lt;code&gt;brew
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2019/05/05/fixing-npm-for-homebrew-users/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Different behavior of &#39;this&#39; keyword in arrow and non-arrow function</title>
