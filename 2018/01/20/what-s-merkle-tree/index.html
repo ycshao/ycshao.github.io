@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=en>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Merkle tree is a data structure which build from the leaf to root using hash functions. It is used in many applications other than blockchain. Cassandra uses it to detect inconsistency between replica">
 <meta name="keywords" content="hash,Merkle tree">
 <meta property="og:type" content="article">
@@ -50,7 +50,7 @@
     <!-- rss -->
     
     
-      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml">
     
     <!-- jquery -->
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -80,24 +80,24 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/02/11/what-is-erc20-tocken/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        <li><a class="icon" href="/2018/02/11/what-is-erc20-tocken/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$("#i-prev").toggle();" onmouseout="$("#i-prev").toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2018/01/09/what-s-proof-of-x/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        <li><a class="icon" href="/2018/01/09/what-s-proof-of-x/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$("#i-next").toggle();" onmouseout="$("#i-next").toggle();"></i></a></li>
         
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$("#i-top").toggle();" onmouseout="$("#i-top").toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$("#i-share").toggle();" onmouseout="$("#i-share").toggle();" onclick="$("#share").toggle();return false;"></i></a></li>
       </ul>
       <span id="i-prev" class="info" style="display:none;">Previous post</span>
       <span id="i-next" class="info" style="display:none;">Next post</span>
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2018/01/20/what-s-merkle-tree/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
@@ -155,13 +155,13 @@
   <div class="content" itemprop="articleBody">
     <p>Merkle tree is a data structure which build from the leaf to root using hash functions. It is used in many applications other than blockchain. Cassandra uses it to detect inconsistency between replicas and update replica if necessary. Git uses it to manage it’s internal object data models. It is a very useful data structure to encode large number of data into very small hash representation.</p>
 <p>Let’s see how blockchain uses Merkle tree to encode transactions.</p>
-<p><img src="./merkle_tree.png" alt=""></p>
+<p><img src="./merkle_tree.png" alt></p>
 <p>As you can see, we have <code>HA</code>, <code>HB</code>, <code>HC</code> and <code>HD</code> four transactions. We build leaves by hashing transaction data, in bitcoin blockchain case, it uses <code>double-SHA256</code>, basically <code>SHA256</code> twice. Each hash generate 32-byte hash output. And then we work our way up to generate second level nodes, by concatenating leaf-nodes’ hashes and apply <code>double-SHA256</code>. In the picture, this produces <code>HAB</code> and <code>HCD</code>. We apply the same process again to generate the root node. And we stop when we reaches root. As you can see, each node is 32-byte in this tree.</p>
 <p>How is this Merkle tree used in blockchain?</p>
-<p><img src="./block.png" alt=""></p>
+<p><img src="./block.png" alt></p>
 <p>If you look inside each block, you will find it stores Merkle tree root hash in the block header. And transaction data are completely separate from headers. Basically the Merkle tree root hash encodes all transaction data, and any changes of transaction a part of the tree will invalidate the root hash. This way people can validate if data has been changed using root hash. Each block’s hash is generated from hashing header information.</p>
 <p>This usage of Merkle tree and separation of header and actual transactions enables blockchain to be used in light-weight mode, which is called Simplified Payment Verification (SPV). SPV nodes don’t have all transactions and do not download full blocks, just block headers. In order to verify that a transaction is included in a block, without having to download all the transactions in the block, they use an authentication path, or merkle path.</p>
-<p><img src="./merkle_path.png" alt=""></p>
+<p><img src="./merkle_path.png" alt></p>
 <p>Imagine we want to validate <code>HK</code> to see if it’s in a block. We basically need block header to find out Merkle tree root hash, Merkle path related to <code>HK</code>. Merkle path is all data you need to verify a transaction, in this case, all nodes labeled in blue. You redo all hashes starting from <code>HK</code> and <code>HL</code> all the way to root, and then compare it to the root hash from the header. If they are the same, you can be sure it’s a transaction which is a part of the block. This verification requires <code>log(N)</code> hashes to do, which is pretty efficient.</p>
 <p>Here is a code snippet how to build Merkle tree and return the root hash<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bitcoin/bitcoin.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line">bc::<span class="function">hash_digest <span class="title">create_merkle</span><span class="params">(bc::hash_list&amp; merkle)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Stop if hash list is empty.</span></span><br><span class="line">    <span class="keyword">if</span> (merkle.empty())</span><br><span class="line">        <span class="keyword">return</span> bc::null_hash;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (merkle.size() == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> merkle[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// While there is more than 1 hash in the list, keep looping...</span></span><br><span class="line">    <span class="keyword">while</span> (merkle.size() &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// If number of hashes is odd, duplicate last hash in the list.</span></span><br><span class="line">        <span class="keyword">if</span> (merkle.size() % <span class="number">2</span> != <span class="number">0</span>)</span><br><span class="line">            merkle.push_back(merkle.back());</span><br><span class="line">        <span class="comment">// List size is now even.</span></span><br><span class="line">        assert(merkle.size() % <span class="number">2</span> == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// New hash list.</span></span><br><span class="line">        bc::hash_list new_merkle;</span><br><span class="line">        <span class="comment">// Loop through hashes 2 at a time.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> it = merkle.begin(); it != merkle.end(); it += <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Join both current hashes together (concatenate).</span></span><br><span class="line">            bc::<span class="function">data_chunk <span class="title">concat_data</span><span class="params">(bc::hash_size * <span class="number">2</span>)</span></span>;</span><br><span class="line">            <span class="keyword">auto</span> concat = bc::serializer&lt;</span><br><span class="line">                <span class="keyword">decltype</span>(concat_data.begin())&gt;(concat_data.begin());</span><br><span class="line">            concat.write_hash(*it);</span><br><span class="line">            concat.write_hash(*(it + <span class="number">1</span>));</span><br><span class="line">            <span class="comment">// Hash both of the hashes.</span></span><br><span class="line">            bc::hash_digest new_root = bc::bitcoin_hash(concat_data);</span><br><span class="line">            <span class="comment">// Add this to the new list.</span></span><br><span class="line">            new_merkle.push_back(new_root);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// This is the new list.</span></span><br><span class="line">        merkle = new_merkle;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Finally we end up with a single item.</span></span><br><span class="line">    <span class="keyword">return</span> merkle[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Reference<br><a href="https://www.safaribooksonline.com/library/view/Mastering+Bitcoin,+2nd+Edition/9781491954379/ch09.html#chain_of_blocks" target="_blank" rel="noopener">https://www.safaribooksonline.com/library/view/Mastering+Bitcoin,+2nd+Edition/9781491954379/ch09.html#chain_of_blocks</a><br><a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Merkle_tree</a><br><a href="https://github.com/bitcoin/bitcoin/blob/master/src/consensus/merkle.cpp" target="_blank" rel="noopener">https://github.com/bitcoin/bitcoin/blob/master/src/consensus/merkle.cpp</a></p>
@@ -222,10 +222,10 @@
 
     <div id="actions-footer">
       <ul>
-        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="toc"><a class="icon" href="#" onclick="$("#toc-footer").toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$("#share-footer").toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
         <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$("#nav-footer").toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
       </ul>
     </div>
 

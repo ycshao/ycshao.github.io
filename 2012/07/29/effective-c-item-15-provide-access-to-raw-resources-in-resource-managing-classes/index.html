@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=en>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="In last two items I talked about managing resources using RAII objects. Now here comes the practical part. Often we will encounter a situation that a API only accept raw resource instead of RAII objec">
 <meta name="keywords" content="Effective C++,RAII,resource management,shared_ptr,API,raw resource objects">
 <meta property="og:type" content="article">
@@ -46,7 +46,7 @@
     <!-- rss -->
     
     
-      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml">
     
     <!-- jquery -->
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -76,24 +76,24 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2012/07/29/effective-c-item-16-use-the-same-form-in-corresponding-uses-of-new-and-delete/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        <li><a class="icon" href="/2012/07/29/effective-c-item-16-use-the-same-form-in-corresponding-uses-of-new-and-delete/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$("#i-prev").toggle();" onmouseout="$("#i-prev").toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2012/07/28/effective-c-item-14-think-carefully-about-copying-behavior-in-resource-managing-classes/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        <li><a class="icon" href="/2012/07/28/effective-c-item-14-think-carefully-about-copying-behavior-in-resource-managing-classes/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$("#i-next").toggle();" onmouseout="$("#i-next").toggle();"></i></a></li>
         
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$("#i-top").toggle();" onmouseout="$("#i-top").toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$("#i-share").toggle();" onmouseout="$("#i-share").toggle();" onclick="$("#share").toggle();return false;"></i></a></li>
       </ul>
       <span id="i-prev" class="info" style="display:none;">Previous post</span>
       <span id="i-next" class="info" style="display:none;">Next post</span>
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/07/29/effective-c-item-15-provide-access-to-raw-resources-in-resource-managing-classes/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
@@ -157,7 +157,7 @@
 </li>
 </ol>
 <p>We overload operator FontHandle to implicit convert Font to FontHandle. This provide you the ability to omit .get() no matter the API accept Font or FontHandle. But this method has a downside. The risk is unintentional type conversion. For example:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Font f1(getFont());</span><br><span class="line">...</span><br><span class="line"><span class="comment">// oops! Intent to copy a Font object, but instead implicitly</span></span><br><span class="line"><span class="comment">// converted f1 to FontHandle and then copied that.</span></span><br><span class="line">FontHandle f2 = f1;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Font <span class="title">f1</span><span class="params">(getFont())</span></span>;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// oops! Intent to copy a Font object, but instead implicitly</span></span><br><span class="line"><span class="comment">// converted f1 to FontHandle and then copied that.</span></span><br><span class="line">FontHandle f2 = f1;</span><br></pre></td></tr></table></figure>
 <p>In this way, resource may leak due to the implicitly conversion. That’s why I prefer the first approach cause it’s safe and clear.</p>
 <p>Reference:<br><a href="http://aristeia.com/books.html" target="_blank" rel="noopener">“Effective C++” Third Edition by Scott Meyers.</a></p>
 
@@ -217,10 +217,10 @@
 
     <div id="actions-footer">
       <ul>
-        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="toc"><a class="icon" href="#" onclick="$("#toc-footer").toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$("#share-footer").toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
         <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$("#nav-footer").toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
       </ul>
     </div>
 

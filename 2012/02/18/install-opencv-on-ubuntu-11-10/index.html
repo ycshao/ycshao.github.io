@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=en>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="If you don’t care about getting the cutting-edge version of opencv, you can do following:   1234$ sudo apt-get install build-essential$ sudo apt-get install libavformat-dev$ sudo apt-get install ffmp">
 <meta name="keywords" content="opencv,ubuntu,linux,repository,BWT,cmake,Eclipse">
 <meta property="og:type" content="article">
@@ -46,7 +46,7 @@
     <!-- rss -->
     
     
-      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml">
     
     <!-- jquery -->
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -76,24 +76,24 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2012/02/19/mount-missing-partitions-in-ubuntu-11-10/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        <li><a class="icon" href="/2012/02/19/mount-missing-partitions-in-ubuntu-11-10/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$("#i-prev").toggle();" onmouseout="$("#i-prev").toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2012/02/16/use-a-comb-to-keep-a-nail-steady-for-hammering/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        <li><a class="icon" href="/2012/02/16/use-a-comb-to-keep-a-nail-steady-for-hammering/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$("#i-next").toggle();" onmouseout="$("#i-next").toggle();"></i></a></li>
         
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$("#i-top").toggle();" onmouseout="$("#i-top").toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$("#i-share").toggle();" onmouseout="$("#i-share").toggle();" onclick="$("#share").toggle();return false;"></i></a></li>
       </ul>
       <span id="i-prev" class="info" style="display:none;">Previous post</span>
       <span id="i-next" class="info" style="display:none;">Next post</span>
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/02/18/install-opencv-on-ubuntu-11-10/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
@@ -166,7 +166,7 @@
 <p>  Wait until it’s done.<br>  After you build opencv libraries, we’re ready to use them:<br>  Let’s begin with a hello world test program named helloWorld.cpp:</p>
   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cv.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;highgui.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span> **argv )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  cvNamedWindow( <span class="string">"My Window"</span>, <span class="number">1</span> );</span><br><span class="line">  IplImage *img = cvCreateImage( cvSize( <span class="number">640</span>, <span class="number">480</span> ), IPL_DEPTH_8U, <span class="number">1</span> );</span><br><span class="line">  CvFont font;</span><br><span class="line">  <span class="keyword">double</span> hScale = <span class="number">1.0</span>;</span><br><span class="line">  <span class="keyword">double</span> vScale = <span class="number">1.0</span>;</span><br><span class="line">  <span class="keyword">int</span> lineWidth = <span class="number">1</span>;</span><br><span class="line">  cvInitFont( &amp;font, CV_FONT_HERSHEY_SIMPLEX | CV_FONT_ITALIC,</span><br><span class="line">              hScale, vScale, <span class="number">0</span>, lineWidth );</span><br><span class="line">  cvPutText( img, <span class="string">"Hello World!"</span>, cvPoint( <span class="number">200</span>, <span class="number">400</span> ), &amp;font,</span><br><span class="line">            cvScalar( <span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span> ) );</span><br><span class="line">  cvShowImage( <span class="string">"My Window"</span>, img );</span><br><span class="line">  cvWaitKey();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  Then we create a CMakeLists.txt in the same directory as follows:</p>
-  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span> (VERSION <span class="number">2.6</span>)</span><br><span class="line"><span class="keyword">project</span> (Test)</span><br><span class="line"><span class="keyword">FIND_PACKAGE</span>( OpenCV REQUIRED )</span><br><span class="line"><span class="keyword">ADD_EXECUTABLE</span>( helloWorld helloWorld.cpp )</span><br><span class="line"><span class="keyword">TARGET_LINK_LIBRARIES</span>( helloWorld <span class="variable">$&#123;OpenCV_LIBS&#125;</span> )</span><br></pre></td></tr></table></figure>
+  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span> (VERSION <span class="number">2.6</span>)</span><br><span class="line"><span class="keyword">project</span> (<span class="keyword">Test</span>)</span><br><span class="line"><span class="keyword">FIND_PACKAGE</span>( OpenCV REQUIRED )</span><br><span class="line"><span class="keyword">ADD_EXECUTABLE</span>( helloWorld helloWorld.cpp )</span><br><span class="line"><span class="keyword">TARGET_LINK_LIBRARIES</span>( helloWorld <span class="variable">$&#123;OpenCV_LIBS&#125;</span> )</span><br></pre></td></tr></table></figure>
 <p>  Then use cmake to generate makefile and use make to generate executable:</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ cmake .</span><br><span class="line"><span class="comment"># you will see</span></span><br><span class="line"><span class="comment"># Configuring done</span></span><br><span class="line"><span class="comment"># Generating done</span></span><br><span class="line">$ make</span><br><span class="line"><span class="comment">#you will see</span></span><br><span class="line"><span class="comment">#[100%] Building CXX object CMakeFiles/helloWorld.dir/helloWorld.cpp.o</span></span><br><span class="line"><span class="comment">#[100%] Built target helloWorld</span></span><br></pre></td></tr></table></figure>
 <p>  And you are done! Run it and you’ll see a hello world window.</p>
@@ -235,10 +235,10 @@
 
     <div id="actions-footer">
       <ul>
-        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="toc"><a class="icon" href="#" onclick="$("#toc-footer").toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$("#share-footer").toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
         <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$("#nav-footer").toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
       </ul>
     </div>
 

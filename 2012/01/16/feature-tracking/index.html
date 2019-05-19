@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=en>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="The method to detect an object is to calculate normalized correlation coefficient with a template and pick the largest one (above a threshold) as a true detection. As to motion, I calculate the differ">
 <meta name="keywords" content="detection,template,motion,static,feature,NCC,tracking">
 <meta property="og:type" content="article">
@@ -51,7 +51,7 @@
     <!-- rss -->
     
     
-      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml">
     
     <!-- jquery -->
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -81,22 +81,22 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2012/01/16/connected-object-labeling/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        <li><a class="icon" href="/2012/01/16/connected-object-labeling/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$("#i-prev").toggle();" onmouseout="$("#i-prev").toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$("#i-top").toggle();" onmouseout="$("#i-top").toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$("#i-share").toggle();" onmouseout="$("#i-share").toggle();" onclick="$("#share").toggle();return false;"></i></a></li>
       </ul>
       <span id="i-prev" class="info" style="display:none;">Previous post</span>
       <span id="i-next" class="info" style="display:none;">Next post</span>
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/01/16/feature-tracking/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
@@ -154,9 +154,9 @@
   <div class="content" itemprop="articleBody">
     <p>The method to detect an object is to calculate normalized correlation coefficient with a template and pick the largest one (above a threshold) as a true detection. As to motion, I calculate the difference between previous true detection coordinate and the current one, and use threshold to determine it is horizontal or vertical motion.</p>
 <p><div class="separator" style="clear: both; text-align: center;"></div></p>
-<p><div class="separator" style="clear: both; text-align: center;"><a href="./2.jpg"><img src="./2.jpg" alt=""></a><a href="./1.jpg"><img src="./1.jpg" alt=""></a></div></p>
+<p><div class="separator" style="clear: both; text-align: center;"><a href="./2.jpg"><img src="./2.jpg" alt></a><a href="./1.jpg"><img src="./1.jpg" alt></a></div></p>
 <p><div class="separator" style="clear: both; text-align: center;"></div></p>
-<p><div class="separator" style="clear: both; text-align: center;"><a href="./pyramid1.jpg"><img src="./pyramid1.jpg" alt=""></a><a href="./pyramid2.jpg"><img src="./pyramid2.jpg" alt=""></a></div><br>&nbsp;</p>
+<p><div class="separator" style="clear: both; text-align: center;"><a href="./pyramid1.jpg"><img src="./pyramid1.jpg" alt></a><a href="./pyramid2.jpg"><img src="./pyramid2.jpg" alt></a></div><br>&nbsp;</p>
 <ul>
 <li><span style="font-family: Verdana, sans-serif;" lang="EN-US">My method of using static template and no pyramid is quite successful to detect my feature. I set the threshold to 0.9, so only strong match will be claimed as a true detection, because prefer low true positive rate than high false positive rate.</span></li>
 <li><span style="font-family: Verdana, sans-serif;" lang="EN-US">Then I tried dynamic template. When I get a true detection, I’ll update my template. But the main weakness of this method is that it will drift slowly. The advantage of this method is that it will improve the true positive rate.</span></li>
@@ -220,10 +220,10 @@
 
     <div id="actions-footer">
       <ul>
-        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="toc"><a class="icon" href="#" onclick="$("#toc-footer").toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$("#share-footer").toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
         <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$("#nav-footer").toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
       </ul>
     </div>
 

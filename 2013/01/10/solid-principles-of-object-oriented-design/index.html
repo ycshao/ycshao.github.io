@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=en>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Single Responsibility Principle.Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is an">
 <meta name="keywords" content="inheritance,interface,Dependency Inversion,Interface Segregation Principle,Liskov Substitution Principle,LSP,OCP,OOD,Open Closed Principle,Single Responsibility Principle,SRP">
 <meta property="og:type" content="article">
@@ -52,7 +52,7 @@
     <!-- rss -->
     
     
-      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml">
     
     <!-- jquery -->
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -82,24 +82,24 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2013/04/16/the-best-way-to-cut-up-a-whole-chicken/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        <li><a class="icon" href="/2013/04/16/the-best-way-to-cut-up-a-whole-chicken/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$("#i-prev").toggle();" onmouseout="$("#i-prev").toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2013/01/08/the-best-time-to-buy-anything-in-2013/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        <li><a class="icon" href="/2013/01/08/the-best-time-to-buy-anything-in-2013/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$("#i-next").toggle();" onmouseout="$("#i-next").toggle();"></i></a></li>
         
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$("#i-top").toggle();" onmouseout="$("#i-top").toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$("#i-share").toggle();" onmouseout="$("#i-share").toggle();" onclick="$("#share").toggle();return false;"></i></a></li>
       </ul>
       <span id="i-prev" class="info" style="display:none;">Previous post</span>
       <span id="i-next" class="info" style="display:none;">Next post</span>
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2013/01/10/solid-principles-of-object-oriented-design/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
@@ -156,11 +156,11 @@
 
   <div class="content" itemprop="articleBody">
     <ol>
-<li>Single Responsibility Principle.<br>Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is an idea of breaking things into molecular parts so that it becomes reusable and can be managed centrally.<br><img src="./srp.jpg" alt="" title="Single Responsibility Principle"></li>
-<li>Open Closed Principle.<br>Abstraction is the key of OCP. If you do abstraction well, most likely, it would require no change when the functionality is to be extended. For example, if a client depends on a concrete server, and the server need to be changed, it is highly possible you need to change the client code too. But with OCP design, if client depends on an abstract server, even if you change the concrete server, client code don’t need to be changed.<br><img src="./ocp.jpg" alt="" title="Open closed Principle"></li>
-<li>Liskov Substitution Principle.<br>LSP means functions that use references to base classes must be able to use objects of derived classes without knowing it. This is to help designer to enforce is-a relationship when using inheritance.<br><img src="./lsp.jpg" alt="" title="Liskov Substitution Principle"></li>
-<li>Interface Segregation Principle.<br>Interfaces should be easy to use, which means client should not be forced to depend on interfaces they don’t use. In addition, client should be able to use your interface intuitively.<br><img src="./isp.jpg" alt="" title="Interface Segregation Principle"></li>
-<li>Dependency Inversion principle.<br>High level modules should not depend upon low level modules. Rather, both should depend upon abstractions.<br><img src="./dip.jpg" alt="" title="Dependency Inversion principle"></li>
+<li>Single Responsibility Principle.<br>Because each responsibility of a class is an axis of change and if a class has more than one responsibility, the code will become coupled and hard to change. SRP is an idea of breaking things into molecular parts so that it becomes reusable and can be managed centrally.<br><img src="./srp.jpg" alt title="Single Responsibility Principle"></li>
+<li>Open Closed Principle.<br>Abstraction is the key of OCP. If you do abstraction well, most likely, it would require no change when the functionality is to be extended. For example, if a client depends on a concrete server, and the server need to be changed, it is highly possible you need to change the client code too. But with OCP design, if client depends on an abstract server, even if you change the concrete server, client code don’t need to be changed.<br><img src="./ocp.jpg" alt title="Open closed Principle"></li>
+<li>Liskov Substitution Principle.<br>LSP means functions that use references to base classes must be able to use objects of derived classes without knowing it. This is to help designer to enforce is-a relationship when using inheritance.<br><img src="./lsp.jpg" alt title="Liskov Substitution Principle"></li>
+<li>Interface Segregation Principle.<br>Interfaces should be easy to use, which means client should not be forced to depend on interfaces they don’t use. In addition, client should be able to use your interface intuitively.<br><img src="./isp.jpg" alt title="Interface Segregation Principle"></li>
+<li>Dependency Inversion principle.<br>High level modules should not depend upon low level modules. Rather, both should depend upon abstractions.<br><img src="./dip.jpg" alt title="Dependency Inversion principle"></li>
 </ol>
 <p>Reference:<br><a href="http://www.codeproject.com/Articles/93369/How-I-explained-OOD-to-my-wife" target="_blank" rel="noopener">How I explained OOD to my wife.</a></p>
 
@@ -220,10 +220,10 @@
 
     <div id="actions-footer">
       <ul>
-        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="toc"><a class="icon" href="#" onclick="$("#toc-footer").toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$("#share-footer").toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
         <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$("#nav-footer").toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
       </ul>
     </div>
 

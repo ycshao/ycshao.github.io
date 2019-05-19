@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=en>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="I’v worked on 3D face reconstruction project last semester, it gave me some taste about camera calibration and 3D geometry. Hare some major step:  Use chessboard to calibrate each camera. Use calibrat">
 <meta name="keywords" content="3D reconstruction,BM,face,matlab,opencv">
 <meta property="og:type" content="article">
@@ -53,7 +53,7 @@
     <!-- rss -->
     
     
-      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml" />
+      <link rel="alternate" href="/rss2.xml" title="Sharp Ear" type="application/atom+xml">
     
     <!-- jquery -->
     <script src="/lib/jquery/jquery.min.js"></script>
@@ -83,24 +83,24 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2012/01/16/black-board-rectification-and-text-reconstruction/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        <li><a class="icon" href="/2012/01/16/black-board-rectification-and-text-reconstruction/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$("#i-prev").toggle();" onmouseout="$("#i-prev").toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2012/01/16/copy-detection/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        <li><a class="icon" href="/2012/01/16/copy-detection/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$("#i-next").toggle();" onmouseout="$("#i-next").toggle();"></i></a></li>
         
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$("#i-top").toggle();" onmouseout="$("#i-top").toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$("#i-share").toggle();" onmouseout="$("#i-share").toggle();" onclick="$("#share").toggle();return false;"></i></a></li>
       </ul>
       <span id="i-prev" class="info" style="display:none;">Previous post</span>
       <span id="i-next" class="info" style="display:none;">Next post</span>
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/01/16/3d-reconstruction-using-opencv-and-matlab/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
@@ -167,17 +167,17 @@
 </ol>
 <p>I tested it using my own face. The result highly depends on finding correspondence, which highly depends on calibration errors. So the first thing to make sure is minimize the calibration error, and another is to choose proper parameter to find correspondences.</p>
 <p>Here are some results:</p>
-<p><a href="./6.jpg"><img src="./6.jpg" alt=""></a></p>
+<p><a href="./6.jpg"><img src="./6.jpg" alt></a></p>
 <p><center><em>Calibrate using chessboard</em></center></p>
-<p><a href="./5.jpg"><img src="./5.jpg" alt=""></a></p>
+<p><a href="./5.jpg"><img src="./5.jpg" alt></a></p>
 <p><center><em>Disparity map of chessboard</em></center></p>
-<p><a href="./4.jpg"><img src="./4.jpg" alt=""></a></p>
+<p><a href="./4.jpg"><img src="./4.jpg" alt></a></p>
 <p><center><em>Rectified my face</em></center></p>
-<p><a href="./3.jpg"><img src="./3.jpg" alt=""></a></p>
+<p><a href="./3.jpg"><img src="./3.jpg" alt></a></p>
 <p><center><em>Disparity map of my face</em></center></p>
-<p><a href="./1.jpg"><img src="./1.jpg" alt=""></a></p>
+<p><a href="./1.jpg"><img src="./1.jpg" alt></a></p>
 <p><center><em>3D map of my face using color to indicate distance</em></center></p>
-<p><a href="./2.jpg"><img src="./2.jpg" alt=""></a></p>
+<p><a href="./2.jpg"><img src="./2.jpg" alt></a></p>
 <p><center><em>Origin color 3D face</em></center></p>
 
   </div>
@@ -236,10 +236,10 @@
 
     <div id="actions-footer">
       <ul>
-        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="toc"><a class="icon" href="#" onclick="$("#toc-footer").toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$("#share-footer").toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
         <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$("#nav-footer").toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
       </ul>
     </div>
 
