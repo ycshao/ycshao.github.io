@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Have you ever in the a dilemma of upgrading your node.js version or not? I have multiple node.js projects I developed in the past using “latest” versions then, and I end up using node.js v8, v10, v12">
+<meta name="keywords" content="npm,node,nvm,zsh,version">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Use nvm to Manage Multiple Versions of node.js">
+<meta property="og:url" content="http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/index.html">
+<meta property="og:site_name" content="NEAO">
+<meta property="og:description" content="Have you ever in the a dilemma of upgrading your node.js version or not? I have multiple node.js projects I developed in the past using “latest” versions then, and I end up using node.js v8, v10, v12">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-05-08T21:46:11.284Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Use nvm to Manage Multiple Versions of node.js">
+<meta name="twitter:description" content="Have you ever in the a dilemma of upgrading your node.js version or not? I have multiple node.js projects I developed in the past using “latest” versions then, and I end up using node.js v8, v10, v12">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/fandroid-chrome-144x144.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Use nvm to Manage Multiple Versions of node.js</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/rss2.xml" title="NEAO" type="application/atom+xml">
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/05/05/fixing-npm-for-homebrew-users/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$("#i-next").toggle();" onmouseout="$("#i-next").toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$("#i-top").toggle();" onmouseout="$("#i-top").toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$("#i-share").toggle();" onmouseout="$("#i-share").toggle();" onclick="$("#share").toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&text=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&title=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&is_video=false&description=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Use nvm to Manage Multiple Versions of node.js&body=Check out this article: http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&title=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&title=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&title=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&title=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&name=Use nvm to Manage Multiple Versions of node.js&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Use nvm to Manage Multiple Versions of node.js
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">NEAO</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-05-08T13:50:19.000Z" itemprop="datePublished">2020-05-08</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/node/">node</a>, <a class="tag-link" href="/tags/npm/">npm</a>, <a class="tag-link" href="/tags/nvm/">nvm</a>, <a class="tag-link" href="/tags/version/">version</a>, <a class="tag-link" href="/tags/zsh/">zsh</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Have you ever in the a dilemma of upgrading your <code>node.js</code> version or not? I have multiple <code>node.js</code> projects I developed in the past using “latest” versions then, and I end up using <code>node.js</code> v8, v10, v12 and v14. One solution I used in the past is to use <code>Docker</code>, which works great. But managing those <code>Docker</code> images and making them up to date is not an easy task, especially when I don’t do this often and what end up happening is lots of research with try and error when I have to do it.</p>
+<p>Today I discovered <code>nvm</code> which solved my dilemma with a simpler workflow than using <code>Docker</code>. <code>nvm</code> allows me to install multiple versions<br>of <code>node.js</code> independently and switch between the easily. It’s very similar to the concept of <code>virtualenv</code> of <code>python</code> if you have used it<br>before. But <code>nvm</code> doesn’t have the ability to create multiple environments like <code>virtualenv</code> does, because it doesn’t need to. In the<br><code>node.js</code> world, your local <code>package.json</code> is the virtual environment and all <code>nvm</code> need to take care is the global packages and <code>node.js</code><br>versions, which is exactly <code>nvm</code> provides and the reason it’s so simple to use.</p>
+<p>According to the documentation, <code>brew</code> is not supported 😔. The recommended way to install is via <code>curl</code> or <code>wget</code>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$curl</span> -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash</span><br><span class="line">or</span><br><span class="line"><span class="variable">$wget</span> -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash</span><br></pre></td></tr></table></figure></p>
+<p>After this, you should see additional configuration in your shell config file, in my case it’s <code>.zshrc</code><br><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure></p>
+<p>Now <code>nvm</code> is ready to be used! Everything will be in <code>NVM_DIR</code> folder. <code>nvm</code> provides a very neat deep integration with <code>zsh</code> which allows automatic environment switch using a <code>.nvmrc</code> file in a given directory. In order for this to work, put following snippet to <code>.zshrc</code> file<br><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># place this after nvm initialization!</span></span><br><span class="line"><span class="built_in">autoload</span> -U add-zsh-hook</span><br><span class="line">load-<span class="function"><span class="title">nvmrc</span></span>() &#123;</span><br><span class="line">  <span class="built_in">local</span> node_version=<span class="string">"<span class="variable">$(nvm version)</span>"</span></span><br><span class="line">  <span class="built_in">local</span> nvmrc_path=<span class="string">"<span class="variable">$(nvm_find_nvmrc)</span>"</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> [ -n <span class="string">"<span class="variable">$nvmrc_path</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">local</span> nvmrc_node_version=$(nvm version <span class="string">"<span class="variable">$(cat "$&#123;nvmrc_path&#125;")</span>"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ <span class="string">"<span class="variable">$nvmrc_node_version</span>"</span> = <span class="string">"N/A"</span> ]; <span class="keyword">then</span></span><br><span class="line">      nvm install</span><br><span class="line">    <span class="keyword">elif</span> [ <span class="string">"<span class="variable">$nvmrc_node_version</span>"</span> != <span class="string">"<span class="variable">$node_version</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">      nvm use</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">  <span class="keyword">elif</span> [ <span class="string">"<span class="variable">$node_version</span>"</span> != <span class="string">"<span class="variable">$(nvm version default)</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Reverting to nvm default version"</span></span><br><span class="line">    nvm use default</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line">add-zsh-hook chpwd load-nvmrc</span><br><span class="line">load-nvmrc</span><br></pre></td></tr></table></figure></p>
+<p>Before installing <code>node.js</code> versions I’d like, I want <code>nvm</code> to install some default global <code>npm</code> packages I always use, so I create a <code>.nvm/default-packages</code> file and put following <code>npm</code> packages<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo</span><br><span class="line">@ionic/cli</span><br><span class="line">firebase-tools</span><br><span class="line">@angular/cli</span><br><span class="line">generator-ngx-rocket</span><br><span class="line">apify-cli</span><br></pre></td></tr></table></figure></p>
+<p>Now let’s try to install two versions I use which are lts/dubnium(v10.20.1) and lts/erbium(v12.16.3).<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nvm</span> install lts/dubnium</span><br><span class="line"><span class="variable">$nvm</span> install lts/erbium</span><br></pre></td></tr></table></figure></p>
+<p>After this, you should be able to switch between different versions using version numbers or alias. Let’s try it out the automatic way. I have a projects with a <code>.nvmrc</code> file and the content is <code>lts/dubnium</code>. My default <code>nvm</code> is configured to use <code>lts/dubnium</code>. Now let’s see it in action.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cd</span> timeGarden</span><br><span class="line">Found <span class="string">'timeGarden/.nvmrc'</span> with version &lt;lts/dubnium&gt;</span><br><span class="line">Now using node v10.20.1 (npm v6.14.4)</span><br><span class="line"><span class="variable">$cd</span> ..</span><br><span class="line">Reverting to nvm default version</span><br><span class="line">Now using node v12.16.3 (npm v6.14.4)</span><br></pre></td></tr></table></figure></p>
+<p>It’s working like a charm! Don’t forget to commit the <code>.nvmrc</code> file so it will be a part of the project environment setup.</p>
+<p>Reference:<br><a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm github page</a></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+         
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+         
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+         
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+         
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&text=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&title=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&is_video=false&description=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Use nvm to Manage Multiple Versions of node.js&body=Check out this article: http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&title=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&title=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&title=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&title=Use nvm to Manage Multiple Versions of node.js"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/&name=Use nvm to Manage Multiple Versions of node.js&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$("#toc-footer").toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$("#share-footer").toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$("#nav-footer").toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-top">
+    Copyright &copy; 2020 ycshao
+  </div>
+  <div class="footer-bottom">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-97811930-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-zvpzlfc5vv';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>

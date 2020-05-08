@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Mon, 06 May 2019 01:49:36 GMT</pubDate>
+    <pubDate>Fri, 08 May 2020 21:46:11 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Use nvm to Manage Multiple Versions of node.js</title>
+      <link>http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/</link>
+      <guid>http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/</guid>
+      <pubDate>Fri, 08 May 2020 13:50:19 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Have you ever in the a dilemma of upgrading your &lt;code&gt;node.js&lt;/code&gt; version or not? I have multiple &lt;code&gt;node.js&lt;/code&gt; projects I
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2020/05/08/use-nvm-to-manage-multiple-versions-of-nodejs/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Fixing npm for Homebrew Users</title>
