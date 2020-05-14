@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="NEAO">
 <meta property="og:description" content="I upgraded my old server from Ubuntu 14.04 to 18.04, and during that upgrade process, PHP is upgraded from 5.6 to 7.2. As expected 🙄, my wordpress site is not working with this upgrade. Following is">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-14T13:53:58.407Z">
+<meta property="og:updated_time" content="2020-05-14T17:28:13.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How To Save a Broken Wordpress Site From PHP7 Upgrade">
 <meta name="twitter:description" content="I upgraded my old server from Ubuntu 14.04 to 18.04, and during that upgrade process, PHP is upgraded from 5.6 to 7.2. As expected 🙄, my wordpress site is not working with this upgrade. Following is">
@@ -150,15 +150,15 @@
     <p>I upgraded my old server from Ubuntu 14.04 to 18.04, and during that upgrade process, PHP is upgraded from 5.6 to 7.2. As expected 🙄, my wordpress site is not working with this upgrade. Following is how I saved my wordpress site and make it functional again.</p>
 <ol>
 <li><p>Reinstall PHP 5.6</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="variable">$sudo</span> apt-get update</span><br><span class="line"><span class="variable">$sudo</span> apt-get install php5.6 php5.6-mysql php-gettext php5.6-mbstring php-mbstring php-xdebug libapache2-mod-php5.6</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="variable">$sudo</span> apt-get update</span><br><span class="line"><span class="variable">$sudo</span> apt-get install php5.6 php5.6-mysql php-gettext php5.6-mbstring php-mbstring php-xdebug libapache2-mod-php5.6</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Switch Apache server to use PHP 5.6</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> a2dismod php7.0 ; sudo a2enmod php5.6 ; sudo service apache2 restart</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> a2dismod php7.0 ; sudo a2enmod php5.6 ; sudo service apache2 restart</span><br></pre></td></tr></table></figure>
+<p> You should verify that <code>mods-enabled</code> folder has php 5.6 mods:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$pwd</span></span><br><span class="line">/etc/apache2/mods-enabled</span><br><span class="line"><span class="variable">$ls</span> -l php5.6.*</span><br><span class="line">lrwxrwxrwx 1 root root 29 May 13 00:05 php5.6.conf -&gt; ../mods-available/php5.6.conf</span><br><span class="line">lrwxrwxrwx 1 root root 29 May 13 00:05 php5.6.load -&gt; ../mods-available/php5.6.load</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<p>You should verify that <code>mods-enabled</code> folder has php 5.6 mods:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$pwd</span></span><br><span class="line">/etc/apache2/mods-enabled</span><br><span class="line"><span class="variable">$ls</span> -l php5.6.*</span><br><span class="line">lrwxrwxrwx 1 root root 29 May 13 00:05 php5.6.conf -&gt; ../mods-available/php5.6.conf</span><br><span class="line">lrwxrwxrwx 1 root root 29 May 13 00:05 php5.6.load -&gt; ../mods-available/php5.6.load</span><br></pre></td></tr></table></figure></p>
-<ol start="3">
-<li>Done! Your site should be working again.</li>
+<li><p>Done! Your site should be working again.</p>
+</li>
 </ol>
 <p>Reference:</p>
 <p><a href="https://askubuntu.com/a/762161" target="_blank" rel="noopener">Reinstall PHP 5.6</a></p>
