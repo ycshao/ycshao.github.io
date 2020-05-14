@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="NEAO">
 <meta property="og:description" content="Have you ever been in the a dilemma of upgrading your node.js version or not? I have multiple node.js projects I developed in the past using “latest” versions then, and I end up using node.js v8, v10,">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-09T21:05:54.624Z">
+<meta property="og:updated_time" content="2020-05-14T13:48:40.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Use nvm to Manage Multiple Versions of node.js">
 <meta name="twitter:description" content="Have you ever been in the a dilemma of upgrading your node.js version or not? I have multiple node.js projects I developed in the past using “latest” versions then, and I end up using node.js v8, v10,">
@@ -79,6 +79,8 @@
     <br>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2020/05/14/how-to-save-a-broken-wordpress-site-from-php7-upgrade/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$("#i-prev").toggle();" onmouseout="$("#i-prev").toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2019/05/05/fixing-npm-for-homebrew-users/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$("#i-next").toggle();" onmouseout="$("#i-next").toggle();"></i></a></li>
@@ -156,7 +158,8 @@
 <p>Now let’s try to install two versions I use which are lts/dubnium(v10.20.1) and lts/erbium(v12.16.3).<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nvm</span> install lts/dubnium</span><br><span class="line"><span class="variable">$nvm</span> install lts/erbium</span><br></pre></td></tr></table></figure></p>
 <p>After this, you should be able to switch between different versions using version numbers or alias. Let’s try it out the automatic way. I have a projects with a <code>.nvmrc</code> file and the content is <code>lts/dubnium</code>. My default <code>nvm</code> is configured to use <code>lts/dubnium</code>. Now let’s see it in action.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cd</span> timeGarden</span><br><span class="line">Found <span class="string">'timeGarden/.nvmrc'</span> with version &lt;lts/dubnium&gt;</span><br><span class="line">Now using node v10.20.1 (npm v6.14.4)</span><br><span class="line"><span class="variable">$cd</span> ..</span><br><span class="line">Reverting to nvm default version</span><br><span class="line">Now using node v12.16.3 (npm v6.14.4)</span><br></pre></td></tr></table></figure></p>
 <p>It’s working like a charm! Don’t forget to commit the <code>.nvmrc</code> file so it will be a part of the project environment setup.</p>
-<p>Reference:<br><a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm github page</a></p>
+<p>Reference:</p>
+<p><a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm github page</a></p>
 
   </div>
 </article>

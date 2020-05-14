@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Sat, 09 May 2020 21:05:54 GMT</pubDate>
+    <pubDate>Thu, 14 May 2020 13:53:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>How To Save a Broken Wordpress Site From PHP7 Upgrade</title>
+      <link>http://blog.ycshao.com/2020/05/14/how-to-save-a-broken-wordpress-site-from-php7-upgrade/</link>
+      <guid>http://blog.ycshao.com/2020/05/14/how-to-save-a-broken-wordpress-site-from-php7-upgrade/</guid>
+      <pubDate>Thu, 14 May 2020 13:42:56 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;I upgraded my old server from Ubuntu 14.04 to 18.04, and during that upgrade process, PHP is upgraded from 5.6 to 7.2. As expected 🙄,
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2020/05/14/how-to-save-a-broken-wordpress-site-from-php7-upgrade/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Use nvm to Manage Multiple Versions of node.js</title>
