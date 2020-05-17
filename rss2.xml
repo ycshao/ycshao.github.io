@@ -8,8 +8,48 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日省吾身，夜寝而思。Introspect every day and night, and keep in mind what you’ve learned</description>
-    <pubDate>Thu, 14 May 2020 22:18:59 GMT</pubDate>
+    <pubDate>Sun, 17 May 2020 21:47:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>how-to-set-up-minecraft-bedrock-server-in-docker</title>
+      <link>http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/</link>
+      <guid>http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/</guid>
+      <pubDate>Sun, 17 May 2020 19:50:10 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;The minecraft bedrock server is still in the alpha stage, but that won’t stop me using it to serve my game with friends and family. The
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>how-to-inspect-docker-volume-data-on-macos</title>
+      <link>http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/</link>
+      <guid>http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/</guid>
+      <pubDate>Sun, 17 May 2020 03:00:23 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;code&gt;Docker&lt;/code&gt; is running in a virtual machine on &lt;code&gt;MacOS&lt;/code&gt;. You may not realize this since it’s all managed under the
+          
+        
+      
+      </description>
+      
+      <comments>http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>How To Save a Broken Wordpress Site From PHP7 Upgrade</title>
@@ -42,7 +82,7 @@
         
           
           
-            &lt;p&gt;Have you ever been in the a dilemma of upgrading your &lt;code&gt;node.js&lt;/code&gt; version or not? I have multiple &lt;code&gt;node.js&lt;/code&gt; projects
+            &lt;p&gt;Have you ever been in a dilemma of upgrading your &lt;code&gt;node.js&lt;/code&gt; version or not? I have multiple &lt;code&gt;node.js&lt;/code&gt; projects I
           
         
       
