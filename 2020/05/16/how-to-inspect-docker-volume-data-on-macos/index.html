@@ -9,15 +9,15 @@
     <meta name="description" content="Docker is running in a virtual machine on MacOS. You may not realize this since it’s all managed under the hood. But this is a key difference when you want to dig deeper to inspect your docker image,">
 <meta name="keywords" content="docker,volume,screen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How To Inspect Docker Volume Data On MacOS">
+<meta property="og:title" content="How to Inspect Docker Volume Data on MacOS">
 <meta property="og:url" content="http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/index.html">
 <meta property="og:site_name" content="NEAO">
 <meta property="og:description" content="Docker is running in a virtual machine on MacOS. You may not realize this since it’s all managed under the hood. But this is a key difference when you want to dig deeper to inspect your docker image,">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/thumbnail.png">
-<meta property="og:updated_time" content="2020-05-17T21:59:13.159Z">
+<meta property="og:updated_time" content="2020-05-17T22:00:00.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="How To Inspect Docker Volume Data On MacOS">
+<meta name="twitter:title" content="How to Inspect Docker Volume Data on MacOS">
 <meta name="twitter:description" content="Docker is running in a virtual machine on MacOS. You may not realize this since it’s all managed under the hood. But this is a key difference when you want to dig deeper to inspect your docker image,">
 <meta name="twitter:image" content="http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/thumbnail.png">
     
@@ -39,7 +39,7 @@
         
     
     <!-- title -->
-    <title>How To Inspect Docker Volume Data On MacOS</title>
+    <title>How to Inspect Docker Volume Data on MacOS</title>
     <!-- styles -->
     <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
@@ -99,15 +99,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&text=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&is_video=false&description=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=How To Inspect Docker Volume Data On MacOS&body=Check out this article: http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&name=How To Inspect Docker Volume Data On MacOS&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&text=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&is_video=false&description=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=How to Inspect Docker Volume Data on MacOS&body=Check out this article: http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&name=How to Inspect Docker Volume Data on MacOS&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -124,7 +124,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        How To Inspect Docker Volume Data On MacOS
+        How to Inspect Docker Volume Data on MacOS
     </h1>
 
 
@@ -196,15 +196,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&text=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&is_video=false&description=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=How To Inspect Docker Volume Data On MacOS&body=Check out this article: http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How To Inspect Docker Volume Data On MacOS"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&name=How To Inspect Docker Volume Data On MacOS&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&text=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&is_video=false&description=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=How to Inspect Docker Volume Data on MacOS&body=Check out this article: http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&title=How to Inspect Docker Volume Data on MacOS"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2020/05/16/how-to-inspect-docker-volume-data-on-macos/&name=How to Inspect Docker Volume Data on MacOS&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
