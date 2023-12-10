@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="The relationship between concepts like concurrency, multi-threading, multi-processing, asynchronous programming and event loop can be confusing. Especially what techniques can achieve concurrency. Thi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop">
+<meta property="og:url" content="http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/index.html">
+<meta property="og:site_name" content="NEAO">
+<meta property="og:description" content="The relationship between concepts like concurrency, multi-threading, multi-processing, asynchronous programming and event loop can be confusing. Especially what techniques can achieve concurrency. Thi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/thumbnail.png">
+<meta property="article:published_time" content="2020-08-30T21:16:46.000Z">
+<meta property="article:modified_time" content="2020-08-30T21:16:46.000Z">
+<meta property="article:author" content="ycshao">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="event-loop">
+<meta property="article:tag" content="concurrency">
+<meta property="article:tag" content="mutithreading">
+<meta property="article:tag" content="multiprocessing">
+<meta property="article:tag" content="asynchronous">
+<meta property="article:tag" content="async">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/thumbnail.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/android-chrome-144x144.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S642FEGDZ1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S642FEGDZ1');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="NEAO" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2021/09/29/the-satisfaction-of-failing-and-learning/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&text=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&title=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&is_video=false&description=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop&body=Check out this article: http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&title=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&title=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&title=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&title=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&name=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&t=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ycshao</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-08-30T21:16:46.000Z" class="dt-published" itemprop="datePublished">2020-08-30</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/program-ape/">program-ape</a> › <a class="category-link" href="/categories/program-ape/Uncategorized/">Uncategorized</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/async/" rel="tag">async</a>, <a class="p-category" href="/tags/asynchronous/" rel="tag">asynchronous</a>, <a class="p-category" href="/tags/concurrency/" rel="tag">concurrency</a>, <a class="p-category" href="/tags/event-loop/" rel="tag">event-loop</a>, <a class="p-category" href="/tags/multiprocessing/" rel="tag">multiprocessing</a>, <a class="p-category" href="/tags/mutithreading/" rel="tag">mutithreading</a>, <a class="p-category" href="/tags/nodejs/" rel="tag">nodejs</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>The relationship between concepts like <code>concurrency</code>, <code>multi-threading</code>, <code>multi-processing</code>, <code>asynchronous programming</code> and <code>event loop</code> can be confusing. Especially what techniques can achieve <code>concurrency</code>. This post is an attempt to explain them in a simple and visual way.</p>
+<p>First of all, <code>concurrency</code> is a concept that one has the ability to handle multiple tasks <code>out-of-order</code>. Here <code>out-of-order</code> is the key, it doesn’t mean they are handled at the same time, and it doesn’t mean they are started or ended at the same time. This captures a wide variety of techniques that can achieve <code>concurrency</code>, including <code>multi-threading</code>, <code>multi-processing</code> and <code>asynchronous programming</code>.</p>
+<p>Now let’s look at what are <code>multi-threading</code> and <code>multi-processing</code>. I group them because they are similar compare to <code>asynchronous programming</code> and <code>event loop</code>. It’s pretty clear from the words that they allow to use multiple <code>threads</code> or <code>processes</code> to execute tasks at the same time. They are different techniques to achieve <code>concurrency</code> and what’s the difference is out of the scope of this post. You can refer to reference likes to find out the detail.</p>
+<p><code>Asynchronous programming</code> is a technique to defer certain tasks to a later time and allows the main thread to handle other tasks. The most common example is asynchronous I&#x2F;O used by <code>node.js</code>. In <code>node.js</code>, it hands off I&#x2F;O operation to OS kernel and defers the callback of I&#x2F;O operation to a later time. This allows <code>node.js</code> to process other tasks immediately after the I&#x2F;O operation is handed off to OS and doesn’t need to wait until the OS finishes the I&#x2F;O task. This is the core part of <code>concurrency</code> of <code>node.js</code>. As you may know, <code>Javascript</code> and <code>node.js</code> are single-threaded. This shows you that even a single-threaded system can have <code>concurrency</code>. Some people may argue that <code>asynchronous programming</code> doesn’t provide <code>concurrency</code>, this depends on what’s the definition of <code>task</code>. If people define <code>callbacks</code> as independent <code>tasks</code>, then they are correct. Because as you will see in the diagram later when we talk about <code>event loop</code>, <code>callbacks</code> are nothing more than tasks that being pushed to an event queue. In this definition, <code>tasks</code> are not executed <code>out-of-order</code>. Conventionally, most people treat <code>callbacks</code> as a part of the original task that is deferred to be finished later. So they consider this task is broken into several parts and executed <code>out-of-order</code> among other tasks, which made such system <code>concurrent</code>. I agree with the statement that <code>asynchronous programming</code> provides <code>concurrency</code>.</p>
+<p>Finally let’s look at <code>event loop</code>. <code>Event loop</code> is a design pattern that waits for and dispatches events in a system. When it is used with techniques like <code>Asynchronous programming</code> and <code>multi-processing</code>, it also provides <code>concurrency</code> to the system. And <code>event loop</code> is typically constructed with a queue(for example FIFO queue), a loop and workers. Let’s look at a simple <code>event loop</code> that only has one worker shown in the picture. Events are pushed to the event queue, and <code>event loop</code> pulls event from the event queue and dispatches them to the worker. In this case, let’s assume the queue is FIFO queue, in such a system, events are processed one by one without <code>concurrency</code>. If we add <code>Asynchronous programming</code> to the picture, as you can see the line at the bottom, the worker adds the <code>callback</code> event back to the event queue. This provides <code>concurrency</code> even though there is only one worker or thread. This is what happens when you call <code>setTimeout(myCallback, 100)</code>. Behind the scene, the worker pushes the <code>myCallback</code> to the event queue after 100ms. Now you understand why <code>myCallback</code> passed to <code>setTimeout()</code> won’t be called exactly after 100ms? It’s because there might be other events in the queue that need to be processed before <code>myCallback</code>. The 100ms is the minimum time <code>myCallback</code> needs to wait until it’s executed. Now you also understand why people use <code>setTimeout(myCallback, 0)</code>. This doesn’t mean <code>myCallback</code> will be called after 0ms meaning immediately. This is a technique to free the main worker(thread) to handle other events in the queue and defer <code>myCallback</code> to a later time.</p>
+<p><img src="/2020/08/30/event-loop-and-concurrency/Event-Loop-With-Single-Worker.png" alt="Event Loop with Single Worker"></p>
+<p><code>Event loop</code> can also use <code>multi-threading</code>. One can simply add more workers and a thread poll in the system as shown in the picture below. The only difference is now multiple events can be pulled from the event queue and handled at the same time by different workers in different threads.</p>
+<p><img src="/2020/08/30/event-loop-and-concurrency/Event-Loop-With-Thread-Pool.png" alt="Event Loop with Thread Pool"></p>
+<p>One can be very creative and extend the <code>event loop</code> as they see fit. Using <code>node.js</code> as an example, it divides the entire <code>event loop</code> into multiple phases, and each phase itself is like a smaller <code>event loop</code>. If you want to know more, refer to the reference at the end.</p>
+<p>References:<br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Concurrency_(computer_science%29">Concurrency</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Event_loop">Event Loop</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multithreading_(computer_architecture%29">Multi-threading</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multiprocessing">Multi-processing</a><br><a target="_blank" rel="noopener" href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick">Node.js Event Loop</a></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&text=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&title=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&is_video=false&description=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop&body=Check out this article: http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&title=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&title=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&title=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&title=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&name=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2020/08/30/event-loop-and-concurrency/&t=Concurrency, Muti-threading, Multi-processing, Asynchronous Programming and Event Loop"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2012-2023
+    ycshao
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-zvpzlfc5vv';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="The C++ standard library: a tutorial and handbook:  The only portable way of using templates at the moment is to implement them in header files by using inline functions.  Why is that? Because when co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why the best place to define templates is in header file? (c++)">
+<meta property="og:url" content="http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/index.html">
+<meta property="og:site_name" content="NEAO">
+<meta property="og:description" content="The C++ standard library: a tutorial and handbook:  The only portable way of using templates at the moment is to implement them in header files by using inline functions.  Why is that? Because when co">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-01-17T07:56:34.000Z">
+<meta property="article:modified_time" content="2012-01-17T07:56:34.000Z">
+<meta property="article:author" content="ycshao">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="compiler">
+<meta property="article:tag" content="template">
+<meta property="article:tag" content="inline">
+<meta property="article:tag" content="header">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/android-chrome-144x144.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Why the best place to define templates is in header file? (c++)</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S642FEGDZ1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S642FEGDZ1');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="NEAO" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2012/01/17/c-implementation-of-merge-sort/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2012/01/17/setup-svn-in-eclipse/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&text=Why the best place to define templates is in header file? (c++)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&title=Why the best place to define templates is in header file? (c++)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&is_video=false&description=Why the best place to define templates is in header file? (c++)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Why the best place to define templates is in header file? (c++)&body=Check out this article: http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&title=Why the best place to define templates is in header file? (c++)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&title=Why the best place to define templates is in header file? (c++)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&title=Why the best place to define templates is in header file? (c++)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&title=Why the best place to define templates is in header file? (c++)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&name=Why the best place to define templates is in header file? (c++)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&t=Why the best place to define templates is in header file? (c++)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Why the best place to define templates is in header file? (c++)
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ycshao</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2012-01-17T07:56:34.000Z" class="dt-published" itemprop="datePublished">2012-01-17</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/program-ape/">program-ape</a> › <a class="category-link" href="/categories/program-ape/Uncategorized/">Uncategorized</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/c/" rel="tag">c++</a>, <a class="p-category" href="/tags/compiler/" rel="tag">compiler</a>, <a class="p-category" href="/tags/header/" rel="tag">header</a>, <a class="p-category" href="/tags/inline/" rel="tag">inline</a>, <a class="p-category" href="/tags/template/" rel="tag">template</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><a target="_blank" rel="noopener" href="http://books.google.com/books?id=n9VEG2Gp5pkC&pg=PA10&lpg=PA10&dq=%22The%20only%20portable%20way%20of%20using%20templates%20at%20the%20moment%20is%20to%20implement%20them%20in%20header%20files%20by%20using%20inline%20functions.%22&source=bl&ots=Ref8pl8dPX&sig=t4K5gvxtBblpcujNxodpwMfei8I&hl=en&ei=qkR6TvbiGojE0AHq4IzqAg&sa=X&oi=book_result&ct=result&resnum=3&ved=0CC8Q6AEwAg#v=onepage&q=%22The%20only%20portable%20way%20of%20using%20templates%20at%20the%20moment%20is%20to%20implement%20them%20in%20header%20files%20by%20using%20inline%20functions.%22&f=false">The C++ standard library: a tutorial and handbook</a>:</p>
+<blockquote>
+<p>The only portable way of using templates at the moment is to implement them in header files by using inline functions.</p>
+</blockquote>
+<p>Why is that?</p>
+<p>Because when compiler instantiate the template, it need to access to the implementation of the methods. If it’s not together with it’s declaration, the compiler doesn’t know how to instantiate it. For example:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span></span><br><span class="line">&#123;</span><br><span class="line">    T a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>and when you declare:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Foo&lt;<span class="type">double</span>&gt; bar;</span><br></pre></td></tr></table></figure>
+
+<p>The compiler will generate code like this:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>There are other ways to achieve this, for example implement it in some <code>.tpp</code> files and include those files after their declaration, as long as compiler can access to the definition of that template.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&text=Why the best place to define templates is in header file? (c++)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&title=Why the best place to define templates is in header file? (c++)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&is_video=false&description=Why the best place to define templates is in header file? (c++)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Why the best place to define templates is in header file? (c++)&body=Check out this article: http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&title=Why the best place to define templates is in header file? (c++)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&title=Why the best place to define templates is in header file? (c++)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&title=Why the best place to define templates is in header file? (c++)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&title=Why the best place to define templates is in header file? (c++)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&name=Why the best place to define templates is in header file? (c++)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2012/01/17/why-the-best-place-to-define-templates-is-in-header-file-c/&t=Why the best place to define templates is in header file? (c++)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2012-2023
+    ycshao
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-zvpzlfc5vv';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

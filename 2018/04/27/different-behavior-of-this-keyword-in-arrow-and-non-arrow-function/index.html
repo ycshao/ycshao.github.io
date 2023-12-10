@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="There are two primary reason arrow function is introduced in ES6(also known as ES2015).  Shorter syntax No binding of this  The first reason is very obvious, we are going to dive deep into second reas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Different behavior of &#39;this&#39; keyword in arrow and non-arrow function">
+<meta property="og:url" content="http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/index.html">
+<meta property="og:site_name" content="NEAO">
+<meta property="og:description" content="There are two primary reason arrow function is introduced in ES6(also known as ES2015).  Shorter syntax No binding of this  The first reason is very obvious, we are going to dive deep into second reas">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-04-27T04:32:56.000Z">
+<meta property="article:modified_time" content="2018-04-27T04:32:56.000Z">
+<meta property="article:author" content="ycshao">
+<meta property="article:tag" content="this">
+<meta property="article:tag" content="arrow function">
+<meta property="article:tag" content="ES2015">
+<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/android-chrome-144x144.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Different behavior of &#39;this&#39; keyword in arrow and non-arrow function</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S642FEGDZ1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S642FEGDZ1');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="NEAO" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2019/05/05/fixing-npm-for-homebrew-users/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2018/02/11/what-is-erc20-tocken/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&text=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&title=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&is_video=false&description=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function&body=Check out this article: http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&title=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&title=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&title=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&title=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&name=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&t=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Different behavior of &#39;this&#39; keyword in arrow and non-arrow function
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ycshao</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-04-27T04:32:56.000Z" class="dt-published" itemprop="datePublished">2018-04-27</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/program-ape/">program-ape</a> › <a class="category-link" href="/categories/program-ape/Uncategorized/">Uncategorized</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/ES2015/" rel="tag">ES2015</a>, <a class="p-category" href="/tags/ES6/" rel="tag">ES6</a>, <a class="p-category" href="/tags/arrow-function/" rel="tag">arrow function</a>, <a class="p-category" href="/tags/javascript/" rel="tag">javascript</a>, <a class="p-category" href="/tags/this/" rel="tag">this</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>There are two primary reason arrow function is introduced in ES6(also known as ES2015).</p>
+<ol>
+<li>Shorter syntax</li>
+<li>No binding of <code>this</code></li>
+</ol>
+<p>The first reason is very obvious, we are going to dive deep into second reason.</p>
+<p>Before we understand <code>this</code> in arrow functions, we need to understand it in non-arrow functions. There are mainly following ways to define <code>this</code> object</p>
+<ol>
+<li>When an object <code>obj</code> is created using <code>new</code> keyword, <code>this</code> inside that object is pointed to the <code>obj</code></li>
+<li><code>this</code> is undefined in free function in <code>strict mode</code></li>
+<li><code>this</code> is pointed to the base object if it’s inside a function which is a method of a class.</li>
+<li><code>this</code> is pointed to whatever is bound to the function call via <code>call</code>, <code>apply</code> or <code>bind</code> methods.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="comment">// case 1</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">brand</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">brand</span> = brand;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> myCar = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&#x27;toyota&#x27;</span>); <span class="comment">// this points to object: car &#123; brand: &#x27;toyota&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// case 2</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sum</span>(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// this points to undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">brand</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">brand</span> = brand;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">start</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">start</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> myCar = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&#x27;toyota&#x27;</span>); <span class="comment">// this points to undefined because start() is a free function</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// case 3</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">brand</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">brand</span> = brand;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">start</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> myCar = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&#x27;toyota&#x27;</span>);</span><br><span class="line">myCar.<span class="title function_">start</span>(); <span class="comment">// this points to object: Car &#123; brand: &#x27;toyota&#x27;, start: [Function] &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// case 4</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">brand</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">brand</span> = brand;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">start</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> myToyotaCar = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&#x27;toyota&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> myFordCar = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&#x27;ford&#x27;</span>);</span><br><span class="line">myFordCar.<span class="property">start</span> = myFordCar.<span class="property">start</span>.<span class="title function_">bind</span>(myToyotaCar);</span><br><span class="line">myFordCar.<span class="title function_">start</span>(); <span class="comment">// this points to object: Car &#123; brand: &#x27;toyota&#x27;, start: [Function] &#125;</span></span><br><span class="line">myToyotaCar.<span class="property">start</span>.<span class="title function_">call</span>(myFordCar); <span class="comment">// this points to object: Car &#123; brand: &#x27;ford&#x27;, start: [Function: bound ] &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Now you understand how <code>this</code> works in non-arrow functions, let’s look at what’s different in arrow functions. I mentioned this early that the second reason arrow function is introduced is to get rid of binding and having more logical <code>this</code> object. Instead of binding, <code>this</code> is derived from enclosing context. Let’s modify above examples to use arrow functions and see what’s different.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// case 2</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sum</span> = (<span class="params">a, b</span>) =&gt; &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sum</span>(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// this points to undefined, the same as non-arrow function because it&#x27;s global free function</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">brand</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">brand</span> = brand;</span><br><span class="line">    <span class="keyword">let</span> <span class="title function_">start</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">start</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> myCar = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&#x27;toyota&#x27;</span>); <span class="comment">// this points to object: Car &#123; brand: &#x27;toyota&#x27; &#125;. This is different than non-arrow function, and often what we want</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// case 3</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">brand</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">brand</span> = brand;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">start</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> myCar = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&#x27;toyota&#x27;</span>);</span><br><span class="line">myCar.<span class="title function_">start</span>(); <span class="comment">// this points to object: Car &#123; brand: &#x27;toyota&#x27;, start: [Function] &#125;, the same as non-arrow function which is a method of a class.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// case 4</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">brand</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">brand</span> = brand;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">start</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> myToyotaCar = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&#x27;toyota&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> myFordCar = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&#x27;ford&#x27;</span>);</span><br><span class="line">myFordCar.<span class="property">start</span> = myFordCar.<span class="property">start</span>.<span class="title function_">bind</span>(myToyotaCar);</span><br><span class="line">myFordCar.<span class="title function_">start</span>(); <span class="comment">// this points to object: Car &#123; brand: &#x27;ford&#x27;, start: [Function] &#125;</span></span><br><span class="line">myToyotaCar.<span class="property">start</span>.<span class="title function_">call</span>(myFordCar); <span class="comment">// this points to object: Car &#123; brand: &#x27;toyota&#x27;, start: [Function] &#125;</span></span><br><span class="line"><span class="comment">// as you can see, bind doesn&#x27;t have any effect on arrow functions.</span></span><br></pre></td></tr></table></figure>
+
+<p>As summary, using arrow function give more logical <code>this</code>, most of the time it is what you want. But it loses the ability to override <code>this</code> by calling <code>bind</code>, <code>call</code> or <code>apply</code>.</p>
+<p>Reference:<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow Functions</a></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&text=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&title=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&is_video=false&description=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function&body=Check out this article: http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&title=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&title=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&title=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&title=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&name=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2018/04/27/different-behavior-of-this-keyword-in-arrow-and-non-arrow-function/&t=Different behavior of &#39;this&#39; keyword in arrow and non-arrow function"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2012-2023
+    ycshao
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-zvpzlfc5vv';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

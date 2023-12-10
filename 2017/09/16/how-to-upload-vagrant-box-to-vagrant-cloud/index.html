@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Assuming you have a box running and you want to package it as test.box, you can run following command 1$ vagrant package --output test.box After running above command, you should have a test.box file">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Upload Vagrant Box to Vagrant Cloud">
+<meta property="og:url" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/index.html">
+<meta property="og:site_name" content="NEAO">
+<meta property="og:description" content="Assuming you have a box running and you want to package it as test.box, you can run following command 1$ vagrant package --output test.box After running above command, you should have a test.box file">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/dashboard.png">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/create-box.png">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/create-virsion.png">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/add-provider.png">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/upload-box-1.png">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/upload-box-2.png">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/finish-uploading.png">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/release-1.png">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/release-2.png">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/new-command.png">
+<meta property="og:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/download.png">
+<meta property="article:published_time" content="2017-09-16T22:05:50.000Z">
+<meta property="article:modified_time" content="2017-09-16T22:05:50.000Z">
+<meta property="article:author" content="ycshao">
+<meta property="article:tag" content="vagrant">
+<meta property="article:tag" content="virtual environment">
+<meta property="article:tag" content="cload">
+<meta property="article:tag" content="box">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/dashboard.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/android-chrome-144x144.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>How to Upload Vagrant Box to Vagrant Cloud</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S642FEGDZ1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S642FEGDZ1');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="NEAO" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2017/10/01/how-to-install-custom-gcc-version-on-centos-rhel/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2017/03/12/secrets-to-perfect-sush-rrice/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&text=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&title=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&is_video=false&description=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=How to Upload Vagrant Box to Vagrant Cloud&body=Check out this article: http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&title=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&title=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&title=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&title=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&name=How to Upload Vagrant Box to Vagrant Cloud&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&t=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        How to Upload Vagrant Box to Vagrant Cloud
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ycshao</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-09-16T22:05:50.000Z" class="dt-published" itemprop="datePublished">2017-09-16</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/program-ape/">program-ape</a> › <a class="category-link" href="/categories/program-ape/Uncategorized/">Uncategorized</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/box/" rel="tag">box</a>, <a class="p-category" href="/tags/cload/" rel="tag">cload</a>, <a class="p-category" href="/tags/vagrant/" rel="tag">vagrant</a>, <a class="p-category" href="/tags/virtual-environment/" rel="tag">virtual environment</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <ol>
+<li><p>Assuming you have a box running and you want to package it as test.box, you can run following command</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant package --output test.box</span><br></pre></td></tr></table></figure></li>
+<li><p>After running above command, you should have a test.box file in your folder.</p>
+</li>
+<li><p>Go to <a target="_blank" rel="noopener" href="https://app.vagrantup.com/boxes/search">https://app.vagrantup.com/boxes/search</a> and login.</p>
+</li>
+<li><p>Click “Dashboard” and then “New Vagrant Box” button.<br><a href="./dashboard.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/dashboard.png" alt="Dashboard"></a></p>
+</li>
+<li><p>Enter name, visibility and description and click “Create box”.<br><a href="./create-box.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/create-box.png" alt="Create Box"></a></p>
+</li>
+<li><p>Enter version as 1 and click “Create version”.<br><a href="./create-virsion.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/create-virsion.png" alt="Create Version"></a></p>
+</li>
+<li><p>Click “Add a provider”, where you will be lead to a page you can upload your test.box.<br><a href="./add-provider.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/add-provider.png" alt="Add Provider"></a></p>
+</li>
+<li><p>Enter the provider name, most common is “virtualbox”. In my case, I’m uploading to my vagrant cloud, so I select “Upload to Vagrant Cloud” and click “Continue to upload”. Then select box on my local drive and click “Upload”. Wait it to be complete.<br><a href="./upload-box-1.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/upload-box-1.png" alt="Upload Box"></a><br><a href="./upload-box-2.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/upload-box-2.png" alt="Upload Box"></a></p>
+</li>
+<li><p>After uploading is complete, you can click “Finish”. I don’t know how it will take so long to finish and looks like it tries to upload the file again. Just wait patiently.<br><a href="./finish-uploading.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/finish-uploading.png" alt="Finish Uploading"></a></p>
+</li>
+<li><p>In order for you or others to discover this box, you need to release it.<br><a href="./release-1.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/release-1.png" alt="Release"></a><br><a href="./release-2.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/release-2.png" alt="Release"></a></p>
+</li>
+<li><p>Now you can test if it works. Create an empty folder and copy the new commands<br><a href="./new-command.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/new-command.png" alt="New Command"></a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init ycshao/test --box-version 1</span><br><span class="line">$ vagrant up</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>You will see it download the box from cload and bring it up correctly.<br><a href="./download.png"><img src="/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/download.png" alt="Download"></a></p>
+</li>
+<li><p>You are all set now.</p>
+</li>
+</ol>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&text=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&title=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&is_video=false&description=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=How to Upload Vagrant Box to Vagrant Cloud&body=Check out this article: http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&title=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&title=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&title=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&title=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&name=How to Upload Vagrant Box to Vagrant Cloud&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/&t=How to Upload Vagrant Box to Vagrant Cloud"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2012-2023
+    ycshao
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-zvpzlfc5vv';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

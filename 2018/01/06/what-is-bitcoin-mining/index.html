@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Bitcoin mining is a process of assembling transactions into a block, and find a SHA-256 hash of that block which is smaller or equal to the target. Although there are lots of technical challenges, con">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is bitcoin mining?">
+<meta property="og:url" content="http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/index.html">
+<meta property="og:site_name" content="NEAO">
+<meta property="og:description" content="Bitcoin mining is a process of assembling transactions into a block, and find a SHA-256 hash of that block which is smaller or equal to the target. Although there are lots of technical challenges, con">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-01-06T22:26:49.000Z">
+<meta property="article:modified_time" content="2018-01-06T22:26:49.000Z">
+<meta property="article:author" content="ycshao">
+<meta property="article:tag" content="SHA-256">
+<meta property="article:tag" content="target">
+<meta property="article:tag" content="hash">
+<meta property="article:tag" content="mining">
+<meta property="article:tag" content="bitcoin">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/android-chrome-144x144.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>What is bitcoin mining?</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S642FEGDZ1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S642FEGDZ1');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="NEAO" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2018/01/09/what-s-proof-of-x/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2018/01/06/what-is-bitcoin-target-and-difficulty/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&text=What is bitcoin mining?"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&title=What is bitcoin mining?"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&is_video=false&description=What is bitcoin mining?"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=What is bitcoin mining?&body=Check out this article: http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&title=What is bitcoin mining?"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&title=What is bitcoin mining?"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&title=What is bitcoin mining?"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&title=What is bitcoin mining?"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&name=What is bitcoin mining?&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&t=What is bitcoin mining?"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        What is bitcoin mining?
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ycshao</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-01-06T22:26:49.000Z" class="dt-published" itemprop="datePublished">2018-01-06</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/cryptocurrency/">cryptocurrency</a> › <a class="category-link" href="/categories/cryptocurrency/Uncategorized/">Uncategorized</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/SHA-256/" rel="tag">SHA-256</a>, <a class="p-category" href="/tags/bitcoin/" rel="tag">bitcoin</a>, <a class="p-category" href="/tags/hash/" rel="tag">hash</a>, <a class="p-category" href="/tags/mining/" rel="tag">mining</a>, <a class="p-category" href="/tags/target/" rel="tag">target</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Bitcoin mining is a process of assembling transactions into a block, and find a SHA-256 hash of that block which is smaller or equal to the target. Although there are lots of technical challenges, conceptually it is an extremely easy process.</p>
+<p>Let me explain what bitcoin mining is about in few lines of code</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line">target = <span class="string">&#x27;0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff&#x27;</span></span><br><span class="line"><span class="built_in">object</span> = <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"><span class="built_in">hash</span> = <span class="string">&#x27;ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff&#x27;</span></span><br><span class="line">nounce = -<span class="number">1</span></span><br><span class="line">printInterval = <span class="number">10000</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">hash</span> &gt; target:</span><br><span class="line">    nounce += <span class="number">1</span></span><br><span class="line">    newObject = <span class="built_in">object</span> + <span class="built_in">str</span>(nounce)</span><br><span class="line">    <span class="built_in">hash</span> = hashlib.sha256(newObject.encode(<span class="string">&#x27;utf-8&#x27;</span>)).hexdigest()</span><br><span class="line">    <span class="keyword">if</span> nounce % printInterval == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(newObject, <span class="built_in">hash</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;I mined my first block!&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>((<span class="built_in">object</span> + <span class="built_in">str</span>(nounce)), <span class="built_in">hash</span>)</span><br></pre></td></tr></table></figure>
+
+<p>If you execute above code in <code>python3</code>, you will see outputs similar to</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Hello World!0 e59f8bdf1305e382a4919ccefd613d3eebae612aa4c443f3af2d65663de3b075</span><br><span class="line">Hello World!10000 ed455b124e890d4a3df2d7c98e877e0a3ee6d31e56d3c06b6ce403d2bcf4e2d1</span><br><span class="line">Hello World!20000 64de0951829f1dab7a7a8574dc21ea8bc0ff9533c332ea8690d1e99d6fb1547d</span><br><span class="line">Hello World!30000 7f9afc176d90d717de36f545709c1918a2163a7c42253cb2cfc2b4500a32df27</span><br><span class="line">Hello World!40000 0b39e323e3eee0ff5395a92f28193f3fc7106cfaff1f666dadf05229740026bd</span><br><span class="line">Hello World!50000 f65309aeefedcf867c7110de0cf5923fba358aae503c6f31a949b10cb1df4345</span><br><span class="line">Hello World!60000 9e3667e071623834cf818d4ac56de4132cd873371cb6187aed75150d2e21e26d</span><br><span class="line">Hello World!70000 f6891c3b4d39e4dd90874bd969d670927ce87a943d07f47214f69ac7a4e2b120</span><br><span class="line">Hello World!80000 1596058128d8431628825f595c377ba8093534c003bcf7622374c199f650606d</span><br><span class="line">Hello World!90000 ca7793d181e793423458274762a1b91871230b1e9a1ffe1d08b0045354e1c121</span><br><span class="line">Hello World!100000 a1a8afcd5bbc1278a5d2411b1c14c41203cf6f64b7689887c3be59137f7b8582</span><br><span class="line">Hello World!110000 6d527deffadd6c0134157a4c8211b68220c393f6bd7c6839e831cc77720fa7f1</span><br><span class="line">Hello World!120000 4c766a7a3e46da10dbfdcfdcea04c98173b8b000d4f72e850a6ded8c9edc62d7</span><br><span class="line">Hello World!130000 fd36741d4857c463c27c6705c32f8f59988f8da378875345c1ef9951301fcb89</span><br><span class="line">Hello World!140000 948e3b3a1972f4f388f50af4eb357786a6ba52ae8c10cc682d2f91afc1631aae</span><br><span class="line">Hello World!150000 acf645ce21af88aef02895611db44ba3fcc7872c55a16ff1fd8d8e7fc9559ef7</span><br><span class="line">Hello World!160000 177512958f0e8ba9ee0024256af291e7a006d2ce3d2cca89c65539712dca9a37</span><br><span class="line">--------------</span><br><span class="line">I mined my first block!</span><br><span class="line">Hello World!167018 0000ff98e1d01d7d3cf836055f9fe44256f222135c7afd993766e2ff6159d5a4</span><br></pre></td></tr></table></figure>
+
+<p>As you can see, I print out hash every 10000 iteration to save some space. At the end, I found a hash which is smaller than target. Is that it? Yes! This is all about bitcoin mining, and lots of other crypto mining processes are very similar.</p>
+<p>In reality, the <code>object</code> won’t be a string. Instead, it is an object containing all transaction information along with other meta data, and encoded into binary form.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&text=What is bitcoin mining?"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&title=What is bitcoin mining?"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&is_video=false&description=What is bitcoin mining?"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=What is bitcoin mining?&body=Check out this article: http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&title=What is bitcoin mining?"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&title=What is bitcoin mining?"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&title=What is bitcoin mining?"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&title=What is bitcoin mining?"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&name=What is bitcoin mining?&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2018/01/06/what-is-bitcoin-mining/&t=What is bitcoin mining?"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2012-2023
+    ycshao
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-zvpzlfc5vv';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

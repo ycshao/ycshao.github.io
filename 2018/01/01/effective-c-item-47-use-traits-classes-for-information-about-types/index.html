@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="If you want to write a function advance to do iterator arithmetic, how do you implement it? 12template&lt;typename IterT, typename DistT&gt;void advance(IterT&amp; iter, DistT d); If you have no idea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ item 47: Use Traits Classes For Information About Types">
+<meta property="og:url" content="http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/index.html">
+<meta property="og:site_name" content="NEAO">
+<meta property="og:description" content="If you want to write a function advance to do iterator arithmetic, how do you implement it? 12template&lt;typename IterT, typename DistT&gt;void advance(IterT&amp; iter, DistT d); If you have no idea">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-01-02T02:49:07.000Z">
+<meta property="article:modified_time" content="2018-01-02T02:49:07.000Z">
+<meta property="article:author" content="ycshao">
+<meta property="article:tag" content="Effective C++">
+<meta property="article:tag" content="template">
+<meta property="article:tag" content="traits">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/android-chrome-144x144.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Effective C++ item 47: Use Traits Classes For Information About Types</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S642FEGDZ1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S642FEGDZ1');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="NEAO" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2018/01/02/effective-c-item-48-be-aware-of-template-metaprogramming/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&text=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&title=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&is_video=false&description=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 47: Use Traits Classes For Information About Types&body=Check out this article: http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&title=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&title=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&title=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&title=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&name=Effective C++ item 47: Use Traits Classes For Information About Types&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&t=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Effective C++ item 47: Use Traits Classes For Information About Types
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ycshao</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-01-02T02:49:07.000Z" class="dt-published" itemprop="datePublished">2018-01-01</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/program-ape/">program-ape</a> › <a class="category-link" href="/categories/program-ape/Uncategorized/">Uncategorized</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Effective-C/" rel="tag">Effective C++</a>, <a class="p-category" href="/tags/template/" rel="tag">template</a>, <a class="p-category" href="/tags/traits/" rel="tag">traits</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>If you want to write a function <code>advance</code> to do iterator arithmetic, how do you implement it?</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">advance</span><span class="params">(IterT&amp; iter, DistT d)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>If you have no idea what this is about, let’s first review STL iterator categories. There are five categories of iterators, corresponding to the operations they support.</p>
+<ul>
+<li>Input iterators can move only forward, can move only one step at a time, can only read what they point to, and can read what they’re pointing to only once. They’re modeled on the read pointer into an input file; the C++ library’s <code>istream_iterators</code> are representative of this category.</li>
+<li>Output iterators are analogous, but for output: they move only forward, move only one step at a time, can only write what they point to, and can write it only once. They’re modeled on the write pointer into an output file; <code>ostream_iterators</code> epitomize this category.</li>
+<li>Forward iterators can do everything input and output iterators can do, plus they can read or write what they point to more than once. This makes them viable for multi-pass algorithms. The STL offers no singly linked list, but some libraries offer one (usually called slist), and iterators into such containers are forward iterators. Iterators into TR1’s hashed containers (see Item 54) may also be in the forward category.</li>
+<li>Bidirectional iterators add to forward iterators the ability to move backward as well as forward. Iterators for the STL’s list are in this category, as are iterators for <code>set</code>, <code>multiset</code>, <code>map</code>, and <code>multimap</code>.</li>
+<li>Random access iterators add to bidirectional iterators the ability to perform “iterator arithmetic,” i.e., to jump forward or backward an arbitrary distance in constant time. Such arithmetic is analogous to pointer arithmetic, which is not surprising, because random access iterators are modeled on built-in pointers, and built-in pointers can act as random access iterators. Iterators for <code>vector</code>, <code>deque</code>, and <code>string</code> are random access iterators.</li>
+</ul>
+<p>With these information, we can write some psudo code about the implementation</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">advance</span><span class="params">(IterT&amp; iter, DistT d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (iter is a random access iterator) &#123;</span><br><span class="line">        iter += d;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &gt;= <span class="number">0</span>) &#123; <span class="keyword">while</span> (d--) ++iter; &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123; <span class="keyword">while</span> (d++) --iter; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In order to get the type information about iterator, we need help from traits: they allow you to get information about a type during compilation. Traits aren’t a keyword or a predefined construct in C++; they’re a technique and a convention followed by C++ programmers.</p>
+<p>The way traits works is by adding <code>typedef</code>s to user-defined classes to identify type information. Let’s first define tags to identify different type of iterators.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">input_iterator_tag</span> &#123;&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">output_iterator_tag</span> &#123;&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">forward_iterator_tag</span>: <span class="keyword">public</span> input_iterator_tag &#123;&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">bidirectional_iterator_tag</span>: <span class="keyword">public</span> forward_iterator_tag &#123;&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">random_access_iterator_tag</span>: <span class="keyword">public</span> bidirectional_iterator_tag &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>And then add these tags as <code>typedef</code> to classes</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">deque</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">iterator</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">typedef</span> random_access_iterator_tag iterator_category;</span><br><span class="line">        ...</span><br><span class="line">    &#125;:</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">list</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">iterator</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">typedef</span> bidirectional_iterator_tag iterator_category;</span><br><span class="line">        ...</span><br><span class="line">    &#125;:</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>Now you can define a traits class as following</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">iterator_traits</span> &#123;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="keyword">typename</span> IterT::iterator_category iterator_category;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>By convention, traits are always implemented as structs, and such struct is called traits classes.</p>
+<p>Above code is good for user-defined types, but it won’t work for pointers which falls under random access iterator category. To solve this problem, we define a specialized template implementation for pointers.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">iterator_traits</span>&lt;IterT*&gt;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">typedef</span> random_access_iterator_tag iterator_category;</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>So far, we have implemented the <code>iterator_traits</code> class so that <code>iterator_traits&lt;IterT&gt;::iterator_categor</code> can tell you what’s the type of iterator at compile time. It’s a common practice to create bunch of worker functions to handle different cases depend on type information, and let a master function call these worker functions. So our implementation of <code>advance</code> will look like this:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">advance</span><span class="params">(IterT&amp; iter, DistT d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">doAdvance</span>(iter, d,</span><br><span class="line">              <span class="keyword">typename</span> iterator_traits&lt;IterT&gt;::iterator_category;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span><br><span class="line"><span class="type">void</span> <span class="built_in">doAdvance</span>(IterT&amp; iter, DistT d,</span><br><span class="line">               random_access_iterator_tag)</span><br><span class="line">&#123;</span><br><span class="line">    iter += d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span><br><span class="line"><span class="type">void</span> <span class="built_in">doAdvance</span>(IterT&amp; iter, DistT d,</span><br><span class="line">               bidirectional_iterator_tag)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (d &gt;= <span class="number">0</span>) &#123; <span class="keyword">while</span> (d--) ++iter; &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="keyword">while</span> (d++) --iter;         &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span><br><span class="line"><span class="type">void</span> <span class="built_in">doAdvance</span>(IterT&amp; iter, DistT d,</span><br><span class="line">               input_iterator_tag)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (d &lt; <span class="number">0</span> ) &#123;</span><br><span class="line">        <span class="keyword">throw</span> std::<span class="built_in">out_of_range</span>(<span class="string">&quot;Negative distance&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (d--) ++iter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Putting everything together and use <code>std</code> namespace for all interator types, we get following</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">doAdvance</span><span class="params">(IterT&amp; iter, DistT d,</span></span></span><br><span class="line"><span class="params"><span class="function">               std::random_access_iterator_tag)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;random_access_iterator_tag\n&quot;</span>;</span><br><span class="line">    iter += d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">doAdvance</span><span class="params">(IterT&amp; iter, DistT d,</span></span></span><br><span class="line"><span class="params"><span class="function">               std::bidirectional_iterator_tag)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;bidirectional_iterator_tag\n&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (d &gt;= <span class="number">0</span>) &#123; <span class="keyword">while</span> (d--) ++iter; &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="keyword">while</span> (d++) --iter; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">doAdvance</span><span class="params">(IterT&amp; iter, DistT d,</span></span></span><br><span class="line"><span class="params"><span class="function">               std::input_iterator_tag)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;input_iterator_tag\n&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (d &lt; <span class="number">0</span> ) &#123;</span><br><span class="line">        <span class="keyword">throw</span> std::<span class="built_in">out_of_range</span>(<span class="string">&quot;Negative distance&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (d--) ++iter;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">doAdvance</span><span class="params">(IterT&amp; iter, DistT d,</span></span></span><br><span class="line"><span class="params"><span class="function">               std::output_iterator_tag)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;output_iterator_tag\n&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (d &lt; <span class="number">0</span> ) &#123;</span><br><span class="line">        <span class="keyword">throw</span> std::<span class="built_in">out_of_range</span>(<span class="string">&quot;Negative distance&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (d--) ++iter;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">doAdvance</span><span class="params">(IterT&amp; iter, DistT d,</span></span></span><br><span class="line"><span class="params"><span class="function">               std::forward_iterator_tag)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;forward_iterator_tag\n&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (d &lt; <span class="number">0</span> ) &#123;</span><br><span class="line">        <span class="keyword">throw</span> std::<span class="built_in">out_of_range</span>(<span class="string">&quot;Negative distance&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (d--) ++iter;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT, <span class="keyword">typename</span> DistT&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">advance</span><span class="params">(IterT&amp; iter, DistT d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;---advance---\n&quot;</span>;</span><br><span class="line">    <span class="built_in">doAdvance</span>(iter, d,</span><br><span class="line">              <span class="keyword">typename</span> std::iterator_traits&lt;IterT&gt;::<span class="built_in">iterator_category</span>());</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt; intVector;</span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt;::const_iterator itVector = intVector.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="built_in">advance</span>(itVector, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span>* intPtr = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="built_in">advance</span>(intPtr, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::list&lt;<span class="type">int</span>&gt; intList;</span><br><span class="line">    std::list&lt;<span class="type">int</span>&gt;::const_iterator itList = intList.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="built_in">advance</span>(itList, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::unordered_set&lt;<span class="type">int</span>&gt; intSet;</span><br><span class="line">    std::unordered_set&lt;<span class="type">int</span>&gt;::const_iterator itSet = intSet.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="built_in">advance</span>(itSet, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function">std::ostream_iterator&lt;<span class="type">int</span>&gt; <span class="title">otIS</span><span class="params">(std::cout, <span class="string">&quot; &quot;</span>)</span></span>;</span><br><span class="line">    <span class="built_in">advance</span>(otIS, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::istream_iterator&lt;<span class="type">int</span>&gt; itIS;</span><br><span class="line">    <span class="built_in">advance</span>(itIS, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* output</span></span><br><span class="line"><span class="comment">---advance---</span></span><br><span class="line"><span class="comment">random_access_iterator_tag</span></span><br><span class="line"><span class="comment">---advance---</span></span><br><span class="line"><span class="comment">random_access_iterator_tag</span></span><br><span class="line"><span class="comment">---advance---</span></span><br><span class="line"><span class="comment">bidirectional_iterator_tag</span></span><br><span class="line"><span class="comment">---advance---</span></span><br><span class="line"><span class="comment">forward_iterator_tag</span></span><br><span class="line"><span class="comment">---advance---</span></span><br><span class="line"><span class="comment">output_iterator_tag</span></span><br><span class="line"><span class="comment">---advance---</span></span><br><span class="line"><span class="comment">input_iterator_tag</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>Reference:<br><a target="_blank" rel="noopener" href="http://aristeia.com/books.html">“Effective C++” Third Edition by Scott Meyers.</a></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&text=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&title=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&is_video=false&description=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 47: Use Traits Classes For Information About Types&body=Check out this article: http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&title=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&title=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&title=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&title=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&name=Effective C++ item 47: Use Traits Classes For Information About Types&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/&t=Effective C++ item 47: Use Traits Classes For Information About Types"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2012-2023
+    ycshao
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-zvpzlfc5vv';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

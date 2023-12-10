@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Market ordersBuy or sell a stock immediately at the best available current price. Limit ordersBuy or sell a stock at a specified or better price, which means a buy limit order will be executed at or">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Different types of order.">
+<meta property="og:url" content="http://blog.ycshao.com/2012/11/29/different-types-of-order/index.html">
+<meta property="og:site_name" content="NEAO">
+<meta property="og:description" content="Market ordersBuy or sell a stock immediately at the best available current price. Limit ordersBuy or sell a stock at a specified or better price, which means a buy limit order will be executed at or">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-11-29T05:37:04.000Z">
+<meta property="article:modified_time" content="2012-11-29T05:37:04.000Z">
+<meta property="article:author" content="ycshao">
+<meta property="article:tag" content="stock">
+<meta property="article:tag" content="all-or-none order">
+<meta property="article:tag" content="day order">
+<meta property="article:tag" content="fill-or-kill order">
+<meta property="article:tag" content="good-till-cancelled order">
+<meta property="article:tag" content="IBM">
+<meta property="article:tag" content="limit order">
+<meta property="article:tag" content="market order">
+<meta property="article:tag" content="stop order">
+<meta property="article:tag" content="stop-limit order">
+<meta property="article:tag" content="trailing stop order">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/android-chrome-144x144.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Different types of order.</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S642FEGDZ1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S642FEGDZ1');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="NEAO" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2012/11/29/classification-of-financial-market-participants/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2012/11/28/differences-between-primary-market-and-secondary-market/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/11/29/different-types-of-order/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&text=Different types of order."><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&title=Different types of order."><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&is_video=false&description=Different types of order."><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Different types of order.&body=Check out this article: http://blog.ycshao.com/2012/11/29/different-types-of-order/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&title=Different types of order."><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&title=Different types of order."><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&title=Different types of order."><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&title=Different types of order."><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&name=Different types of order.&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2012/11/29/different-types-of-order/&t=Different types of order."><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Different types of order.
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ycshao</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2012-11-29T05:37:04.000Z" class="dt-published" itemprop="datePublished">2012-11-29</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/finance/">finance</a> › <a class="category-link" href="/categories/finance/Uncategorized/">Uncategorized</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/IBM/" rel="tag">IBM</a>, <a class="p-category" href="/tags/all-or-none-order/" rel="tag">all-or-none order</a>, <a class="p-category" href="/tags/day-order/" rel="tag">day order</a>, <a class="p-category" href="/tags/fill-or-kill-order/" rel="tag">fill-or-kill order</a>, <a class="p-category" href="/tags/good-till-cancelled-order/" rel="tag">good-till-cancelled order</a>, <a class="p-category" href="/tags/limit-order/" rel="tag">limit order</a>, <a class="p-category" href="/tags/market-order/" rel="tag">market order</a>, <a class="p-category" href="/tags/stock/" rel="tag">stock</a>, <a class="p-category" href="/tags/stop-order/" rel="tag">stop order</a>, <a class="p-category" href="/tags/stop-limit-order/" rel="tag">stop-limit order</a>, <a class="p-category" href="/tags/trailing-stop-order/" rel="tag">trailing stop order</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <ul>
+<li><span style="line-height: 15px;"><span style="color: #00ccff;">Market orders</span><br>Buy or sell a stock immediately at the best available current price.</span></li>
+<li><span style="line-height: 15px;"><span style="color: #00ccff;">Limit orders</span><br>Buy or sell a stock at a specified or better price, which means a buy limit order will be executed at or lower than specified price and a sell limit order will be executed at or higher than specified price.  If these conditions are not satisfied, your order will not be executed.</span></li>
+<li><span style="line-height: 15px;"><span style="color: #00ccff;">Stop orders</span><br>Stop order can also be called stop-loss order. The order becomes market order once it reaches the stop price.<br>A buy stop order may be used to buy back shorted trades. The stop price for buy stop order must be at or above market price (for example, scottrade requires above market price by 0.1). For example, if you short IBM on <span style="color: #ffff00;">$190.00</span>, now market price is <span style="color: #ffff00;">$194.00</span>, you may place a buy stop order at <span style="color: #ffff00;">$195.00</span>, so once the market price reaches <span style="color: #ffff00;">$195.00</span>, your order will become market order and be executed.<br>A sell stop order may be used to sell longed trades. The stop price for sell stop order must be at or below market price (for example, scottrade requires above market price by 0.1). For example, if you long IBM on <span style="color: #ffff00;">$190.00</span> now market price is <span style="color: #ffff00;">$185.00</span>, you may place a sell stop order at <span style="color: #ffff00;">$184.00</span>, so once the market price reaches <span style="color: #ffff00;">$184.00</span>, your order will become market order and be executed.<br>If the stop price is never reached, your order will not be executed. </span></li>
+<li><span style="line-height: 15px;"><span style="color: #00ccff;">Stop-limit orders</span><br>Buy or sell at a specified price or better after a specified stop price has been reached. The difference from stop order is that stop-limit order will become a limit order after stop price is reached instead of becoming a market order. It is useful if the stock price moves very fast. For example, market price of IBM is <span style="color: #ffff00;">$195.00</span>. You have been placed a sell stop order with stop price at <span style="color: #ffff00;">$194.00</span> and a sell stop-limit order with stop price at <span style="color: #ffff00;">$194.00</span> and limit price at <span style="color: #ffff00;">$193.99</span>. If the market price of IBM at 10:00 am drops from <span style="color: #ffff00;">$195.00</span> to <span style="color: #ffff00;">$194.00</span>. Both sell stop order and sell stop-limit order are triggered. Imaging next second 10:01 am, the market price of IBM becomes <span style="color: #ffff00;">$193.00</span>. Now the sell stop order will be executed at <span style="color: #ffff00;">$193.00</span> but the sell stop-limit order will not be executed because <span style="color: #ffff00;">$193.00</span> is below your limit price <span style="color: #ffff00;">$193.99</span>. If the market price of IBM bounced back to <span style="color: #ffff00;">$194.00</span> later, then your sell stop-limit order will be executed at <span style="color: #ffff00;">$193.99</span> which is your limit price.</span></li>
+<li><span style="line-height: 15px;"><span style="color: #00ccff;">Trailing stop orders</span><br>Trailing stop orders are derived from stop orders except you specify a trailing amount(percentage or points($)) instead of stop price, which can be used to specify a limit on the maximum possible loss, without setting a limit on the maximum possible gain. The stop price is determined by </span>subtracting(sell) or addin<span style="line-height: 15px;">g(buy) trailing amount based on market price. Stop price will only be adjusted if the gap between stop price and market price is larger than trailing amount.<br>For example, market price of IBM is <span style="color: #ffff00;">$200.00</span> and you place a sell trailing stop order at <span style="color: #ffff00;">10%</span> or <span style="color: #ffff00;">$10</span>, then your stop price will be <span style="color: #ffff00;">$180.00</span> or <span style="color: #ffff00;">$190.00</span>. If the market price raise to <span style="color: #ffff00;">$210.00</span>, your stop price will be adjusted to <span style="color: #ffff00;">$189.00</span> or <span style="color: #ffff00;">$210.00</span>. If the market price falls, the stop price won’t be adjusted.<br>Let’s see another example with buy trailing stop order. Still assuming market price of IBM is <span style="color: #ffff00;">$200.00</span> and you place a buy trailing stop order at <span style="color: #ffff00;">10%</span> or <span style="color: #ffff00;">$10</span>, then your stop price will be <span style="color: #ffff00;">$220.00</span> or <span style="color: #ffff00;">$210.00</span>. If the market price falls to <span style="color: #ffff00;">$190.00</span>, your stop price will be adjusted to <span style="color: #ffff00;">$209.00</span> or <span style="color: #ffff00;">$200.00</span>. If the market price raises, the stop price won’t be adjusted.</span></li>
+<li><span style="line-height: 15px;"><span style="color: #00ccff;">Day orders</span><br>Terminates automatically at the end of the trading day if it has not been filled by that time.</span></li>
+<li><span style="line-height: 15px;"><span style="color: #00ccff;">Good-till-cancelled orders</span><br>Buy or sell at a limit price remains in force until it is either executed by broker or cancelled by investor.</span></li>
+<li><span style="line-height: 15px;"><span style="color: #00ccff;">Fill-or-kill orders</span><br>The order be cancelled automatically if it is not executed immediately.</span></li>
+<li><span style="color: #00ccff;">All-or-none orders</span><br>Fill the entire amount of order or none of it at all. For example, you place a all-or-none order to buy 1 million shares of IBM. Your order will be executed only if there is 1 million shares for selling.</li>
+</ul>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2012/11/29/different-types-of-order/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&text=Different types of order."><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&title=Different types of order."><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&is_video=false&description=Different types of order."><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Different types of order.&body=Check out this article: http://blog.ycshao.com/2012/11/29/different-types-of-order/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&title=Different types of order."><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&title=Different types of order."><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&title=Different types of order."><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&title=Different types of order."><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2012/11/29/different-types-of-order/&name=Different types of order.&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2012/11/29/different-types-of-order/&t=Different types of order."><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2012-2023
+    ycshao
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-zvpzlfc5vv';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="As explained in item24, we use non-member function to support implicit type conversion for all arguments. So that following code will compile. 12345678910111213141516171819202122232425262728293031clas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired">
+<meta property="og:url" content="http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/index.html">
+<meta property="og:site_name" content="NEAO">
+<meta property="og:description" content="As explained in item24, we use non-member function to support implicit type conversion for all arguments. So that following code will compile. 12345678910111213141516171819202122232425262728293031clas">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-12-28T02:44:56.000Z">
+<meta property="article:modified_time" content="2017-12-28T02:44:56.000Z">
+<meta property="article:author" content="ycshao">
+<meta property="article:tag" content="Effective C++">
+<meta property="article:tag" content="template">
+<meta property="article:tag" content="member function">
+<meta property="article:tag" content="type conversion">
+<meta property="article:tag" content="non-member function">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/android-chrome-144x144.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S642FEGDZ1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S642FEGDZ1');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="NEAO" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2018/01/01/effective-c-item-47-use-traits-classes-for-information-about-types/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2017/12/26/effective-c-item-45-use-member-function-templates-to-accept-all-compatible-types/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&text=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&title=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&is_video=false&description=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired&body=Check out this article: http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&title=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&title=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&title=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&title=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&name=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&t=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ycshao</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-12-28T02:44:56.000Z" class="dt-published" itemprop="datePublished">2017-12-27</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/program-ape/">program-ape</a> › <a class="category-link" href="/categories/program-ape/Uncategorized/">Uncategorized</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Effective-C/" rel="tag">Effective C++</a>, <a class="p-category" href="/tags/member-function/" rel="tag">member function</a>, <a class="p-category" href="/tags/non-member-function/" rel="tag">non-member function</a>, <a class="p-category" href="/tags/template/" rel="tag">template</a>, <a class="p-category" href="/tags/type-conversion/" rel="tag">type conversion</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>As explained in item24, we use non-member function to support implicit type conversion for all arguments. So that following code will compile.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Rational</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Rational</span>(<span class="type">int</span> numerator = <span class="number">0</span>,</span><br><span class="line">             <span class="type">int</span> denominator = <span class="number">1</span>)</span><br><span class="line">    : <span class="built_in">m_numerator</span>(numerator)</span><br><span class="line">    , <span class="built_in">m_denominator</span>(denominator)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numerator</span><span class="params">()</span> <span class="type">const</span></span>&#123;<span class="keyword">return</span> m_numerator;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">denominator</span><span class="params">()</span> <span class="type">const</span></span>&#123;<span class="keyword">return</span> m_denominator;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> m_numerator;</span><br><span class="line">    <span class="type">int</span> m_denominator;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> Rational <span class="keyword">operator</span>*(<span class="type">const</span> Rational &amp;lhs, <span class="type">const</span> Rational &amp;rhs) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Rational</span>(lhs.<span class="built_in">numerator</span>() * rhs.<span class="built_in">numerator</span>(),</span><br><span class="line">                    lhs.<span class="built_in">denominator</span>() * rhs.<span class="built_in">denominator</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Rational <span class="title">oneHalf</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line">    <span class="function">Rational <span class="title">oneEighth</span><span class="params">(<span class="number">1</span>, <span class="number">8</span>)</span></span>;</span><br><span class="line">    Rational result = oneHalf * oneEighth;</span><br><span class="line">    result = result * oneEighth;</span><br><span class="line"></span><br><span class="line">    result = oneHalf * <span class="number">2</span>;</span><br><span class="line">    result = <span class="number">2</span> * oneHalf;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>How about do this in template?</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RationalTP</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">RationalTP</span>(<span class="type">const</span> T&amp; numerator = <span class="number">0</span>,</span><br><span class="line">               <span class="type">const</span> T&amp; denominator = <span class="number">1</span>)</span><br><span class="line">            : <span class="built_in">m_numerator</span>(numerator)</span><br><span class="line">            , <span class="built_in">m_denominator</span>(denominator)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">const</span> T <span class="title">numerator</span><span class="params">()</span> <span class="type">const</span></span>&#123;<span class="keyword">return</span> m_numerator;&#125;</span><br><span class="line">    <span class="function"><span class="type">const</span> T <span class="title">denominator</span><span class="params">()</span> <span class="type">const</span></span>&#123;<span class="keyword">return</span> m_denominator;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">friend</span> <span class="type">const</span> RationalTP <span class="keyword">operator</span>*(<span class="type">const</span> RationalTP &amp;lhs, <span class="type">const</span> RationalTP &amp;rhs) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">RationalTP</span>(lhs.<span class="built_in">numerator</span>() * rhs.<span class="built_in">numerator</span>(), lhs.<span class="built_in">denominator</span>() * rhs.<span class="built_in">denominator</span>());</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T m_numerator;</span><br><span class="line">    T m_denominator;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="type">const</span> RationalTP&lt;T&gt; <span class="keyword">operator</span>*(<span class="type">const</span> RationalTP&lt;T&gt; &amp;lhs, <span class="type">const</span> RationalTP&lt;T&gt; &amp;rhs) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">RationalTP</span>&lt;T&gt;(lhs.<span class="built_in">numerator</span>() * rhs.<span class="built_in">numerator</span>(),</span><br><span class="line">                    lhs.<span class="built_in">denominator</span>() * rhs.<span class="built_in">denominator</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">RationalTP&lt;<span class="type">int</span>&gt; <span class="title">oneHalfTP</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line">    <span class="function">RationalTP&lt;<span class="type">int</span>&gt; <span class="title">oneEighthTP</span><span class="params">(<span class="number">1</span>, <span class="number">8</span>)</span></span>;</span><br><span class="line">    RationalTP&lt;<span class="type">int</span>&gt; resultTP = oneHalfTP * oneEighthTP;</span><br><span class="line">    resultTP = resultTP * oneEighthTP;</span><br><span class="line"></span><br><span class="line">    resultTP = oneHalfTP * <span class="number">2</span>;</span><br><span class="line">    resultTP = <span class="number">2</span> * oneHalfTP;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You will realize that <code>resultTP = oneHalfTP * 2</code> and <code>resultTP = 2 * oneHalfTP</code> lines won’t comiple. This is because implicit type conversion functions are never considered during template argument deduction. Such conversions are used during function calls, yes, but before you can call a function, you have to know which functions exist. In order to know that, you have to deduce parameter types for the relevant function templates (so that you can instantiate the appropriate functions). But implicit type conversion via constructor calls is not considered during template argument deduction. Item 24 involves no templates, so template argument deduction is not an issue. Now that we’re in the template part of C++, it’s the primary issue.</p>
+<p>The way to solve the problem is to make it clear to compiler which version of function template should be instantiated when we construct the template object.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RationalTP</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">RationalTP</span>(<span class="type">const</span> T&amp; numerator = <span class="number">0</span>,</span><br><span class="line">               <span class="type">const</span> T&amp; denominator = <span class="number">1</span>)</span><br><span class="line">            : <span class="built_in">m_numerator</span>(numerator)</span><br><span class="line">            , <span class="built_in">m_denominator</span>(denominator)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">const</span> T <span class="title">numerator</span><span class="params">()</span> <span class="type">const</span></span>&#123;<span class="keyword">return</span> m_numerator;&#125;</span><br><span class="line">    <span class="function"><span class="type">const</span> T <span class="title">denominator</span><span class="params">()</span> <span class="type">const</span></span>&#123;<span class="keyword">return</span> m_denominator;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">friend</span> <span class="type">const</span> RationalTP <span class="keyword">operator</span>*(<span class="type">const</span> RationalTP &amp;lhs, <span class="type">const</span> RationalTP &amp;rhs) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">RationalTP</span>(lhs.<span class="built_in">numerator</span>() * rhs.<span class="built_in">numerator</span>(), lhs.<span class="built_in">denominator</span>() * rhs.<span class="built_in">denominator</span>());</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T m_numerator;</span><br><span class="line">    T m_denominator;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Now our mixed-mode calls to <code>operator*</code> will compile, because when the object <code>oneHalfTP</code> is declared to be of type <code>RationalTP&lt;int&gt;</code>, the class <code>RationalTP&lt;int&gt;</code> is instantiated, and as part of that process, the friend function <code>operator*</code> that takes <code>RationalTP&lt;int&gt;</code> parameters is automatically declared. As a declared function (not a function template), compilers can use implicit conversion functions (such as <code>RationalTP</code>‘s non-explicit constructor) when calling it, and that’s how they make the mixed-mode call succeed.</p>
+<p>I also want to point out one syntax tip in above example. Inside a class template, the name of the class can be used as shorthand for the class and its parameters, so inside <code>RationalTP&lt;T&gt;</code>, we can just write <code>RationalTP</code> instead of <code>RationalTP&lt;T&gt;</code>.</p>
+<p>An interesting observation about this technique is that the use of friendship has nothing to do with a need to access non-public parts of the class. In order to make type conversions possible on all arguments, we need a non-member function (Item 24 still applies); and in order to have the proper function automatically instantiated, we need to declare the function inside the class. The only way to declare a non-member function inside a class is to make it a friend.</p>
+<p>Reference:<br><a target="_blank" rel="noopener" href="http://aristeia.com/books.html">“Effective C++” Third Edition by Scott Meyers.</a></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&text=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&title=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&is_video=false&description=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired&body=Check out this article: http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&title=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&title=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&title=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&title=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&name=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2017/12/27/effective-c-item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired/&t=Effective C++ item 46: Define Non-member Functions Inside Templates When Type Conversions Are Desired"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2012-2023
+    ycshao
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-zvpzlfc5vv';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>

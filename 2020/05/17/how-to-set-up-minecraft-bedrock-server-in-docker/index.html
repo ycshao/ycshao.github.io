@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="The minecraft bedrock server is still in the alpha stage, but that won’t stop me using it to serve my game with friends and family. The only problem is I have a mac. Naturally docker comes to the resc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Setup Minecraft Bedrock Server in Docker">
+<meta property="og:url" content="http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/index.html">
+<meta property="og:site_name" content="NEAO">
+<meta property="og:description" content="The minecraft bedrock server is still in the alpha stage, but that won’t stop me using it to serve my game with friends and family. The only problem is I have a mac. Naturally docker comes to the resc">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/thumbnail.png">
+<meta property="article:published_time" content="2020-05-17T19:50:10.000Z">
+<meta property="article:modified_time" content="2020-05-17T19:50:10.000Z">
+<meta property="article:author" content="ycshao">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="minecraft">
+<meta property="article:tag" content="bedrock">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/thumbnail.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/android-chrome-144x144.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>How to Setup Minecraft Bedrock Server in Docker</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S642FEGDZ1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S642FEGDZ1');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="NEAO" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2020/08/30/event-loop-and-concurrency/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2020/05/16/how-to-inspect-docker-volume-data-on-macos/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&text=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&title=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&is_video=false&description=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=How to Setup Minecraft Bedrock Server in Docker&body=Check out this article: http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&title=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&title=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&title=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&title=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&name=How to Setup Minecraft Bedrock Server in Docker&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&t=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        How to Setup Minecraft Bedrock Server in Docker
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ycshao</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-17T19:50:10.000Z" class="dt-published" itemprop="datePublished">2020-05-17</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/program-ape/">program-ape</a> › <a class="category-link" href="/categories/program-ape/Uncategorized/">Uncategorized</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/bedrock/" rel="tag">bedrock</a>, <a class="p-category" href="/tags/docker/" rel="tag">docker</a>, <a class="p-category" href="/tags/minecraft/" rel="tag">minecraft</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>The minecraft bedrock server is still in the alpha stage, but that won’t stop me using it to serve my game with friends and family. The only problem is I have a mac. Naturally <code>docker</code> comes to the rescue. The <code>Linux</code> version of the bedrock server is tested on <code>Ubuntu 18.04</code>. Since <code>20.04</code> just came out, why not give it a try? Let’s create a <code>Dockerfile</code> first.</p>
+<figure class="highlight bash"><figcaption><span>Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:20.04</span><br><span class="line"></span><br><span class="line">RUN apt-get update &amp;&amp; \</span><br><span class="line">    apt-get install -y \</span><br><span class="line">    unzip \</span><br><span class="line">    curl \</span><br><span class="line">    vim \</span><br><span class="line">    &amp;&amp; apt-get clean</span><br><span class="line"></span><br><span class="line">EXPOSE 19132/udp</span><br><span class="line"></span><br><span class="line">WORKDIR /minecraft-server-data</span><br><span class="line"></span><br><span class="line">ADD https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.60.5.zip /minecraft-server-data</span><br><span class="line"></span><br><span class="line">RUN unzip bedrock-server-1.14.60.5.zip &amp;&amp; \</span><br><span class="line">    <span class="built_in">rm</span> bedrock-server-1.14.60.5.zip &amp;&amp; \</span><br><span class="line">    <span class="built_in">chmod</span> +x bedrock_server</span><br><span class="line"></span><br><span class="line">CMD LD_LIBRARY_PATH=. ./bedrock_server</span><br><span class="line"></span><br><span class="line">VOLUME [<span class="string">&quot;/minecraft-server-data&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>And then build the image and start a container</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$docker</span> build --tag bedrock-1.14 .</span><br><span class="line"><span class="variable">$docker</span> volume create bedrock-server-1.14-data</span><br><span class="line"><span class="variable">$docker</span> run -d -it -p 0.0.0.0:19132:19132/udp --mount <span class="built_in">source</span>=bedrock-server-1.14-data,target=/minecraft-server-data bedrock-1.14</span><br></pre></td></tr></table></figure>
+
+<p>Notice that when running the container, I have to specify IP to be <code>0.0.0.0</code> to listen to all IP addresses for this game to show up in the LAN game. You don’t have to specify that if you just want to connect to a customized server over WAN(For WAN to work, you need to configure your router to forward port 19132 UDP). After the game starts, you can attach to the container to run commands as usual.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$docker</span> ps</span><br><span class="line">CONTAINER ID        IMAGE          COMMAND                  CREATED             STATUS              PORTS                      NAMES</span><br><span class="line">00ac4398cde3        bedrock-1.14   <span class="string">&quot;/bin/sh -c &#x27;LD_LIBR…&quot;</span>   3 minutes ago       Up 3 minutes        0.0.0.0:19132-&gt;19132/udp   confident_neumann</span><br><span class="line"><span class="variable">$docker</span> attach 00ac4398cde3</span><br><span class="line">NO LOG FILE! - setting up server logging...</span><br><span class="line">[2020-05-17 21:37:01 INFO] Starting Server</span><br><span class="line">[2020-05-17 21:37:01 INFO] Version 1.14.60.5</span><br><span class="line">[2020-05-17 21:37:01 INFO] Session ID b29e23c6-1a4a-49f0-9310-6344115ef2d4</span><br><span class="line">[2020-05-17 21:37:01 INFO] Level Name: Bedrock level</span><br><span class="line">[2020-05-17 21:37:01 INFO] Game mode: 0 Survival</span><br><span class="line">[2020-05-17 21:37:01 INFO] Difficulty: 2 NORMAL</span><br><span class="line">[2020-05-17 21:37:01 INFO] opening worlds/Bedrock level/db</span><br><span class="line">[2020-05-17 21:37:04 INFO] IPv4 supported, port: 19132</span><br><span class="line">[2020-05-17 21:37:04 INFO] IPv6 not supported</span><br><span class="line">[2020-05-17 21:37:04 INFO] IPv4 supported, port: 39921</span><br><span class="line">[2020-05-17 21:37:04 INFO] IPv6 not supported</span><br><span class="line">[2020-05-17 21:37:05 INFO] Server started.</span><br><span class="line">list</span><br><span class="line">There are 0/10 players online:</span><br></pre></td></tr></table></figure>
+<p>To exit the container without killing it, you should not type <code>ctrl+c</code> because it will stop the container. You should type <code>ctrl+p</code> and then <code>ctrl+q</code> to detach from the container. You can customize the detach key by specifying <code>--detach-keys</code> like <code>docker attach --detach-keys &quot;ctrl-a,ctrl-a&quot; 00ac4398cde3</code>, and then you can use your customized detach key in the container.</p>
+<p>If you want to directly use the image mentioned above, I have uploaded it to the docker hub. You just need to run following commands</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$docker</span> volume create bedrock-server-1.14-data</span><br><span class="line"><span class="variable">$docker</span> run -d -it -p 0.0.0.0:19132:19132/udp --mount <span class="built_in">source</span>=bedrock-server-1.14-data,target=/minecraft-server-data ycshao/bedrock-1.14</span><br></pre></td></tr></table></figure>
+
+<p>Cheers and happy minecraft!<br><img src="/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/minecraft-screenshot.jpeg"></p>
+<p>Reference:<br><a target="_blank" rel="noopener" href="https://www.minecraft.net/en-us/download/server/bedrock/">Official Site</a></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li>
+        
+          <li><a href="/categories/program-ape">Program Ape / 程序员</a></li>
+        
+          <li><a href="/categories/finance">Finance / $$$$$</a></li>
+        
+          <li><a href="/categories/image-processing">Image Processing / 图像处理</a></li>
+        
+          <li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&text=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&title=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&is_video=false&description=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=How to Setup Minecraft Bedrock Server in Docker&body=Check out this article: http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&title=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&title=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&title=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&title=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&name=How to Setup Minecraft Bedrock Server in Docker&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.ycshao.com/2020/05/17/how-to-set-up-minecraft-bedrock-server-in-docker/&t=How to Setup Minecraft Bedrock Server in Docker"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2012-2023
+    ycshao
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/categories/cryptocurrency">Cryptocurrency / 数字货币</a></li><!--
+     --><!--
+       --><li><a href="/categories/program-ape">Program Ape / 程序员</a></li><!--
+     --><!--
+       --><li><a href="/categories/finance">Finance / $$$$$</a></li><!--
+     --><!--
+       --><li><a href="/categories/image-processing">Image Processing / 图像处理</a></li><!--
+     --><!--
+       --><li><a href="/categories/life-tips">Life Tips / 生活贴士</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-zvpzlfc5vv';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>
